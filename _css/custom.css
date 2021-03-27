@@ -126,6 +126,7 @@ pre.code-output {
 
 .sidebar-nav .part {
     font-style: italic;
+    cursor: pointer;
     display: flex;
     align-items: center;
     color: #55b344;

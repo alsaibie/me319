@@ -16,7 +16,7 @@ The course is taught remotely during Spring 2021 through KU MS Teams and course 
 Class Q&A is hosted on Piazza for class members.
 
 # Prerequisites
-The course assumes working knowledge of a programming language (usually MATLAB), and requires students to gain working knowledge in Embedded C/C++ programming, for which a mini-course is provided in conjunction to this course.
+The course assumes working knowledge of a programming language (usually MATLAB), and requires students to gain working knowledge in Embedded C/C++ programming, for which a mini-course is provided in conjunction with this course.
 
 [Embedded C/C++ Mini-Course](https://alsaibie.github.io/embeddedcpp_course)
 
