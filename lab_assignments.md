@@ -5,11 +5,11 @@ The labs and prelabs of the course are posted here.
 
 ## Labs
 
-<!-- TODO: ADD diagram of system response with fancy animation  -->
+| [Lab 2](/labs/lab2/index.html)  ~~~&ensp;&ensp;~~~ | C++ with Arduino
 
 ## Prelabs
 
-| [Prelab 2](../prelabs/prelab2/index.html)  ~~~&ensp;&ensp;~~~ | Getting Familiar with PlatformIO and Arduino
+| [Prelab 2](/prelabs/prelab2/index.html)  ~~~&ensp;&ensp;~~~ | Getting Familiar with PlatformIO and Arduino
  
 \\
 \\
