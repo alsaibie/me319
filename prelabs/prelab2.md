@@ -3,6 +3,9 @@
 
 # Prelab 2 - Getting familiar with PlatformIO and Arduino
 In this prelab, we will go through the steps of creating a new project for the ST Nucleo F401RE board using the Arduino framework. Then we will try a few basic code routines to familiarize ourselves with the Arduino framework. 
+~~~
+<iframe src="https://player.vimeo.com/video/537200707" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+~~~
 
 ## Configure a new PIO Project for STM32 Nucleo
 -	Open the PlatformIO tab, if it is not open, click on the bug symbol and double click on Open under PIO Home
