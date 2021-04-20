@@ -4,8 +4,12 @@
 # Microcontroller Peripherals
 
 ## Lecture Video
+~~~
+<iframe src="https://player.vimeo.com/video/539089494" width="780" height="438" frameborder="0" allowfullscreen></iframe>
+~~~
 
-## Lecture Handout
+### Lecture Handout
+[Handout](/part_i/ME319_-_Mechatronics_-_Part_I_Lecture_4_Microcontroller_Peripherals.pdf)
 
 ### Objectives
 - Give an overview standard microcontroller peripherals
