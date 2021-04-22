@@ -11,6 +11,8 @@
 ### Lecture Handout
 [Handout](/part_i/ME319_-_Mechatronics_-_Part_I_Lecture_4_Microcontroller_Peripherals.pdf)
 
+Next: [Part I L5 - GPIO](../lecture5/)  
+
 ### Objectives
 - Give an overview standard microcontroller peripherals
 - Become familiar with the STM32Nucleo and its peripherals
@@ -163,3 +165,4 @@ Let’s look at the first page of the STM32F401RE microcontroller. STM32F401RE i
 
 [STM32F401xE Datasheet](/assets/reference_docs/REF01_STM32F401RE_DATASHEET.pdf)
 
+Next: [Part I L5 - GPIO](../lecture5/)  

@@ -4,8 +4,13 @@
 # General Purpose Input Output
 
 ## Lecture Video
-
+~~~
+<iframe src="https://player.vimeo.com/video/540099285" width="780" height="438" frameborder="0" allowfullscreen></iframe>
+~~~
 [Lecture Handout](/part_i\/ME319_-_Mechatronics_-_Part_I_Lecture_5_GPIO.pdf)
+
+Next: [Part I L6 - Timers](../lecture6/)  
+
 ## Objectives
 - Review the basic components of the GPIO Peripheral
 - Become familiar with the microcontroller reference manual
@@ -318,3 +323,5 @@ With STM32Nucleo for example, we use:
 - Framework User Manual (e.g. [HAL and LL User Manual](/assets/reference_docs/REF05_Description_of_STM32F4_HAL_and_LL_drivers.pdf))
 - Example Code for framework selected
 - Consult developer community
+
+Next: [Part I L6 - Timers](../lecture6/)  
