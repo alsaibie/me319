@@ -20,6 +20,7 @@ The course assumes working knowledge of a programming language (usually MATLAB),
 
 [Embedded C/C++ Mini-Course](https://alsaibie.github.io/embeddedcpp_course)
 
+
 ## Class Lectures
 Lecture notes and videos (planned) can be found listed on the site navigation bar.
 
@@ -32,6 +33,10 @@ Lecture notes and videos (planned) can be found listed on the site navigation ba
 | [Part IV](part_iv/introduction/index.html) ~~~&ensp;&ensp;&ensp;~~~| The Muscles
 
 | [Part V](part_v/introduction/index.html)  ~~~&ensp;&ensp;&ensp;~~~ | The Body
+
+## Lecture Videos
+
+Lecture videos are posted under each lesson. [Here](/videos), there are provided as a playlist. 
 
 ## References and Resources
 \\
