@@ -28,7 +28,7 @@ The labs and prelabs of the course are posted here.
 
 | [Prelab 3](/prelabs/prelab3/index.html)  ~~~&ensp;&ensp;~~~ | Debugging and Low Level Programming
 
-| Prelab 4  ~~~&ensp;&ensp;~~~ | Timers and Interrupts
+| [Prelab 4](/prelabs/prelab4/index.html)   ~~~&ensp;&ensp;~~~ | Timers and Interrupts
 
 | Prelab 5  ~~~&ensp;&ensp;~~~ | Serial Communication
 

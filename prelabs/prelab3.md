@@ -1,4 +1,4 @@
-@def title = "Prelab 2 - Getting familiar with PlatformIO and Arduino"
+@def title = "Prelab 3 - Getting familiar with PlatformIO and Arduino"
 @def hascode = true
 
 # Prelab 3: Introduction to MCU Debugging and Low-Level Programming
