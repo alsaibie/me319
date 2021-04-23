@@ -1,0 +1,164 @@
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/me319/libs/katex/katex.min.css"> <link rel=stylesheet  href="/me319/libs/highlight/github.min.css"> <link rel=stylesheet  href="/me319/css/franklin.css"> <link rel=stylesheet  href="/me319/css/poole_hyde.css"> <link rel=stylesheet  href="/me319/css/custom.css"> <style> html {font-size: 17px;} .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;} @media (min-width: 940px) { .franklin-content {width: 100%; margin-left: auto; margin-right: auto;} } @media (max-width: 968px) { .franklin-content {padding-left: 6%; padding-right: 6%;} } </style> <link rel=icon  href="/me319/assets/c.svg"> <title>Prelab 4 - Introduction to Timers</title> <div class=sidebar > <div class="container sidebar-sticky"> <div class=sidebar-about > <br> <img src="/me319/assets/KuwaitUniversityLogoTextLight.svg" style="width: 200px; height: auto; display: inline"> <h1 style="font-size:2em; opacity: 0.75;"><a href="/me319/">ME 319</a></h1> <p class=lead >Mechatronics</p> </div> <script> function hidePart(part_div) { var x = document.getElementById(part_div); if (x.style.display === "none") { x.style.display = "block"; } else { x.style.display = "none"; } } </script> <nav class=sidebar-nav > <a class="sidebar-nav-item " href="/me319/">Home</a> <a class="sidebar-nav-item " href="/me319/videos/">Lecture Videos</a> <a class="sidebar-nav-item " href="https://alsaibie.github.io/embeddedcpp_course">Embedded C/C++ Mini-Course</a> <a class="sidebar-nav-item " href="/me319/lab_assignments/">Lab Assignments</a> <br> <small style="text-transform: uppercase; font-size: 0.75em">Class Lectures</small> <div class=part  onclick="hidePart('part1_div')">I The Brain</div> <div id=part1_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_i/lecture0/"><b>L0</b> - <em>Introduction</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture1/"><b>L1</b> - <em>Microcontroller Architecture</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture2/"><b>L2</b> - <em>Digital Arithmetic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture3/"><b>L3</b> - <em>Digital Logic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture4/"><b>L4</b> - <em>Microcontroller Peripherals</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture5/"><b>L5</b> - <em>GPIO</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture6/"><b>L6</b> - <em>Timers</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture7/"><b>L7</b> - <em>Interrupts</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture8/"><b>L8</b> - <em>Communication</em></a> </div> <div class=part  onclick="hidePart('part2_div')">II The Cells</div> <div id=part2_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_ii/lecture1/"><b>L1</b> - <em>Passive Circuits</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture2/"><b>L2</b> - <em>Switching Semiconductors</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture3/"><b>L3</b> - <em>Operational Amplifiers</em></a> </div> <div class=part  onclick="hidePart('part3_div')">III The Senses</div> <div id=part3_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iii/lecture1/"><b>L1</b> - <em>Signal Conditioning and Filtering</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture2/"><b>L2</b> - <em>Sensor Charactersitics</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture3/"><b>L3</b> - <em>Survey of Sensors</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture4/"><b>L4</b> - <em>Motion Sensors</em></a> </div> <div class=part  onclick="hidePart('part4_div')">IV The Muscles</div> <div id=part4_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iv/lecture1/"><b>L1</b> - <em>DC Motors</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture2/"><b>L2</b> - <em>Practical Feedback Control</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture4/"><b>L3</b> - <em>Stepper Motors</em></a> </div> <div class=part  onclick="hidePart('part5_div')">V The Body</div> <div id=part5_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_v/lecture1/"><b>L1</b> - <em>System Integration</em></a> </div> </nav> <p>&copy; Ali AlSaibie, PhD.</p> </div> </div> <div class="content container"> <div class=franklin-content ><h1 id=prelab_4_introduction_to_timers ><a href="#prelab_4_introduction_to_timers" class=header-anchor >Prelab 4: Introduction to Timers</a></h1> <p><strong>Please review Part I Lecture 6 TIM before attempting this prelab.</strong></p> <p>In this prelab, we will become familiar with utilizing the timers on the microcontroller for: </p> <ol> <li><p>Periodic function calls</p> <li><p>Generating a signal and </p> <li><p>Reading a signal frequency.</p> </ol> <p>Create a PlatformIO project for Nucleo STM32F401RE with the Arduino framework. Name it Prelab4, preferably.</p> <p>Remember to add the <code>src_filter</code> instruction in the platform.ini file as shown.</p> <pre><code class="julia hljs">[env:nucleo_f401re]
+platform = ststm32
+board = nucleo_f401re
+framework = arduino
+src_filter = -&lt;main*.cpp&gt; +&lt;mainE1.cpp&gt;</code></pre> <p>We will not be doing most of the low-level configuration of the timers. We will instead, use the stm32duino &#40;Arduino for stm32&#41;, which provides a nice abstraction for setting up the timers.</p> <p>You can find the template code for the prelab here. </p> <h2 id=using_timers_to_generate_a_periodic_function_call ><a href="#using_timers_to_generate_a_periodic_function_call" class=header-anchor >Using timers to generate a periodic function call</a></h2> <p>In Example 1 &#40;<code>mainE1.cpp</code>&#41;, you will find a program for using Timer 1 to control a function call.</p> <code>mainE1.cpp</code> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;HardwareTimer.h&gt;</span> </span>
+<span class=hljs-comment >/*
+ *  Example 1: Use a Timer to call a function (interrupt callback) at a specific
+ *  rate
+ */</span>
+
+<span class=hljs-comment >/* Timer Interrupt Callback Function
+ Automatically Called on TIM OVerflow */</span>
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >Update_IT_callback</span><span class=hljs-params >(HardwareTimer *)</span> </span>{
+    <span class=hljs-comment >/* Toggle LED */</span>
+    <span class=hljs-built_in >digitalWrite</span>(LED_BUILTIN, !<span class=hljs-built_in >digitalRead</span>(LED_BUILTIN));
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-built_in >pinMode</span>(LED_BUILTIN, OUTPUT);
+
+    <span class=hljs-comment >/* We create a new Timer Object Pointer */</span>
+    HardwareTimer *Timer1 = <span class=hljs-keyword >new</span> <span class=hljs-built_in >HardwareTimer</span>(TIM1);
+
+    Timer1-&gt;<span class=hljs-built_in >setOverflow</span>(<span class=hljs-number >2</span>, HERTZ_FORMAT); <span class=hljs-comment >/* 2Hz */</span>
+
+    <span class=hljs-comment >/* We specify the function we want executed when Timer 1 interrupt occurs
+    On other words, what function is called everytime Timer 1 overflows */</span>
+    Timer1-&gt;<span class=hljs-built_in >attachInterrupt</span>(Update_IT_callback);
+
+    Timer1-&gt;<span class=hljs-built_in >resume</span>(); <span class=hljs-comment >/* Start/Resume Timer 1 */</span>
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-comment >/* Nothing to do here. The Timer HARDWARE, will take care of calling
+       the right function periodically */</span>
+}</code></pre> <p>The timer is configured to rollover at a specific rate. This is controlled by both the number of counts &#40;period&#41; and the count rate.</p> <p>Whenever the rollover &#40;overflow&#41; occurs, an interrupt is issued. We tie a function we call a <strong>callback</strong> function to this interrupt, so that whenever this interrupt occurs the function is called automatically.</p> <p>In other words, by controlling the timer period and count rate, we control the frequency at which the callback function is executed.</p> <p>Normally, you would have to setup the timer count rate &#40;prescaler value&#41; and autoload value &#40;overflow, or period&#41; separately. The stm32duino <strong>HardwareTimer</strong> library provides a function call to do both: <code>setOverflow&#40;&#41;</code>, where if you provide the overflow rate in Hertz or milliseconds format, it will set both: the timer period &#40;autoload value&#41; and count rate &#40;prescaler&#41;.</p> <p>The reason it is called a prescaler is that it takes the timer clock frequency, which could be the CPU clock frequency and scales it down by a factor termed <strong>prescaler</strong>.</p> <p>With the function <code>attachInterrupt&#40;callback_function_name&#41;</code>, we pass the callback function. The callback function must be declared such that it takes a pointer of type <strong>HardwareTimer</strong>.</p> <p>The callback function simply toggles the LED. So by controlling the rate at which the callback function is called, we control the LED blinking frequency.</p> <p>Flash example 1 and observe the LED blinking frequency. Try to change the blinking frequency.</p> <h2 id=using_timers_to_generate_a_signal ><a href="#using_timers_to_generate_a_signal" class=header-anchor >Using timers to generate a signal</a></h2> <p>In Example 2 &#40;<code>mainE2.cpp</code>&#41;, we use a timer to generate a square wave signal.</p> <code>mainE2.cpp</code> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;HardwareTimer.h&gt;</span></span>
+<span class=hljs-comment >/*
+ *  Example 2: Use a Timer to generate a PWM Signal
+ *  Ouput the PWM to drive LED
+ *  LED Pin is PA5 - On TIM2 Channel 1
+ */</span>
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-built_in >pinMode</span>(PA5, OUTPUT);
+    <span class=hljs-keyword >uint32_t</span> pwmChannel = TIM_CHANNEL_1 + <span class=hljs-number >1</span> ; <span class=hljs-comment >/* arduino channel idx starts from 1, not 0 */</span>
+    <span class=hljs-comment >/* We create a new Timer Object */</span>
+    HardwareTimer *TimerPWM = <span class=hljs-keyword >new</span> <span class=hljs-built_in >HardwareTimer</span>(TIM2);
+
+    <span class=hljs-comment >/* Configure the timer mode to output compare pwm */</span>
+    TimerPWM-&gt;<span class=hljs-built_in >setMode</span>(pwmChannel, TIMER_OUTPUT_COMPARE_PWM1, PA5);
+    <span class=hljs-comment >/* Set the overflow: the signal frequency/time period */</span>
+    
+    TimerPWM-&gt;<span class=hljs-built_in >setOverflow</span>(<span class=hljs-number >100E3</span>, MICROSEC_FORMAT); <span class=hljs-comment >/* 100E3microsec = 100ms */</span>
+    <span class=hljs-comment >/* Set duty cycle */</span>
+
+    TimerPWM-&gt;<span class=hljs-built_in >setCaptureCompare</span>(pwmChannel, <span class=hljs-number >50</span>,
+                                PERCENT_COMPARE_FORMAT); <span class=hljs-comment >/* 50% Duty Cycle */</span>
+    TimerPWM-&gt;<span class=hljs-built_in >resume</span>(); <span class=hljs-comment >/* Start/Resume Timer 1 */</span>
+    
+    <span class=hljs-comment >/* The Timer HARDWARE will generate the PWM signal to
+     * control the LED. CPU can sleep, no callback function required as well. */</span>
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-comment >/* Nothing to do here.  */</span>
+}</code></pre> <p>The timer overflow rate controls the output signal frequency, while the compare value controls the duty cycle. For a square wave signal, the duty cycle is 50&#37;, so the compare value is always half the autoload value for a square wave signal.</p> <p>In addition to setting up the timer overflow &#40;autoload value&#41;, and since we are controlling an output pin. We need to configure the proper pin as a timer channel pin. <strong>PA5</strong>, which controls the built-in LED, happens to be a pin that can have an alternate function as timer channel pin, specifically <strong>Timer 2 Channel 1.</strong> We can generate a square wave signal to blink the LED using timers.</p> <p>Again, the Arduino framework does most of the work of configuring the pin for us. Once we call setMode&#40;&#41; and give it the channel number, timer mode and pin name it will perform the GPIO AF configuration.</p> <p>Note that the hardware peripheral generates the signal. There is absolutely no CPU overhead consumed in toggling the signal after the peripheral has been configured.</p> <p>Flash Example 2 and observe the LED blinking frequency. Try to change the blinking frequency.</p> <h2 id=using_timers_to_read_a_signal_frequency ><a href="#using_timers_to_read_a_signal_frequency" class=header-anchor >Using timers to read a signal frequency</a></h2> <p>In Example 3 &#40;<code>mainE3.cpp</code>&#41; we combine Examples 1 and 2 and add an input capture routine to measure a square wave signal frequency.</p> <code>mainE3.cpp</code> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;HardwareTimer.h&gt;</span></span>
+<span class=hljs-comment >/*
+ *  Example 3: Use a Timer to measure the the frequency of a square wave signal
+ *  The frequency measurement will be published every 1s
+ *  PWM Signal generated on pin PA0, which should be connected to pin PA3
+ */</span>
+
+<span class=hljs-comment >/* On TIM2 Ch1 - same as LED Pin (LED will be controlled too) */</span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> PWM_Output_Pin PA5</span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> PWM_Input_Pin PA6 <span class=hljs-comment >/* On TIM3 Ch1, Output pin must be on different timer than input pin */</span></span>
+
+<span class=hljs-keyword >volatile</span> <span class=hljs-keyword >uint32_t</span> LastPeriodCapture = <span class=hljs-number >0</span>, CurrentCapture;
+<span class=hljs-keyword >uint32_t</span> input_count_freq = <span class=hljs-number >0</span>;
+<span class=hljs-keyword >volatile</span> <span class=hljs-keyword >float</span> FrequencyMeasured;
+<span class=hljs-keyword >volatile</span> <span class=hljs-keyword >uint32_t</span> rolloverCompareCount = <span class=hljs-number >0</span>;
+HardwareTimer *TimerIC;
+<span class=hljs-keyword >uint32_t</span> pwmInChannel;
+
+<span class=hljs-comment >/* Timer Interrupt Callback Function
+ Automatically Called on Periodic Timer OVerflow */</span>
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >Periodic_IT_callback</span><span class=hljs-params >(HardwareTimer *)</span> </span>{
+    Serial.<span class=hljs-built_in >println</span>((String) <span class=hljs-string >&quot;PWM Measured Frequency = &quot;</span> + FrequencyMeasured +
+                   <span class=hljs-string >&quot;Hz&quot;</span>);
+}
+
+<span class=hljs-comment >/* When a rising edge is detected, this function is called */</span>
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >TIMINPUT_Capture_Rising_IT_callback</span><span class=hljs-params >(HardwareTimer *)</span> </span>{
+    CurrentCapture = TimerIC-&gt;<span class=hljs-built_in >getCaptureCompare</span>(pwmInChannel);
+    <span class=hljs-comment >/* frequency computation */</span>
+    <span class=hljs-keyword >if</span> (CurrentCapture &gt; LastPeriodCapture &amp;&amp; rolloverCompareCount == <span class=hljs-number >0</span>) {
+        <span class=hljs-comment >/* f_signal = f_count / number_of_counts */</span>
+        FrequencyMeasured =
+            (<span class=hljs-keyword >float</span>)input_count_freq / (CurrentCapture - LastPeriodCapture);
+    } <span class=hljs-keyword >else</span> <span class=hljs-keyword >if</span> (rolloverCompareCount &gt; <span class=hljs-number >0</span>) {
+        <span class=hljs-comment >/* There is an overflow, need to offset capture value by 0xFFFF, the
+         * overflow value */</span>
+        FrequencyMeasured =
+            (<span class=hljs-keyword >float</span>)input_count_freq / (<span class=hljs-number >0xFFFF</span> * rolloverCompareCount +
+                                CurrentCapture - LastPeriodCapture);
+    }
+
+    LastPeriodCapture = CurrentCapture;
+    rolloverCompareCount = <span class=hljs-number >0</span>;
+}
+
+<span class=hljs-comment >/* Keep count of # of rollovers to consider in frequency calculation */</span>
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >Rollover_IT_callback</span><span class=hljs-params >(HardwareTimer *)</span> </span>{ rolloverCompareCount++; }
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+    Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >9600</span>);
+
+    <span class=hljs-comment >/* We create 3 timers: General (Periodic), Output Compare (PWM), Input
+     * Capture (Frequency Measure) */</span>
+
+    <span class=hljs-comment >/* Create and Configure Periodic Timer */</span>
+    HardwareTimer *TimerPeriodic = <span class=hljs-keyword >new</span> <span class=hljs-built_in >HardwareTimer</span>(TIM1);
+    TimerPeriodic-&gt;<span class=hljs-built_in >setOverflow</span>(<span class=hljs-number >1</span>, HERTZ_FORMAT); <span class=hljs-comment >/* 1Hz */</span>
+    TimerPeriodic-&gt;<span class=hljs-built_in >attachInterrupt</span>(Periodic_IT_callback);
+    TimerPeriodic-&gt;<span class=hljs-built_in >resume</span>(); <span class=hljs-comment >/* Start Timer */</span>
+
+    <span class=hljs-comment >/*
+     * Create and Configure Output Compare (PWM)
+     * */</span>
+    HardwareTimer *TimerPWM = <span class=hljs-keyword >new</span> <span class=hljs-built_in >HardwareTimer</span>(TIM2);
+    <span class=hljs-keyword >uint32_t</span> pwmOutChannel = TIM_CHANNEL_1 + <span class=hljs-number >1</span>;
+    TimerPWM-&gt;<span class=hljs-built_in >setMode</span>(pwmOutChannel, TIMER_OUTPUT_COMPARE_PWM1, PWM_Output_Pin);
+    TimerPWM-&gt;<span class=hljs-built_in >setOverflow</span>(<span class=hljs-number >1</span>, HERTZ_FORMAT); <span class=hljs-comment >/* Hertz */</span>
+    TimerPWM-&gt;<span class=hljs-built_in >setCaptureCompare</span>(pwmOutChannel, <span class=hljs-number >50</span>,
+                                PERCENT_COMPARE_FORMAT); <span class=hljs-comment >/* 50% Duty Cycle */</span>
+    TimerPWM-&gt;<span class=hljs-built_in >resume</span>();
+
+    <span class=hljs-comment >/*
+     * Create and Configure Input Capture (Frequency Measure)
+     * */</span>
+    TimerIC = <span class=hljs-keyword >new</span> <span class=hljs-built_in >HardwareTimer</span>(TIM3);
+    pwmInChannel = TIM_CHANNEL_1 + <span class=hljs-number >1</span>;
+    TimerIC-&gt;<span class=hljs-built_in >setMode</span>(pwmInChannel, TIMER_INPUT_FREQ_DUTY_MEASUREMENT,
+                     PWM_Input_Pin);
+    <span class=hljs-keyword >uint32_t</span> PrescalerFactor = <span class=hljs-number >100</span>;
+    TimerIC-&gt;<span class=hljs-built_in >setPrescaleFactor</span>(PrescalerFactor);
+    TimerIC-&gt;<span class=hljs-built_in >setOverflow</span>(<span class=hljs-number >0xFFFF</span>);  <span class=hljs-comment >/* Max Period value to have the largest
+                                    * possible time to detect rising edge and
+                                    * avoid timer rollover */</span>
+    <span class=hljs-comment >/* the attachInterrupt function has two methods: one for counter overflow,
+     * one for input detect */</span>
+    TimerIC-&gt;<span class=hljs-built_in >attachInterrupt</span>(pwmInChannel, TIMINPUT_Capture_Rising_IT_callback);
+    TimerIC-&gt;<span class=hljs-built_in >attachInterrupt</span>(Rollover_IT_callback);
+    TimerIC-&gt;<span class=hljs-built_in >resume</span>();
+
+    <span class=hljs-comment >/* Compute f_count for the Input Compare Timer, only once */</span>
+    input_count_freq =
+        TimerIC-&gt;<span class=hljs-built_in >getTimerClkFreq</span>() / TimerIC-&gt;<span class=hljs-built_in >getPrescaleFactor</span>();
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{ <span class=hljs-comment >/* Nothing to do here. */</span>
+}</code></pre> <p>Here we use three timers. TIM1 is configured to execute a periodic function that will send the latest frequency measurement to the PC via serial. The configuration is similar to that of Example 1 . TIM2 is used to generate a square wave signal, just like Example 2. And TIM3, which is added in this example, is configured to measure the square wave signal we generate.</p> <p>Before trying out this example. Make sure to connect pin PA5 &#40;Output&#41; to pin PA6 &#40;Input&#41; via a jumper cable.</p> <p> <center><img src="/me319/prelabs/pl4assets/image1.png" style="max-width:720px"></center> </p> <p>If we have the count frequency of a timer, and we keep track of the timer counter values at each rising edge of the signal, we can convert this into a signal frequency measurement. The timer automatically saves the counter value of its running timer whenever an edge is detected, then issues an interrupt to the CPU to come and grab this saved value.</p> <p>In the figure below, the timer captures one rising edge when the counter is at 0x55 and the next rising edge at 0xA1. So, <code>0x4C</code> &#40;<span class=katex ><span class=katex-mathml ><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><msub><mn>6</mn><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">76_{10}</annotation></semantics></math></span><span class=katex-html  aria-hidden=true ><span class=base ><span class=strut  style="height:0.79444em;vertical-align:-0.15em;"></span><span class=mord >7</span><span class=mord ><span class=mord >6</span><span class=msupsub ><span class="vlist-t vlist-t2"><span class=vlist-r ><span class=vlist  style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class=pstrut  style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">0</span></span></span></span></span><span class=vlist-s >​</span></span><span class=vlist-r ><span class=vlist  style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>&#41; timer counts is the length of the input signal. By using the timer count frequency, we can calculate the signal frequency.</p> <span class=katex-display ><span class=katex ><span class=katex-mathml ><math xmlns="http://www.w3.org/1998/Math/MathML" display=block ><semantics><mrow><msub><mi>f</mi><mtext>square wave signal</mtext></msub><mo>=</mo><mfrac><msub><mi>f</mi><mtext>timer count</mtext></msub><mrow><mi>C</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>V</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mi mathvariant=normal >@</mi><mi>R</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>E</mi><mi>d</mi><mi>g</mi><mi>e</mi><mo>−</mo><mi>C</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>V</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mi mathvariant=normal >@</mi><mi>P</mi><mi>r</mi><mi>e</mi><mi>v</mi><mi>i</mi><mi>o</mi><mi>u</mi><mi>s</mi><mi>R</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>E</mi><mi>d</mi><mi>g</mi><mi>e</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">f_{\text{square wave signal}} = \frac{f_{\text{timer count}}}{CounterValue@RisingEdge - CounterValue@PreviousRisingEdge}</annotation></semantics></math></span><span class=katex-html  aria-hidden=true ><span class=base ><span class=strut  style="height:0.980548em;vertical-align:-0.286108em;"></span><span class=mord ><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class=msupsub ><span class="vlist-t vlist-t2"><span class=vlist-r ><span class=vlist  style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class=pstrut  style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">square wave signal</span></span></span></span></span></span><span class=vlist-s >​</span></span><span class=vlist-r ><span class=vlist  style="height:0.286108em;"><span></span></span></span></span></span></span><span class=mspace  style="margin-right:0.2777777777777778em;"></span><span class=mrel >=</span><span class=mspace  style="margin-right:0.2777777777777778em;"></span></span><span class=base ><span class=strut  style="height:2.25188em;vertical-align:-0.8804400000000001em;"></span><span class=mord ><span class="mopen nulldelimiter"></span><span class=mfrac ><span class="vlist-t vlist-t2"><span class=vlist-r ><span class=vlist  style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class=pstrut  style="height:3em;"></span><span class=mord ><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class=mord >@</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class=mspace  style="margin-right:0.2222222222222222em;"></span><span class=mbin >−</span><span class=mspace  style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class=mord >@</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span></span></span><span style="top:-3.23em;"><span class=pstrut  style="height:3em;"></span><span class=frac-line  style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class=pstrut  style="height:3em;"></span><span class=mord ><span class=mord ><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class=msupsub ><span class="vlist-t vlist-t2"><span class=vlist-r ><span class=vlist  style="height:0.31750199999999995em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class=pstrut  style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">timer count</span></span></span></span></span></span><span class=vlist-s >​</span></span><span class=vlist-r ><span class=vlist  style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class=vlist-s >​</span></span><span class=vlist-r ><span class=vlist  style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span> <p> <br> <center><img src="/me319/prelabs/pl4assets/image2.png" style="max-width:720px"></center> </p> <p>Input Capture works by first configuring the period &#40;overflow / autoload value&#41; and count rate &#40;prescaler&#41;. Usually, we set the overflow to the maximum value possible. In the case of the 16-bit TIM3, the largest count value is 0xFFFF. This is to minimize the number of overflows. The count rate &#40;prescaler&#41; determines the measurement resolution. A high count rate means the frequency measurement has a high resolution, but at the expense of more frequency overflows.</p> <p>The issue with the overflow when measuring frequency, is that the 2^nd consecutive count can occur after an overflow, meaning the second count value will either be lower than the first counter value or higher by passing completely full circle or more. This occurs more often when the count frequency is high and/or the input signal frequency is low. This issue can be easily resolved by keeping track of the number of overflows that occurred between two edge detection events, then performing some math to calculate the actual number of counts between two edge detection events.</p> <p>The figure below shows an example of when an overflow occurs during consecutive edge detections. The actual number of counts between two rising edges is &#40;<code>0xFF -- 0xFD -- 0x02</code>&#41;, assuming <code>0xFF</code> is the overflow value here.</p> <p>There are two callback functions we tie to TIM3 interrupt, one is for retrieving the captured edge event counter value and performing the frequency calculation and the 2^nd^ callback function is called when an overflow occurs, and in it we increment the overflow counter. We reset the overflow counter after we account for the overflow in the frequency calculation.</p> <p>Flash example 3, then open a serial terminal to observe the calculated frequency measurement. Then try changing the square wave frequency and observe the result.</p> <p>Note again that there is no code inside <code>loop&#40;&#41;</code> The timers hardware is doing the heavy lifting and only two callback functions are called only in response to events. <center><img src="/me319/prelabs/pl4assets/image3.png" style="max-width:720px"></center> </p> <div class=page-foot > <div class=copyright > &copy; Ali AlSaibie, PhD. Last modified: April 23, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div> </div> </div>
