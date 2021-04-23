@@ -26,7 +26,7 @@ The labs and prelabs of the course are posted here.
 
 | [Prelab 2](/prelabs/prelab2/index.html)  ~~~&ensp;&ensp;~~~ | Getting Familiar with PlatformIO and Arduino
 
-| Prelab 3  ~~~&ensp;&ensp;~~~ | Debugging and Low Level Programming
+| [Prelab 3](/prelabs/prelab3/index.html)  ~~~&ensp;&ensp;~~~ | Debugging and Low Level Programming
 
 | Prelab 4  ~~~&ensp;&ensp;~~~ | Timers and Interrupts
 
