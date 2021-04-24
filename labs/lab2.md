@@ -1,4 +1,4 @@
-@def title = "Lab 1 - Getting familiar with PlatformIO and Arduino"
+@def title = "Lab 2 - Getting familiar with PlatformIO and Arduino"
 @def hascode = true
 
 # Lab 2 - C++ With Arduino

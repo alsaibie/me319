@@ -7,7 +7,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 2](/labs/lab2/index.html)  ~~~&ensp;&ensp;~~~ | C++ with Arduino
 
-| Lab 3  ~~~&ensp;&ensp;~~~ | Low Level GPIO Control
+| [Lab 3](/labs/lab3/index.html)   ~~~&ensp;&ensp;~~~ | Low Level GPIO Control
 
 | Lab 4  ~~~&ensp;&ensp;~~~ | Timers and Interrupts
 
