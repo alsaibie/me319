@@ -1,0 +1,75 @@
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/me319/libs/highlight/github.min.css"> <link rel=stylesheet  href="/me319/css/franklin.css"> <link rel=stylesheet  href="/me319/css/poole_hyde.css"> <link rel=stylesheet  href="/me319/css/custom.css"> <style> html {font-size: 17px;} .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;} @media (min-width: 940px) { .franklin-content {width: 100%; margin-left: auto; margin-right: auto;} } @media (max-width: 968px) { .franklin-content {padding-left: 6%; padding-right: 6%;} } </style> <link rel=icon  href="/me319/assets/c.svg"> <title>Lab 2 - Low Level GPIO Control</title> <div class=sidebar > <div class="container sidebar-sticky"> <div class=sidebar-about > <br> <img src="/me319/assets/KuwaitUniversityLogoTextLight.svg" style="width: 200px; height: auto; display: inline"> <h1 style="font-size:2em; opacity: 0.75;"><a href="/me319/">ME 319</a></h1> <p class=lead >Mechatronics</p> </div> <script> function hidePart(part_div) { var x = document.getElementById(part_div); if (x.style.display === "none") { x.style.display = "block"; } else { x.style.display = "none"; } } </script> <nav class=sidebar-nav > <a class="sidebar-nav-item " href="/me319/">Home</a> <a class="sidebar-nav-item " href="/me319/videos/">Lecture Videos</a> <a class="sidebar-nav-item " href="https://alsaibie.github.io/embeddedcpp_course">Embedded C/C++ Mini-Course</a> <a class="sidebar-nav-item " href="/me319/lab_assignments/">Lab Assignments</a> <br> <small style="text-transform: uppercase; font-size: 0.75em">Class Lectures</small> <div class=part  onclick="hidePart('part1_div')">I The Brain</div> <div id=part1_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_i/lecture0/"><b>L0</b> - <em>Introduction</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture1/"><b>L1</b> - <em>Microcontroller Architecture</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture2/"><b>L2</b> - <em>Digital Arithmetic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture3/"><b>L3</b> - <em>Digital Logic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture4/"><b>L4</b> - <em>Microcontroller Peripherals</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture5/"><b>L5</b> - <em>GPIO</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture6/"><b>L6</b> - <em>Timers</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture7/"><b>L7</b> - <em>Interrupts</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture8/"><b>L8</b> - <em>Communication</em></a> </div> <div class=part  onclick="hidePart('part2_div')">II The Cells</div> <div id=part2_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_ii/lecture1/"><b>L1</b> - <em>Passive Circuits</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture2/"><b>L2</b> - <em>Switching Semiconductors</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture3/"><b>L3</b> - <em>Operational Amplifiers</em></a> </div> <div class=part  onclick="hidePart('part3_div')">III The Senses</div> <div id=part3_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iii/lecture1/"><b>L1</b> - <em>Signal Conditioning and Filtering</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture2/"><b>L2</b> - <em>Sensor Charactersitics</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture3/"><b>L3</b> - <em>Survey of Sensors</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture4/"><b>L4</b> - <em>Motion Sensors</em></a> </div> <div class=part  onclick="hidePart('part4_div')">IV The Muscles</div> <div id=part4_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iv/lecture1/"><b>L1</b> - <em>DC Motors</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture2/"><b>L2</b> - <em>Practical Feedback Control</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture4/"><b>L3</b> - <em>Stepper Motors</em></a> </div> <div class=part  onclick="hidePart('part5_div')">V The Body</div> <div id=part5_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_v/lecture1/"><b>L1</b> - <em>System Integration</em></a> </div> </nav> <p>&copy; Ali AlSaibie, PhD.</p> </div> </div> <div class="content container"> <div class=franklin-content ><h1 id=lab_3_-_low_level_gpio_control ><a href="#lab_3_-_low_level_gpio_control" class=header-anchor >Lab 3 - Low Level GPIO Control</a></h1> <h2 id=overview ><a href="#overview" class=header-anchor >Overview</a></h2> <p>In this assignment, you will learn how to interface with the microcontroller at the register level. You will extend the GPIO Blinky example where we used the <code>stm32f401x.h</code> header and convert it into an LED switch example. Then you will refractor your routine into what looks like an equivalent Arduino framework routine. </p> <p>Before attempting this assignment, make sure you go through the Prelab 3 document first. </p> <h2 id=tools_required ><a href="#tools_required" class=header-anchor >Tools Required</a></h2> <ul> <li><p>VSCode with PlatformIO Extension</p> <li><p>STM32 Nucleo F401RE Board </p> <li><p>USB Type A to USB Mini-B Connector</p> </ul> <h2 id=references ><a href="#references" class=header-anchor >References</a></h2> <ol> <li><p><a href="/me319/assets/reference_docs/REF03_STM32_Nucleo-64_boards_User_Manual.pdf">REF03 STM32 Nucleo-64 boards User Manual</a></p> <li><p><a href="/me319/assets/assets/reference_docs/REF01_STM32F401RE_DATASHEET.pdf">REF01 STM32F401RE Datasheet</a></p> <li><p><a href="/me319/assets/reference_docs/REF02_STM32F401xBC_and_STM32F401xDE_Reference_Manual.pdf">REF02 STM32F401RE Reference Manual</a></p> <li><p>Lab Report Submission Guidelines</p> <li><p>ME319 Prelab 3</p> </ol> <h2 id=project_creation_submission ><a href="#project_creation_submission" class=header-anchor >Project Creation &amp; Submission</a></h2> <p>For this assignment, it is suggested that you create a single project with multiple main*.cpp files, inside the src folder, for each question below. You only need to submit the &#40;<code>mainQ1.c</code>, <code>mainQ2.c</code>, etc&#41; files for this assignment.</p> <p>To have one project with multiple source files, where you only compile one at a time, you need to configure platformio.ini to only compile the file you want. Replace the content of the platformio.ini with this, then change mainQ1.cpp to the file name you wish to compile. The last line &#40;src_filter&#41; basically tells the platformio configurator to remove all main*.cpp from the compile list, then add only the specific mainQ1.cpp file. If we don’t add this filter line, all the files inside the folder src will be compiled.</p> <pre><code class="julia hljs">[env:nucleo_f401re]
+platform = ststm32
+board = nucleo_f401re
+framework = arduino
+src_filter = -&lt;main*.cpp&gt; +&lt;mainQ1.cpp&gt;</code></pre> <h2 id=questions ><a href="#questions" class=header-anchor >Questions</a></h2> <h3 id=led_switch ><a href="#led_switch" class=header-anchor ><ol> <li><p>LED Switch</p> </ol> </a></h3> <p>Starting from the 3rd example prelab3 &#40;<code>mainE3.c</code>&#41;, instead of a timed LED blinky code, turn the program into an LED switch. Where the built-in switch connected to PC13 will act as a switch to turn on the LED. PC13 lives in GPIO port C. You will need to -	Enable GPIO Port C -	Set GPIO Port C Pin 13 as input &#40;by default it should be&#41; -	Read GPIO Port C IDR register Pin 13. Remember that the built-in switch is connected in negative logic, &#40;LOW: Switch is pressed, HIGH: Not pressed&#41;</p> <code>mainQ1_template.c</code> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&quot;stm32f401xe.h&quot;</span></span>
+
+<span class=hljs-comment >/***
+ * Blinky Program - LED connected to PA5
+ * */</span>
+
+<span class=hljs-function ><span class=hljs-keyword >int</span> <span class=hljs-title >main</span><span class=hljs-params >(<span class=hljs-keyword >void</span>)</span> </span>{
+    <span class=hljs-comment >/* Enable GPIOA Clock */</span>
+    RCC-&gt;AHB1ENR |= RCC_AHB1ENR_GPIOAEN; <span class=hljs-comment >/* Ref RCC_AHB2ENR register */</span>
+    <span class=hljs-comment >/* Set Port A Pin 5 as Output */</span>
+    GPIOA-&gt;MODER |= (<span class=hljs-number >1</span> &lt;&lt; GPIO_MODER_MODE5_Pos); <span class=hljs-comment >/* Ref GPIOx_MODER register */</span>
+    <span class=hljs-keyword >while</span> (<span class=hljs-number >1</span>) {
+        <span class=hljs-comment >/* Set LED Pin High */</span>
+        GPIOA-&gt;ODR |= (<span class=hljs-number >1</span> &lt;&lt; GPIO_ODR_OD5_Pos); <span class=hljs-comment >/* Ref GPIOx_ODR register*/</span>
+        <span class=hljs-comment >/* Dumb Delay: wait x number of clock cycles */</span>
+        <span class=hljs-keyword >for</span> (<span class=hljs-keyword >int</span> k = <span class=hljs-number >0</span>; k&lt;<span class=hljs-number >1000000</span>; k++){__asm(<span class=hljs-string >&quot;nop&quot;</span>);}
+        <span class=hljs-comment >/* Set LED Pin Low */</span>
+        GPIOA-&gt;ODR &amp;= ~(<span class=hljs-number >1</span> &lt;&lt; GPIO_ODR_OD5_Pos); <span class=hljs-comment >/* Ref GPIOx_ODR register*/</span>
+        <span class=hljs-comment >/* Dumb Delay */</span>
+        <span class=hljs-keyword >for</span> (<span class=hljs-keyword >int</span> k = <span class=hljs-number >0</span>; k&lt;<span class=hljs-number >1000000</span>; k++){__asm(<span class=hljs-string >&quot;nop&quot;</span>);}
+    }
+}</code></pre> <h3 id=ol_start2_arduino-like_led_switch_code ><a href="#ol_start2_arduino-like_led_switch_code" class=header-anchor ><ol start=2 > <li><p>Arduino-like LED Switch Code</p> </ol> </a></h3> <p>You will need to complete Question 1 first.</p> <p>You are given a template code &#40;<code>mainQ2_template.c</code>&#41;. Defined inside the <code>setup&#40;&#41;</code> and <code>loop&#40;&#41;</code> functions, the code that you would normally have if you were using the arduino framework, to have an LED switch code. </p> <p>Your job is to define the following functions, in order for the program to work: <code>pinMode&#40;&#41;</code>, <code>digitalWrite&#40;&#41;</code> and <code>digitalRead&#40;&#41;</code></p> <p>You can hardcode the register names for the input and output pins inside the functions &#40;The Arduino framework uses a look up map to find the registers for which the pin belongs to&#41;.</p> <p>You will use <code>pinMode&#40;&#41;</code> for two pins, an input and output, so you will need to distinguish which pin you have. While <code>digitalWrite&#40;&#41;</code> and <code>digitalRead&#40;&#41;</code> each will expect one known pin number. </p> <code>mainQ2_template.c</code> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&quot;stm32f401xe.h&quot;</span></span>
+
+<span class=hljs-comment >/***
+ * Blinky Switch Program
+ * LED connected to PA5
+ * Switch connected to PC13 (Negative Logic)
+ * */</span>
+
+<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> PA5 0x05</span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> PC13 0x2D</span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> OUTPUT 1</span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> INPUT 0</span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> HIGH 1</span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> LOW 0</span>
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >pinMode</span><span class=hljs-params >(<span class=hljs-keyword >int</span> _pin, <span class=hljs-keyword >int</span> _mode)</span> </span>{
+    <span class=hljs-comment >/* TBC */</span>
+
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >digitalWrite</span><span class=hljs-params >(<span class=hljs-keyword >int</span> _pin, <span class=hljs-keyword >int</span> _v)</span> </span>{
+    <span class=hljs-comment >/* TBC */</span>
+
+}
+
+<span class=hljs-function ><span class=hljs-keyword >int</span> <span class=hljs-title >digitalRead</span><span class=hljs-params >(<span class=hljs-keyword >int</span> _pin)</span> </span>{
+    <span class=hljs-comment >/* TBC */</span>
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-built_in >pinMode</span>(PA5, OUTPUT);
+    <span class=hljs-built_in >pinMode</span>(PC13, INPUT);
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-keyword >int</span> buttonState = <span class=hljs-built_in >digitalRead</span>(PC13);
+    <span class=hljs-keyword >if</span> (buttonState == LOW) {
+        <span class=hljs-built_in >digitalWrite</span>(PA5, HIGH);
+    } <span class=hljs-keyword >else</span> {
+        <span class=hljs-built_in >digitalWrite</span>(PA5, LOW);
+    }
+}
+
+<span class=hljs-comment >/* A similar routine is preconfigured in the Arduino framework inside the main function */</span>
+<span class=hljs-function ><span class=hljs-keyword >int</span> <span class=hljs-title >main</span><span class=hljs-params >(<span class=hljs-keyword >void</span>)</span> </span>{
+    <span class=hljs-built_in >setup</span>();
+    <span class=hljs-keyword >while</span> (<span class=hljs-number >1</span>) {
+        <span class=hljs-built_in >loop</span>();
+    }
+}</code></pre> <div class=page-foot > <div class=copyright > &copy; Ali AlSaibie, PhD. Last modified: April 24, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div> </div> </div>
