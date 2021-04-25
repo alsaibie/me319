@@ -5,6 +5,10 @@
 
 In this prelab we will exercise basic debugging on the microcontroller, then we will experiment with programming the microcontroller GPIO on a low-level without any added headers. Debugging features are applicable whether we choose to program the microcontroller on a low-level, or higher abstraction level. The debugging features are independent of the framework used.
 
+~~~
+<iframe src="https://player.vimeo.com/video/541249052" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+~~~
+
 First let's create a new PlatformIO project, but this time, let's select the **STM32Cube** framework. Which is a collection of headers including functions and macros provided by ST for their line of STM32 microcontrollers.
 
 Create a new project. Name it Prelab3, select the ST Nucleo F401RE board and the **STM32Cube** framework.
