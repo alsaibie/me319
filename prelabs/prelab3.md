@@ -79,6 +79,7 @@ The following part assumes you have reviewed [Part I Lecture 5 GPIO](/part_i/lec
 
 In class, we reviewed the different ways we can program a **blinky** routine on the STM32Nucleo. Let's test the low-level example (without headers) and use the debugger to explore what happens to the values in the respective registers. Go to the platform.ini file and change `mainE1.c` to `mainE2.c` in the src_filter. In order to compile example 2 instead.
 
+## Headerless Blinky
 `mainE2.c`
 ```cpp
 /* Look Ma!, no headers */
@@ -127,6 +128,7 @@ Congratulations, you've debugged your first MCU program and executed a low-level
 
 Go ahead and test running `mainE3.c`, it is equivalent to `mainE2.c`, but uses the macro definitions for the register addresses and bitmasks from the header "stm32f401xe.h", which is supplied by the board manufacturer, ST, through the PlatformIO IDE. 
 
+## Using the ST Microelectronics supplied board definitions
 `mainE3.c`
 ```cpp
 #include "stm32f401xe.h"
@@ -155,3 +157,47 @@ int main(void) {
 So instead of referencing the registers addresses manually, the "stm32f401xe.h" headers has handy structs and offsets defined for each register block. And instead of doing bit shifting, the bitmasks for each bitfield/s is/are defined by macros explicitly. Take some time to read the `stm32f401xe.h` header file. 
 
 Note that we have not used any of the STM32Cube HAL drivers. We could have done the above using the SPI framework, which is a subset of STM32Cube, or the CMSIS framework which is an ARM specific framework.
+
+## Using the STM32Cube framework
+
+The last two examples produced equivalent code and almost identical binary file. The STM32 family also comes with a Standard Peripheral Library as well as STM32Cube HAL library. The latter is more abstract and covers the full range of STM32 microcontrollers, from the low energy STM32F0 to the STM32F7. It is the most widely used way to program and interface with the STM32Cube as of today. 
+
+The below example shows how to use the the STM32Cube library to generate a blinky routine. Note that no registers are referenced. Instead of consulting the reference manual to program the microcontroller, you would instead reference the [STM32 HAL and LL Drivers](/assets/reference_docs/REF05_Description_of_STM32F4_HAL_and_LL_drivers.pdf) document.
+
+
+`mainE4.c`
+
+```cpp
+#include "stm32f4xx_hal.h" /* We don't include the specific stm32f401xe header, but just the HAL */
+#include "stm32f4xx.h"
+#define LED_GPIO_CLK_ENABLE()                  __HAL_RCC_GPIOA_CLK_ENABLE()
+
+int main(void){
+  HAL_Init(); /* Initialize the HAL Drivers */
+  
+  LED_GPIO_CLK_ENABLE(); /* Enable GPIO A Clock */
+  GPIO_InitTypeDef GPIO_InitStruct; 
+  GPIO_InitStruct.Pin = GPIO_PIN_5 | GPIO_PIN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct); /* The pin configuration is done through a function */
+
+  while (1)
+  {
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); /* HAL provides a toggle pin function */
+    HAL_Delay(1000); /* As well as a delay function (milliseconds) */
+  }
+}
+```
+
+The first function in main is `HAL_Init()`, this would configure some common peripherals including the system tick timer, which allows for using the `HAL_Delay()` function. 
+
+To enable the GPIOA, there is a specific function in the library `__HAL_RCC_GPIOA_CLK_ENABLE()` that can do that. 
+
+To configure a GPIO, it would be done by assigning values to the struct `GPIO_InitStruct` and passing it to the function `HAL_GPIO_Init()` which would configure any GPIO port. 
+
+There are several functions that help interface with the GPIO. To toggle a pin state for example you can use `HAL_GPIO_TogglePin()`. Consult the [STM32 HAL and LL Drivers](/assets/reference_docs/REF05_Description_of_STM32F4_HAL_and_LL_drivers.pdf) document to familiarize yourself with the type of functions available. 
+
+## Where Arduino stands?
+The Arduino implementation on STM32 (stm32duino) does use the STM32Cube drivers (library) in the middle. And if there were functions not available in the Arduino implementation for STM32, you can always reference and use the HAL functions in tandem, but be aware that the Arduino framework may be overriding your settings in some circumstances, so you would have to do some homework when combining Arduino and STM32Cube. 
