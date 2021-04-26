@@ -125,10 +125,10 @@ Upload the code through the **debug** mode presented above, then step through th
 <center><img src="/prelabs/pl3assets/image6.png" style="max-width:420px"></center>~~~ 
 
 Congratulations, you've debugged your first MCU program and executed a low-level **blinky** routine.
-
+## Using the ST Microelectronics supplied board definitions
 Go ahead and test running `mainE3.c`, it is equivalent to `mainE2.c`, but uses the macro definitions for the register addresses and bitmasks from the header "stm32f401xe.h", which is supplied by the board manufacturer, ST, through the PlatformIO IDE. 
 
-## Using the ST Microelectronics supplied board definitions
+
 `mainE3.c`
 ```cpp
 #include "stm32f401xe.h"
