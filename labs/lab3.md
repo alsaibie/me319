@@ -67,6 +67,12 @@ int main(void) {
     }
 }
 ```
+### How to read a pin
+Remember that you can treat the register (content of) as a variable. If you wanted to read the state of the 3rd bit only, what would you do?
+
+You would need to clear all the other bits and leave the one of interest. So if the register contains `0b0010X011`, and you are only interested in the 3rd bit, you would want this to be conveted to `0b0000X000` where `X` could be `1` or `0`. If `X` is zero then the whole number is equal to zero, if it is `1` the number is not equal to one, it's equal to 8, but more generally it is NOT zero. What bitwise operation is required to do this? And how?
+
+
 ### 2. Arduino-like LED Switch Code
 You will need to complete Question 1 first.
 
