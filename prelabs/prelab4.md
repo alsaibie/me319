@@ -94,21 +94,21 @@ In Example 2 (`mainE2.cpp`), we use a timer to generate a square wave signal.
  */
 
 void setup() {
-    pinMode(PA5, OUTPUT);
-    uint32_t pwmChannel = TIM_CHANNEL_1 + 1 ; /* arduino channel idx starts from 1, not 0 */
-    /* We create a new Timer Object */
-    HardwareTimer *TimerPWM = new HardwareTimer(TIM2);
+        pinMode(PA5, OUTPUT);
+        uint32_t pwmChannel = TIM_CHANNEL_1 + 1 ; /* arduino channel idx starts from 1, not 0 */
+        /* We create a new Timer Object */
+        HardwareTimer *TimerPWM = new HardwareTimer(TIM2);
 
-    /* Configure the timer mode to output compare pwm */
-    TimerPWM->setMode(pwmChannel, TIMER_OUTPUT_COMPARE_PWM1, PA5);
-    /* Set the overflow: the signal frequency/time period */
-    
-    TimerPWM->setOverflow(100E3, MICROSEC_FORMAT); /* 100E3microsec = 100ms */
-    /* Set duty cycle */
+        /* Configure the timer mode to output compare pwm */
+        TimerPWM->setMode(pwmChannel, TIMER_OUTPUT_COMPARE_PWM1, PA5);
+        /* Set the overflow: the signal frequency/time period */
+        
+        TimerPWM->setOverflow(200E3, MICROSEC_FORMAT); /* 1E3microsec = 1ms */
+        /* Set duty cycle */
 
-    TimerPWM->setCaptureCompare(pwmChannel, 50,
-                                PERCENT_COMPARE_FORMAT); /* 50% Duty Cycle */
-    TimerPWM->resume(); /* Start/Resume Timer 1 */
+        TimerPWM->setCaptureCompare(pwmChannel, (0xFFFF>>1), /* Right shift halves the number */
+                                    RESOLUTION_16B_COMPARE_FORMAT); /* 50% Duty Cycle */
+        TimerPWM->resume(); /* Start/Resume Timer 1 */
     
     /* The Timer HARDWARE will generate the PWM signal to
      * control the LED. CPU can sleep, no callback function required as well. */
@@ -155,13 +155,13 @@ uint32_t pwmInChannel;
 
 /* Timer Interrupt Callback Function
  Automatically Called on Periodic Timer OVerflow */
-void Periodic_IT_callback(HardwareTimer *) {
+void Periodic_IT_callback() {
     Serial.println((String) "PWM Measured Frequency = " + FrequencyMeasured +
                    "Hz");
 }
 
 /* When a rising edge is detected, this function is called */
-void TIMINPUT_Capture_Rising_IT_callback(HardwareTimer *) {
+void TIMINPUT_Capture_Rising_IT_callback() {
     CurrentCapture = TimerIC->getCaptureCompare(pwmInChannel);
     /* frequency computation */
     if (CurrentCapture > LastPeriodCapture && rolloverCompareCount == 0) {
@@ -181,7 +181,7 @@ void TIMINPUT_Capture_Rising_IT_callback(HardwareTimer *) {
 }
 
 /* Keep count of # of rollovers to consider in frequency calculation */
-void Rollover_IT_callback(HardwareTimer *) { rolloverCompareCount++; }
+void Rollover_IT_callback() { rolloverCompareCount++; }
 
 void setup() {
     Serial.begin(9600);
