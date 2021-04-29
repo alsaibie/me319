@@ -4,9 +4,17 @@
 # Timers
 
 ## Lecture Video
+Part A
+
 ~~~
 <iframe src="https://player.vimeo.com/video/542122961" width="780" height="438" frameborder="0" allowfullscreen></iframe>
 ~~~
+
+Part B
+~~~
+<iframe src="https://player.vimeo.com/video/543111115" width="780" height="438" frameborder="0" allowfullscreen></iframe>
+~~~
+
 
 [Lecture Handout](/part_i\/ME319_-_Mechatronics_-_Part_I_Lecture_6_Timers.pdf)
 

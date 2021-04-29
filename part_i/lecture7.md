@@ -3,9 +3,10 @@
 
 # Interrupts
 ## Lecture Video
-<!-- ~~~
-<iframe src="https://player.vimeo.com/video/542122961" width="780" height="438" frameborder="0" allowfullscreen></iframe>
-~~~ -->
+Part A
+~~~
+<iframe src="https://player.vimeo.com/video/543112104" width="780" height="438" frameborder="0" allowfullscreen></iframe>
+~~~
 
 [Lecture Handout](/part_i\/ME319_-_Mechatronics_-_Part_I_Lecture_7_Interrupts.pdf)
 
