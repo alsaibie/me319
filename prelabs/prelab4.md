@@ -23,7 +23,7 @@ src_filter = -<main*.cpp> +<mainE1.cpp>
 We will not be doing most of the low-level configuration of the timers. We will instead, use the stm32duino (Arduino for stm32), which provides a nice abstraction for setting up the timers.
 
 You can find the template code for the prelab here. 
-## Using timers to generate a periodic function call
+## Example 1: Using timers to generate a periodic function call
 
 In Example 1 (`mainE1.cpp`), you will find a program for using Timer 1 to control a function call.
 
@@ -80,7 +80,7 @@ The callback function simply toggles the LED. So by controlling the rate at whic
 
 Flash example 1 and observe the LED blinking frequency. Try to change the blinking frequency.
 
-## Using timers to generate a signal
+## Example 2: Using timers to generate a signal
 
 In Example 2 (`mainE2.cpp`), we use a timer to generate a square wave signal.
 
@@ -129,7 +129,7 @@ Note that the hardware peripheral generates the signal. There is absolutely no C
 
 Flash Example 2 and observe the LED blinking frequency. Try to change the blinking frequency.
 
-## Using timers to read a signal frequency
+## Example 3: Using timers to read a signal frequency
 
 In Example 3 (`mainE3.cpp`) we combine Examples 1 and 2 and add an input capture routine to measure a square wave signal frequency.
 
