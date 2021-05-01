@@ -38,10 +38,11 @@ In Example 1 (`mainE1.cpp`), you will find a program for using Timer 1 to contro
 
 /* Timer Interrupt Callback Function
  Automatically Called on TIM OVerflow */
-void Update_IT_callback(HardwareTimer *) {
+void Update_IT_callback() {
     /* Toggle LED */
     digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
 }
+ 
 
 void setup() {
     pinMode(LED_BUILTIN, OUTPUT);
@@ -49,8 +50,8 @@ void setup() {
     /* We create a new Timer Object Pointer */
     HardwareTimer *Timer1 = new HardwareTimer(TIM1);
 
-    Timer1->setOverflow(2, HERTZ_FORMAT); /* 2Hz */
-
+    Timer1->setOverflow(2, HERTZ_FORMAT);
+    
     /* We specify the function we want executed when Timer 1 interrupt occurs
     On other words, what function is called everytime Timer 1 overflows */
     Timer1->attachInterrupt(Update_IT_callback);
@@ -73,7 +74,7 @@ Normally, you would have to setup the timer count rate (prescaler value) and aut
 
 The reason it is called a prescaler is that it takes the timer clock frequency, which could be the CPU clock frequency and scales it down by a factor termed **prescaler**.
 
-With the function `attachInterrupt(callback_function_name)`, we pass the callback function. The callback function must be declared such that it takes a pointer of type **HardwareTimer**.
+With the function `attachInterrupt(callback_function_name)`, we pass the callback function.
 
 The callback function simply toggles the LED. So by controlling the rate at which the callback function is called, we control the LED blinking frequency.
 
@@ -189,9 +190,9 @@ void setup() {
     /* We create 3 timers: General (Periodic), Output Compare (PWM), Input
      * Capture (Frequency Measure) */
 
-    /* Create and Configure Periodic Timer */
+    /* Create and Configure Periodic Timer to Serial Print at a low rate */
     HardwareTimer *TimerPeriodic = new HardwareTimer(TIM1);
-    TimerPeriodic->setOverflow(1, HERTZ_FORMAT); /* 1Hz */
+    TimerPeriodic->setOverflow(1, HERTZ_FORMAT);
     TimerPeriodic->attachInterrupt(Periodic_IT_callback);
     TimerPeriodic->resume(); /* Start Timer */
 
@@ -201,7 +202,7 @@ void setup() {
     HardwareTimer *TimerPWM = new HardwareTimer(TIM2);
     uint32_t pwmOutChannel = TIM_CHANNEL_1 + 1;
     TimerPWM->setMode(pwmOutChannel, TIMER_OUTPUT_COMPARE_PWM1, PWM_Output_Pin);
-    TimerPWM->setOverflow(1, HERTZ_FORMAT); /* Hertz */
+    TimerPWM->setOverflow(10, HERTZ_FORMAT); /* Hertz */
     TimerPWM->setCaptureCompare(pwmOutChannel, 50,
                                 PERCENT_COMPARE_FORMAT); /* 50% Duty Cycle */
     TimerPWM->resume();
@@ -229,7 +230,10 @@ void setup() {
         TimerIC->getTimerClkFreq() / TimerIC->getPrescaleFactor();
 }
 
-void loop() { /* Nothing to do here. */
+void loop() { 
+    /* Nothing to do here. 
+     * We could have placed the Serial Print routine here instead of a periodic timer 
+     */
 }
 ```
 Here we use three timers. TIM1 is configured to execute a periodic function that will send the latest frequency measurement to the PC via serial. The configuration is similar to that of Example 1 . TIM2 is used to generate a square wave signal, just like Example 2. And TIM3, which is added in this example, is configured to measure the square wave signal we generate.
