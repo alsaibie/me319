@@ -22,9 +22,36 @@
       <a class="sidebar-nav-item {{ispage index.html}}active{{end}}" href="/">Home</a>
       <a class="sidebar-nav-item {{ispage videos/*}}active{{end}}" href="/videos/">Lecture Videos</a>
       <a class="sidebar-nav-item {{ispage embeddedcpp_course/*}}active{{end}}"
-        href="https://alsaibie.github.io/embeddedcpp_course">Embedded C/C++ Mini-Course</a>
+        href="https://alsaibie.github.io/embedded_ccpp">Embedded C/C++ Mini-Course</a>
       <a class="sidebar-nav-item {{ispage lab_assignments/*}}active{{end}}" href="/lab_assignments/">Lab Assignments</a>
-      
+
+      <br>
+      <small style="text-transform: uppercase; font-size: 0.75em">Lab Lessons</small>
+      <div class="part" onclick="hidePart('prelabs_div')">Prelabs</div>
+      <div id="prelabs_div" style="display:none;">
+        <a class="sidebar-nav-item {{ispage /prelabs/lab2/}}active{{end}}" href="/prelabs/lab2/"><b>Lab 2</b> -
+          <em>PlatformIO and Arduino</em></a>
+        <a class="sidebar-nav-item {{ispage  /prelabs/lab3/}}active{{end}}" href="/prelabs/lab3/"><b>Lab 3</b> -
+          <em>Debugging and LL Programming</em></a>
+        <a class="sidebar-nav-item {{ispage  /prelabs/lab4/}}active{{end}}" href=" /prelabs/lab4/"><b>Lab 4</b> -
+          <em>Timers and Interrupts</em></a>
+        <a class="sidebar-nav-item {{ispage  /prelabs/lab5/}}active{{end}}" href=" /prelabs/lab5/"><b>Lab 5</b> -
+          <em>Serial Communication</em></a>
+        <a class="sidebar-nav-item {{ispage  /prelabs/lab6/}}active{{end}}" href=" /prelabs/lab6/"><b>Lab 6</b> -
+          <em>Offline Digital Filtering</em></a>
+        <a class="sidebar-nav-item {{ispage  /prelabs/lab7/}}active{{end}}" href=" /prelabs/lab7/"><b>Lab 7</b> -
+          <em>Online Digital Filtering</em></a>
+        <a class="sidebar-nav-item {{ispage  /prelabs/lab8/}}active{{end}}" href=" /prelabs/lab8/"><b>Lab 6</b> -
+          <em>Motor Dynamics and Control</em></a>
+        <a class="sidebar-nav-item {{ispage  /prelabs/lab9/}}active{{end}}" href=" /prelabs/lab9/"><b>Lab 7</b> -
+          <em>Realtime Motor Control</em></a>
+      </div>
+      <div class="part" onclick="hidePart('addlessons_div')">Additional Lessons</div>
+      <div id="addlessons_div" style="display:none;">
+        <a class="sidebar-nav-item {{ispage /prelabsextra/lab4extra/}}active{{end}}" href="/prelabsextra/lab4extra/"> <b>L4E</b> -
+          <em>Low Level Timers Configuration</em></a>
+      </div>
+
       <br>
       <small style="text-transform: uppercase; font-size: 0.75em">Class Lectures</small>
       <div class="part" onclick="hidePart('part1_div')">I The Brain</div>
@@ -51,42 +78,43 @@
 
       <div class="part" onclick="hidePart('part2_div')">II The Cells</div>
       <div id="part2_div" style="display:none;">
-      <a class="sidebar-nav-item {{ispage /part_ii/lecture1/}}active{{end}}" href="/part_ii/lecture1/"><b>L1</b> -
-        <em>Passive Circuits</em></a>
-      <a class="sidebar-nav-item {{ispage /part_ii/lecture2/}}active{{end}}" href="/part_ii/lecture2/"><b>L2</b> -
-        <em>Switching Semiconductors</em></a>
-      <a class="sidebar-nav-item {{ispage /part_ii/lecture3/}}active{{end}}" href="/part_ii/lecture3/"><b>L3</b> -
-        <em>Operational Amplifiers</em></a>
+        <a class="sidebar-nav-item {{ispage /part_ii/lecture1/}}active{{end}}" href="/part_ii/lecture1/"><b>L1</b> -
+          <em>Passive Circuits</em></a>
+        <a class="sidebar-nav-item {{ispage /part_ii/lecture2/}}active{{end}}" href="/part_ii/lecture2/"><b>L2</b> -
+          <em>Switching Semiconductors</em></a>
+        <a class="sidebar-nav-item {{ispage /part_ii/lecture3/}}active{{end}}" href="/part_ii/lecture3/"><b>L3</b> -
+          <em>Operational Amplifiers</em></a>
       </div>
 
       <div class="part" onclick="hidePart('part3_div')">III The Senses</div>
       <div id="part3_div" style="display:none;">
-      <a class="sidebar-nav-item {{ispage /part_iii/lecture1/}}active{{end}}" href="/part_iii/lecture1/"><b>L1</b> -
-        <em>Signal Conditioning and Filtering</em></a>
-      <a class="sidebar-nav-item {{ispage /part_iii/lecture2/}}active{{end}}" href="/part_iii/lecture2/"><b>L2</b> -
-        <em>Sensor Charactersitics</em></a>
-      <a class="sidebar-nav-item {{ispage /part_iii/lecture3/}}active{{end}}" href="/part_iii/lecture3/"><b>L3</b> -
-        <em>Survey of Sensors</em></a>
-      <a class="sidebar-nav-item {{ispage /part_iii/lecture4/}}active{{end}}" href="/part_iii/lecture4/"><b>L4</b> -
-        <em>Motion Sensors</em></a>
+        <a class="sidebar-nav-item {{ispage /part_iii/lecture1/}}active{{end}}" href="/part_iii/lecture1/"><b>L1</b> -
+          <em>Signal Conditioning and Filtering</em></a>
+        <a class="sidebar-nav-item {{ispage /part_iii/lecture2/}}active{{end}}" href="/part_iii/lecture2/"><b>L2</b> -
+          <em>Sensor Charactersitics</em></a>
+        <a class="sidebar-nav-item {{ispage /part_iii/lecture3/}}active{{end}}" href="/part_iii/lecture3/"><b>L3</b> -
+          <em>Survey of Sensors</em></a>
+        <a class="sidebar-nav-item {{ispage /part_iii/lecture4/}}active{{end}}" href="/part_iii/lecture4/"><b>L4</b> -
+          <em>Motion Sensors</em></a>
       </div>
 
       <div class="part" onclick="hidePart('part4_div')">IV The Muscles</div>
       <div id="part4_div" style="display:none;">
-      <a class="sidebar-nav-item {{ispage /part_iv/lecture1/}}active{{end}}" href="/part_iv/lecture1/"><b>L1</b> -
-        <em>DC Motors</em></a>
-      <a class="sidebar-nav-item {{ispage /part_iv/lecture2/}}active{{end}}" href="/part_iv/lecture2/"><b>L2</b> -
-        <em>Practical Feedback Control</em></a>
-      <a class="sidebar-nav-item {{ispage /part_iv/lecture4/}}active{{end}}" href="/part_iv/lecture4/"><b>L3</b> -
-        <em>Stepper Motors</em></a>
+        <a class="sidebar-nav-item {{ispage /part_iv/lecture1/}}active{{end}}" href="/part_iv/lecture1/"><b>L1</b> -
+          <em>DC Motors</em></a>
+        <a class="sidebar-nav-item {{ispage /part_iv/lecture2/}}active{{end}}" href="/part_iv/lecture2/"><b>L2</b> -
+          <em>Practical Feedback Control</em></a>
+        <a class="sidebar-nav-item {{ispage /part_iv/lecture4/}}active{{end}}" href="/part_iv/lecture4/"><b>L3</b> -
+          <em>Stepper Motors</em></a>
       </div>
 
       <div class="part" onclick="hidePart('part5_div')">V The Body</div>
       <div id="part5_div" style="display:none;">
-      <a class="sidebar-nav-item {{ispage /part_v/lecture1/}}active{{end}}" href="/part_v/lecture1/"><b>L1</b> -
-        <em>System Integration</em></a>
+        <a class="sidebar-nav-item {{ispage /part_v/lecture1/}}active{{end}}" href="/part_v/lecture1/"><b>L1</b> -
+          <em>System Integration</em></a>
       </div>
       
+
     </nav>
     <p>&copy; {{fill author}}.</p>
   </div>

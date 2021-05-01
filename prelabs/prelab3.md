@@ -189,6 +189,9 @@ int main(void){
     HAL_Delay(1000); /* As well as a delay function (milliseconds) */
   }
 }
+void SysTick_Handler(void) {
+  HAL_IncTick();
+}
 ```
 
 The first function in main is `HAL_Init()`, this would configure some common peripherals including the system tick timer, which allows for using the `HAL_Delay()` function. 
