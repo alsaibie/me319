@@ -4,6 +4,9 @@
 # Prelab 4: Introduction to Timers
 
 **Please review Part I Lecture 6 TIM before attempting this prelab.**
+~~~
+<iframe src="https://player.vimeo.com/video/544201407" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+~~~
 
 In this prelab, we will become familiar with utilizing the timers on the microcontroller for: 
 1. Periodic function calls
