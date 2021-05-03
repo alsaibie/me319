@@ -1,4 +1,4 @@
-@def title = "Lab 2 - Low Level GPIO Control"
+@def title = "Lab 3 - Low Level GPIO Control"
 @def hascode = true
 
 # Lab 3 -  Low Level GPIO Control
