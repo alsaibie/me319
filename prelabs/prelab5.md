@@ -24,7 +24,7 @@ monitor_speed = 9600 ; Default value is 9600
 
 ## Example 1: Reading Bytes and Strings
 
-The first example shows two ways you can read and echo characters between two devices connected through the serial (UART) port using the Arduino Serial library. Note that you can chose to work with character arrays or Strings. Character arrays consume less overhead if speed/space is of concern.
+The first example shows two ways you can read and echo characters between two devices connected through the serial (UART) port using the Arduino Serial library. Note that you can choose to work with character arrays or Strings. Character arrays consume less overhead if speed/space is of concern.
 
 ```cpp
 #include <Arduino.h>
@@ -57,7 +57,7 @@ void loop() {
 }
 ```
 
-In this first case, we create a character array of size 200, then pass the character array pointer to the function `Serial.readBytesUntil()` and specify that it should ready characters until a new line terminator is read, or that 200 characters have been read. 
+In this first case, we create a character array of size 200, then pass the character array pointer to the function `Serial.readBytesUntil()` and specify that it should read characters until a new line terminator is read, or that 200 characters have been read. 
 
 The following is the implementation of the function in the arduino `Stream.cpp` file. 
 ```cpp
@@ -94,7 +94,7 @@ String Stream::readStringUntil(char terminator)
 }
 ```
 
-## Example 2: 
+## Example 2: Serial methods
 
 In example 2, a few different methods for printing data through the Arduino Serial library are given. Note that the baud rate set in this example is 1Mbps, so you will need to change the monitor_speed to 1000000 before opening it.
 ```cpp
@@ -128,7 +128,7 @@ void loop() {
 }
 ```
 
-## Example 3 Interfacing with the 
+## Example 3 Interfacing with a program on the PC
 In this and the following example, we will not use the serial monitor inside VSCode, instead, we will use MATLAB to interface with the microcontroller.
 
 ```cpp
@@ -203,7 +203,7 @@ mcuCom = serial('COM6','BaudRate',1000000);
 ```
 You can open, flush, write characters and lines to it and get characters and lines from it. You can also close the communication and delete the object so that you can re-instantiate it. 
 
-## Example 4: 
+## Example 4: JSON Serialization
 In this example, we will use a message serialization protocol to exchange data between to devices (PC-MCU). There are number of serialization protocols available, but we will use JSON, which stands for JavaScript Object Notation. A serialization protocol allows for a better structured data formatting.
 
 So, instead of making up your own set of sequenced and separated characters and then parsing them on the other end. Which might be sufficient for a few commands, it soon becomes tedious to manage once the messages become varied and complex. A serialization protocol can help manage this issue. Serialization also helps in passing messages between programs of different languages, since the serialization protocol can be language agnostic.
