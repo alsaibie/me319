@@ -1,1 +1,197 @@
-<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/me319/css/franklin.css"> <link rel=stylesheet  href="/me319/css/poole_hyde.css"> <link rel=stylesheet  href="/me319/css/custom.css"> <style> html {font-size: 17px;} .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;} @media (min-width: 940px) { .franklin-content {width: 100%; margin-left: auto; margin-right: auto;} } @media (max-width: 968px) { .franklin-content {padding-left: 6%; padding-right: 6%;} } </style> <link rel=icon  href="/me319/assets/c.svg"> <title></title> <div class=sidebar > <div class="container sidebar-sticky"> <div class=sidebar-about > <br> <img src="/me319/assets/KuwaitUniversityLogoTextLight.svg" style="width: 200px; height: auto; display: inline"> <h1 style="font-size:2em; opacity: 0.75;"><a href="/me319/">ME 319</a></h1> <p class=lead >Mechatronics</p> </div> <script> function hidePart(part_div) { var x = document.getElementById(part_div); if (x.style.display === "none") { x.style.display = "block"; } else { x.style.display = "none"; } } </script> <nav class=sidebar-nav > <a class="sidebar-nav-item " href="/me319/">Home</a> <a class="sidebar-nav-item " href="/me319/videos/">Lecture Videos</a> <a class="sidebar-nav-item " href="https://alsaibie.github.io/embedded_ccpp">Embedded C/C++ Mini-Course</a> <a class="sidebar-nav-item " href="/me319/lab_assignments/">Lab Assignments</a> <br> <small style="text-transform: uppercase; font-size: 0.75em">Lab Lessons</small> <div class=part  onclick="hidePart('prelabs_div')">Prelabs</div> <div id=prelabs_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/prelabs/prelab2/"><b>Lab 2</b> - <em>PlatformIO and Arduino</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab3/"><b>Lab 3</b> - <em>Debugging and LL Programming</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab4/"><b>Lab 4</b> - <em>Timers and Interrupts</em></a> <a class="sidebar-nav-item active" href="/me319/prelabs/prelab5/"><b>Lab 5</b> - <em>Serial Communication</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab6/"><b>Lab 6</b> - <em>Offline Digital Filtering</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab7/"><b>Lab 7</b> - <em>Online Digital Filtering</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab8/"><b>Lab 6</b> - <em>Motor Dynamics and Control</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab9/"><b>Lab 7</b> - <em>Realtime Motor Control</em></a> </div> <div class=part  onclick="hidePart('addlessons_div')">Additional Lessons</div> <div id=addlessons_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/prelabsextra/lab4extra/"> <b>L4E</b> - <em>Low Level Timers Configuration</em></a> </div> <br> <small style="text-transform: uppercase; font-size: 0.75em">Class Lectures</small> <div class=part  onclick="hidePart('part1_div')">I The Brain</div> <div id=part1_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_i/lecture0/"><b>L0</b> - <em>Introduction</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture1/"><b>L1</b> - <em>Microcontroller Architecture</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture2/"><b>L2</b> - <em>Digital Arithmetic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture3/"><b>L3</b> - <em>Digital Logic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture4/"><b>L4</b> - <em>Microcontroller Peripherals</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture5/"><b>L5</b> - <em>GPIO</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture6/"><b>L6</b> - <em>Timers</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture7/"><b>L7</b> - <em>Interrupts</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture8/"><b>L8</b> - <em>Communication</em></a> </div> <div class=part  onclick="hidePart('part2_div')">II The Cells</div> <div id=part2_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_ii/lecture1/"><b>L1</b> - <em>Passive Circuits</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture2/"><b>L2</b> - <em>Switching Semiconductors</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture3/"><b>L3</b> - <em>Operational Amplifiers</em></a> </div> <div class=part  onclick="hidePart('part3_div')">III The Senses</div> <div id=part3_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iii/lecture1/"><b>L1</b> - <em>Signal Conditioning and Filtering</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture2/"><b>L2</b> - <em>Sensor Charactersitics</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture3/"><b>L3</b> - <em>Survey of Sensors</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture4/"><b>L4</b> - <em>Motion Sensors</em></a> </div> <div class=part  onclick="hidePart('part4_div')">IV The Muscles</div> <div id=part4_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iv/lecture1/"><b>L1</b> - <em>DC Motors</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture2/"><b>L2</b> - <em>Practical Feedback Control</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture4/"><b>L3</b> - <em>Stepper Motors</em></a> </div> <div class=part  onclick="hidePart('part5_div')">V The Body</div> <div id=part5_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_v/lecture1/"><b>L1</b> - <em>System Integration</em></a> </div> </nav> <p>&copy; Ali AlSaibie, PhD.</p> </div> </div> <div class="content container"> <div class=franklin-content ><div class=page-foot > <div class=copyright > &copy; Ali AlSaibie, PhD. Last modified: May 04, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div> </div> </div>
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/me319/libs/highlight/github.min.css"> <link rel=stylesheet  href="/me319/css/franklin.css"> <link rel=stylesheet  href="/me319/css/poole_hyde.css"> <link rel=stylesheet  href="/me319/css/custom.css"> <style> html {font-size: 17px;} .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;} @media (min-width: 940px) { .franklin-content {width: 100%; margin-left: auto; margin-right: auto;} } @media (max-width: 968px) { .franklin-content {padding-left: 6%; padding-right: 6%;} } </style> <link rel=icon  href="/me319/assets/c.svg"> <title>Prelab 5 - Serial Communication</title> <div class=sidebar > <div class="container sidebar-sticky"> <div class=sidebar-about > <br> <img src="/me319/assets/KuwaitUniversityLogoTextLight.svg" style="width: 200px; height: auto; display: inline"> <h1 style="font-size:2em; opacity: 0.75;"><a href="/me319/">ME 319</a></h1> <p class=lead >Mechatronics</p> </div> <script> function hidePart(part_div) { var x = document.getElementById(part_div); if (x.style.display === "none") { x.style.display = "block"; } else { x.style.display = "none"; } } </script> <nav class=sidebar-nav > <a class="sidebar-nav-item " href="/me319/">Home</a> <a class="sidebar-nav-item " href="/me319/videos/">Lecture Videos</a> <a class="sidebar-nav-item " href="https://alsaibie.github.io/embedded_ccpp">Embedded C/C++ Mini-Course</a> <a class="sidebar-nav-item " href="/me319/lab_assignments/">Lab Assignments</a> <br> <small style="text-transform: uppercase; font-size: 0.75em">Lab Lessons</small> <div class=part  onclick="hidePart('prelabs_div')">Prelabs</div> <div id=prelabs_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/prelabs/prelab2/"><b>Lab 2</b> - <em>PlatformIO and Arduino</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab3/"><b>Lab 3</b> - <em>Debugging and LL Programming</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab4/"><b>Lab 4</b> - <em>Timers and Interrupts</em></a> <a class="sidebar-nav-item active" href="/me319/prelabs/prelab5/"><b>Lab 5</b> - <em>Serial Communication</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab6/"><b>Lab 6</b> - <em>Offline Digital Filtering</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab7/"><b>Lab 7</b> - <em>Online Digital Filtering</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab8/"><b>Lab 8</b> - <em>Motor Dynamics and Control</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab9/"><b>Lab 9</b> - <em>Realtime Motor Control</em></a> </div> <div class=part  onclick="hidePart('addlessons_div')">Additional Lessons</div> <div id=addlessons_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/prelabsextra/lab4extra/"> <b>L4E</b> - <em>Low Level Timers Configuration</em></a> </div> <br> <small style="text-transform: uppercase; font-size: 0.75em">Class Lectures</small> <div class=part  onclick="hidePart('part1_div')">I The Brain</div> <div id=part1_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_i/lecture0/"><b>L0</b> - <em>Introduction</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture1/"><b>L1</b> - <em>Microcontroller Architecture</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture2/"><b>L2</b> - <em>Digital Arithmetic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture3/"><b>L3</b> - <em>Digital Logic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture4/"><b>L4</b> - <em>Microcontroller Peripherals</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture5/"><b>L5</b> - <em>GPIO</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture6/"><b>L6</b> - <em>Timers</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture7/"><b>L7</b> - <em>Interrupts</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture8/"><b>L8</b> - <em>Communication</em></a> </div> <div class=part  onclick="hidePart('part2_div')">II The Cells</div> <div id=part2_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_ii/lecture1/"><b>L1</b> - <em>Passive Circuits</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture2/"><b>L2</b> - <em>Switching Semiconductors</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture3/"><b>L3</b> - <em>Operational Amplifiers</em></a> </div> <div class=part  onclick="hidePart('part3_div')">III The Senses</div> <div id=part3_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iii/lecture1/"><b>L1</b> - <em>Signal Conditioning and Filtering</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture2/"><b>L2</b> - <em>Sensor Charactersitics</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture3/"><b>L3</b> - <em>Survey of Sensors</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture4/"><b>L4</b> - <em>Motion Sensors</em></a> </div> <div class=part  onclick="hidePart('part4_div')">IV The Muscles</div> <div id=part4_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iv/lecture1/"><b>L1</b> - <em>DC Motors</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture2/"><b>L2</b> - <em>Practical Feedback Control</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture4/"><b>L3</b> - <em>Stepper Motors</em></a> </div> <div class=part  onclick="hidePart('part5_div')">V The Body</div> <div id=part5_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_v/lecture1/"><b>L1</b> - <em>System Integration</em></a> </div> </nav> <p>&copy; Ali AlSaibie, PhD.</p> </div> </div> <div class="content container"> <div class=franklin-content ><h1 id=prelab_5_serial_communication ><a href="#prelab_5_serial_communication" class=header-anchor >Prelab 5: Serial Communication</a></h1> <p><strong>Please review Part I Lecture 8 Communication before attempting this prelab.</strong></p> <p>In this prelab, we will become familiar with using the serial communication functionalities through the Arduino API and then learn how to interface between the PC and MCU by running a MATLAB script that connects to our microcontroller through serial communication. </p> <p>We will also introduce a method for serializing data across devices. Specifically, we will use the JSON serialization which is widely supported across many programming languages. </p> <p>Create a PlatformIO project for Nucleo STM32F401RE with the Arduino framework. Name it Prelab5, preferably.</p> <p>Note the addition of the monitor_speed flag. This sets the baud rate for the serial terminal on the PC side.</p> <pre><code class="ini hljs"><span class=hljs-section >[env:nucleo_f401re]</span>
+<span class=hljs-attr >platform</span> = ststm32
+<span class=hljs-attr >board</span> = nucleo_f401re
+<span class=hljs-attr >framework</span> = ardui<span class=hljs-literal >no</span>
+<span class=hljs-attr >src_filter</span> = -&lt;main*.cpp&gt; +&lt;mainE1.cpp&gt;
+<span class=hljs-attr >monitor_speed</span> = <span class=hljs-number >9600</span> <span class=hljs-comment >; Default value is 9600</span></code></pre> <h2 id=example_1_reading_bytes_and_strings ><a href="#example_1_reading_bytes_and_strings" class=header-anchor >Example 1: Reading Bytes and Strings</a></h2> <p>The first example shows two ways you can read and echo characters between two devices connected through the serial &#40;UART&#41; port using the Arduino Serial library. Note that you can chose to work with character arrays or Strings. Character arrays consume less overhead if speed/space is of concern.</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+    Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >9600</span>);  <span class=hljs-comment >// opens serial port, sets data rate to 9600 bps</span>
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-comment >// send data only when you receive data:</span>
+    <span class=hljs-keyword >if</span> (Serial.<span class=hljs-built_in >available</span>() &gt; <span class=hljs-number >0</span>) {
+        <span class=hljs-keyword >static</span> <span class=hljs-keyword >int</span> alternate = <span class=hljs-number >1</span>;
+        <span class=hljs-comment >/* In both methods, the read calls are termed &quot;blocking&quot;, they block the
+         * code from continuing until condition is satisfied */</span>
+        <span class=hljs-keyword >if</span> (alternate == <span class=hljs-number >1</span>) {
+            <span class=hljs-comment >// read the incoming byte:</span>
+            <span class=hljs-keyword >char</span> incomingBytes[<span class=hljs-number >200</span>] = {<span class=hljs-number >0</span>};
+            Serial.<span class=hljs-built_in >readBytesUntil</span>(<span class=hljs-string >&#x27;\n&#x27;</span>, incomingBytes, <span class=hljs-number >200</span>); <span class=hljs-comment >/* This blocks until \n is received or 200 characters read */</span>
+            <span class=hljs-comment >// say what you got:</span>
+            Serial.<span class=hljs-built_in >print</span>(<span class=hljs-string >&quot;Character Array: &quot;</span>);
+            Serial.<span class=hljs-built_in >println</span>(incomingBytes);
+            alternate = <span class=hljs-number >0</span>;
+        } <span class=hljs-keyword >else</span> {
+            String string_received = Serial.<span class=hljs-built_in >readStringUntil</span>(<span class=hljs-string >&#x27;\n&#x27;</span>); <span class=hljs-comment >/* This also blocks until \n is received */</span>
+            Serial.<span class=hljs-built_in >print</span>(<span class=hljs-string >&quot;String: &quot;</span>);
+            Serial.<span class=hljs-built_in >println</span>(string_received);
+            alternate = <span class=hljs-number >1</span>;
+        }
+    }
+}</code></pre> <p>In this first case, we create a character array of size 200, then pass the character array pointer to the function <code>Serial.readBytesUntil&#40;&#41;</code> and specify that it should ready characters until a new line terminator is read, or that 200 characters have been read. </p> <p>The following is the implementation of the function in the arduino <code>Stream.cpp</code> file. </p> <pre><code class="cpp hljs"><span class=hljs-function ><span class=hljs-keyword >size_t</span> <span class=hljs-title >Stream::readBytesUntil</span><span class=hljs-params >(<span class=hljs-keyword >char</span> terminator, <span class=hljs-keyword >char</span> *buffer, <span class=hljs-keyword >size_t</span> length)</span>
+</span>{
+  <span class=hljs-keyword >if</span> (length &lt; <span class=hljs-number >1</span>) {
+    <span class=hljs-keyword >return</span> <span class=hljs-number >0</span>;
+  }
+  <span class=hljs-keyword >size_t</span> index = <span class=hljs-number >0</span>;
+  <span class=hljs-keyword >while</span> (index &lt; length) {
+    <span class=hljs-keyword >int</span> c = <span class=hljs-built_in >timedRead</span>();
+    <span class=hljs-keyword >if</span> (c &lt; <span class=hljs-number >0</span> || c == terminator) {
+      <span class=hljs-keyword >break</span>;
+    }
+    *buffer++ = (<span class=hljs-keyword >char</span>)c;
+    index++;
+  }
+  <span class=hljs-keyword >return</span> index; <span class=hljs-comment >// return number of characters, not including null terminator</span>
+}</code></pre> <p>In the second case we are requesting a String type object. The string object will expand to fit the length of the character array received. This is the implementation of the <code>Serial.readStringUntil&#40;&#41;</code> function from the arduino <code>Stream.cpp</code> file. </p> <pre><code class="cpp hljs"><span class=hljs-function >String <span class=hljs-title >Stream::readStringUntil</span><span class=hljs-params >(<span class=hljs-keyword >char</span> terminator)</span>
+</span>{
+  String ret;
+  <span class=hljs-keyword >int</span> c = <span class=hljs-built_in >timedRead</span>();
+  <span class=hljs-keyword >while</span> (c &gt;= <span class=hljs-number >0</span> &amp;&amp; c != terminator) {
+    ret += (<span class=hljs-keyword >char</span>)c;
+    c = <span class=hljs-built_in >timedRead</span>();
+  }
+  <span class=hljs-keyword >return</span> ret;
+}</code></pre> <h2 id=example_2 ><a href="#example_2" class=header-anchor >Example 2: </a></h2> <p>In example 2, a few different methods for printing data through the Arduino Serial library are given. Note that the baud rate set in this example is 1Mbps, so you will need to change the monitor_speed to 1000000 before opening it.</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+    Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >1E6</span>);  <span class=hljs-comment >// opens serial port, sets data rate to 1Mbps</span>
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-comment >/* Several Ways of printing */</span>
+    <span class=hljs-comment >/* Print a character array with a new line character */</span>
+    Serial.<span class=hljs-built_in >print</span>(<span class=hljs-string >&quot;Line: 1\n&quot;</span>);
+
+    <span class=hljs-comment >/* Print a character array with a new line character through function */</span>
+    Serial.<span class=hljs-built_in >println</span>(<span class=hljs-string >&quot;Line: 2&quot;</span>);
+
+    <span class=hljs-comment >/* Print a number in hex format */</span>
+    Serial.<span class=hljs-built_in >print</span>(<span class=hljs-string >&quot;Line: &quot;</span>);
+    Serial.<span class=hljs-built_in >println</span>(<span class=hljs-number >3</span>, HEX);
+
+    <span class=hljs-comment >/* Print an sprintf array %d or %i for int */</span>
+    <span class=hljs-keyword >char</span> buffer[<span class=hljs-number >20</span>];
+    <span class=hljs-built_in >sprintf</span>(buffer, <span class=hljs-string >&quot;Line: %d + %i&quot;</span>, <span class=hljs-number >2</span>, <span class=hljs-number >2</span>);
+    Serial.<span class=hljs-built_in >println</span>(buffer);
+
+    <span class=hljs-comment >/* Print using Strings (C++ way) */</span>
+    Serial.<span class=hljs-built_in >println</span>((String) <span class=hljs-string >&quot;Line: &quot;</span> + <span class=hljs-number >5.0f</span>);
+    
+    <span class=hljs-built_in >delay</span>(<span class=hljs-number >1000</span>);
+}</code></pre> <h2 id=example_3_interfacing_with_the ><a href="#example_3_interfacing_with_the" class=header-anchor >Example 3 Interfacing with the </a></h2> <p>In this and the following example, we will not use the serial monitor inside VSCode, instead, we will use MATLAB to interface with the microcontroller.</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+    Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >1E6</span>);  <span class=hljs-comment >// opens serial port, sets data rate to 1Mbps</span>
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+    <span class=hljs-keyword >if</span> (Serial.<span class=hljs-built_in >available</span>() &gt; <span class=hljs-number >0</span>) {
+        <span class=hljs-comment >// read the incoming number:</span>
+        <span class=hljs-keyword >uint8_t</span> incomingnumber = Serial.<span class=hljs-built_in >read</span>();;
+        <span class=hljs-comment >// echo it</span>
+        Serial.<span class=hljs-built_in >print</span>(<span class=hljs-string >&quot;Got: &quot;</span>);
+        Serial.<span class=hljs-built_in >println</span>(incomingnumber);
+    }
+}</code></pre> <p>You will use a <a href="/me319/prelabs/pl5assets/Prelab5ClientE3.m">MATLAB script: Prelab5Client.m</a> to send and print echoed numbers. After flashing mainE3.cpp into the microcontroller. First check the COM port number under <em>PlatformIO-&gt;Devices</em> and update the MATLAB script COM port number before running it. The microcontroller should be the STMicroelectronics... device. Here, the COM port is 7. <center><img src="/me319/prelabs/pl5assets/image1.png" style="max-width:720px"></center> </p> <code>Prelab5ClientE3.m</code> <pre><code class="julia hljs">%% Clear Open Ports - Might Crash Other Serial Devices
+% When you open a COM port, you need to close it properly.
+% When we terminate a script we often don&#x27;t close the port
+% properly, so we need to scan open ports and close them here. 
+% A proper script would use a <span class=hljs-keyword >try</span>-<span class=hljs-keyword >catch</span> 
+<span class=hljs-keyword >if</span> ~isempty(instrfind)
+     fclose(instrfind);
+     delete(instrfind);
+<span class=hljs-keyword >end</span>
+
+%%
+% Relace COM6 with the port number of the connected mcu, you can find the
+% port number from PlatformIO&#x27;s home page, under Devices
+
+mcuCom = serial(&#x27;COM6<span class=hljs-string >&#x27;,&#x27;</span>BaudRate&#x27;,<span class=hljs-number >1000000</span>);
+% Open the serial port as a file descriptor - then treat it as a
+% file-access
+fopen(mcuCom)
+% If the device was sending prior to connection, we want to throw away old
+% buffered data and grab the latest only. So we flush
+flushinput(mcuCom)
+
+% Send a stream of characters to the microcontroller 
+a = <span class=hljs-number >0</span>:<span class=hljs-number >50</span>;
+<span class=hljs-keyword >for</span> k = <span class=hljs-number >1</span>:length(a)
+   % By default, fwrite sends ASCII characters, but we can specify specific
+   % data types
+   fwrite(mcuCom,a(k), <span class=hljs-string >&quot;uint8&quot;</span>);
+   pause(<span class=hljs-number >0.01</span>);
+   % Grab back the echoed number 
+   readline = fgetl(mcuCom);
+   
+   disp(readline);
+<span class=hljs-keyword >end</span>
+ 
+% Close the port properly at the <span class=hljs-keyword >end</span> 
+fclose(mcuCom);
+delete(mcuCom);</code></pre> <p>When you execute the MATLAB script <code>Prelab5ClientE3.m</code>, the MATLAB script will send the number 1 to 50 and the MCU will echo them back and MATLAB will display the echoed numbers. Note the baud rate set in the microcontroller code and match the baud rate with the MATLAB script.</p> <p>MATLAB has built-in support for serial communication. You can supply it the COM port on which the MCU is connected and specify the baud rate. It will return an object you can treat as a file object. </p> <pre><code class="julia hljs">mcuCom = serial(&#x27;COM6<span class=hljs-string >&#x27;,&#x27;</span>BaudRate&#x27;,<span class=hljs-number >1000000</span>);</code></pre>
+<p>You can open, flush, write characters and lines to it and get characters and lines from it. You can also close the communication and delete the object so that you can re-instantiate it. </p>
+<h2 id=example_4 ><a href="#example_4" class=header-anchor >Example 4: </a></h2>
+<p>In this example, we will use a message serialization protocol to exchange data between to devices &#40;PC-MCU&#41;. There are number of serialization protocols available, but we will use JSON, which stands for JavaScript Object Notation. A serialization protocol allows for a better structured data formatting.</p>
+<p>So, instead of making up your own set of sequenced and separated characters and then parsing them on the other end. Which might be sufficient for a few commands, it soon becomes tedious to manage once the messages become varied and complex. A serialization protocol can help manage this issue. Serialization also helps in passing messages between programs of different languages, since the serialization protocol can be language agnostic.</p>
+<p>MATLAB supports <strong>JSON</strong> from version <strong>2016b</strong> and <strong>above</strong>. On the Arduino side, you need to download the ArduinoJSON library. This can be done through the PlatformIO plugin home page in VSCode, or you can specify the library dependency in the <code>platform.ini</code> file directly as such</p>
+<pre><code class="ini hljs"><span class=hljs-section >[env:nucleo_f401re]</span>
+<span class=hljs-attr >platform</span> = ststm32
+<span class=hljs-attr >board</span> = nucleo_f401re
+<span class=hljs-attr >framework</span> = ardui<span class=hljs-literal >no</span>
+<span class=hljs-attr >src_filter</span> = -&lt;main*.cpp&gt; +&lt;mainE4.cpp&gt;
+<span class=hljs-attr >monitor_speed</span> = <span class=hljs-number >1000000</span> <span class=hljs-comment >; Default value is 9600</span>
+<span class=hljs-attr >lib_deps</span> = bblanchon/ArduinoJson @ ^<span class=hljs-number >6.17</span>.<span class=hljs-number >3</span> <span class=hljs-comment >; Specifying versions can be handy in maintaining compatibility of projects</span></code></pre>
+<p>Once installed, you only need to include the header <code>&lt;ArduinoJson.h&gt;</code> as is done in <code>mainE4.cpp</code></p>
+<pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;ArduinoJson.h&gt;</span> <span class=hljs-comment >/* Add JSON Support */</span> </span>
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+  <span class=hljs-comment >// Initialize Serial port</span>
+  Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >250000</span>);
+  <span class=hljs-keyword >while</span> (!Serial) <span class=hljs-keyword >continue</span>;
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+  <span class=hljs-keyword >static</span> <span class=hljs-keyword >int</span> counter = <span class=hljs-number >0</span>;
+  StaticJsonDocument&lt;<span class=hljs-number >200</span>&gt; doc;  
+  <span class=hljs-comment >// Add values in the document</span>
+  doc[<span class=hljs-string >&quot;sensor&quot;</span>] = <span class=hljs-string >&quot;MagicSensor&quot;</span>;
+  doc[<span class=hljs-string >&quot;time&quot;</span>] = <span class=hljs-built_in >millis</span>();
+  <span class=hljs-comment >// Add an array.</span>
+  JsonArray data = doc.<span class=hljs-built_in >createNestedArray</span>(<span class=hljs-string >&quot;data&quot;</span>);
+  data.<span class=hljs-built_in >add</span>(<span class=hljs-built_in >cos</span>(counter*<span class=hljs-number >2</span>*PI / <span class=hljs-number >600</span> ));
+  data.<span class=hljs-built_in >add</span>(<span class=hljs-built_in >sin</span>(counter*<span class=hljs-number >2</span>*PI / <span class=hljs-number >600</span> )); <span class=hljs-comment >/* Basic Sinusoidal Function */</span>
+  counter++;
+  <span class=hljs-comment >// Generate the minified JSON and send it to the Serial port.</span>
+  <span class=hljs-built_in >serializeJson</span>(doc, Serial);
+
+  <span class=hljs-comment >/* At the end, we send a new line character to denote line termination */</span>
+  Serial.<span class=hljs-built_in >println</span>();
+  <span class=hljs-built_in >delay</span>(<span class=hljs-number >50</span>);
+
+}</code></pre>
+<p>The way JSON works is by structuring the message in a specific format. In our example We want to create a json &quot;struct&quot; object that looks like this</p>
+<pre><code class="plaintext hljs">JSONdata = {
+String sensor
+Int time
+float data\[2\]
+}</code></pre>
+<p>Such that on the receiving side, if we want to access the member sensor we would address JSONmessage.sensor, or to access the data we would address JSONmessage.data&#40;1&#41;, JSONmessage.data&#40;2&#41;. Note that indexing is language dependent.</p>
+<p>The JSON object, in our specific example, would create a character array that looks exactly like this:</p>
+<pre><code class="plaintext hljs">{\&quot;sensor\&quot;:\&quot;MagicSensor\&quot;,\&quot;time\&quot;:475100,\&quot;data\&quot;:\[0.518027,-0.855364\]}</code></pre>
+<p>Which is also human-readable before it is parsed. Other serialization protocols may convert the message into a series of unreadable characters.</p>
+<p>Once you flash <code>mainE4.cpp</code> into the microcontroller, run the <a href="/me319/prelabs/pl5assets/Prelab5ClientE4.m">Prelab5ClientE4.m</a> MATLAB script and you should see a plot animation of two sinusoidal functions. Remember to match the baud rates between the microcontroller and MATLAB script.</p>
+<blockquote>
+<p>Make sure to check that the COM port is correct. And the baud rates match on both the PC and MCU side. Make sure that no other serial terminal is connected to the MCU before connecting through MATLAB. </p>
+</blockquote>
+<div class=page-foot >
+  <div class=copyright >
+    &copy; Ali AlSaibie, PhD. Last modified: May 05, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
+  </div>
+</div>
+</div>
+    </div>
