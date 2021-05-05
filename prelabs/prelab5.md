@@ -94,7 +94,7 @@ String Stream::readStringUntil(char terminator)
 }
 ```
 
-## Example 2: Serial methods
+## Example 2: Serial Methods
 
 In example 2, a few different methods for printing data through the Arduino Serial library are given. Note that the baud rate set in this example is 1Mbps, so you will need to change the monitor_speed to 1000000 before opening it.
 ```cpp
@@ -128,7 +128,7 @@ void loop() {
 }
 ```
 
-## Example 3 Interfacing with a program on the PC
+## Example 3: Interfacing with a program on the PC
 In this and the following example, we will not use the serial monitor inside VSCode, instead, we will use MATLAB to interface with the microcontroller.
 
 ```cpp
@@ -154,7 +154,7 @@ You will use a [MATLAB script: Prelab5Client.m](/prelabs/pl5assets/Prelab5Client
 
 
 `Prelab5ClientE3.m`
-```
+``` 
 %% Clear Open Ports - Might Crash Other Serial Devices
 % When you open a COM port, you need to close it properly.
 % When we terminate a script we often don't close the port
@@ -258,7 +258,7 @@ The way JSON works is by structuring the message in a specific format. In our ex
 JSONdata = {
 String sensor
 Int time
-float data\[2\]
+float data[2]
 }
 ```
 
