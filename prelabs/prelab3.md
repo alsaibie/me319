@@ -15,7 +15,7 @@ Create a new project. Name it Prelab3, select the ST Nucleo F401RE board and the
 
 Add the `src_filter` instruction in the platform.ini file as shown. Note that we will technically be programming in **C**, not **C++**. Hence the \*.c extension
 
-```
+```ini
 [env:nucleo_f401re]
 platform = ststm32
 board = nucleo_f401re

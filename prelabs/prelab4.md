@@ -16,7 +16,7 @@ In this prelab, we will become familiar with utilizing the timers on the microco
 Create a PlatformIO project for Nucleo STM32F401RE with the Arduino framework. Name it Prelab4, preferably.
 
 Remember to add the `src_filter` instruction in the platform.ini file as shown.
-```
+```ini
 [env:nucleo_f401re]
 platform = ststm32
 board = nucleo_f401re

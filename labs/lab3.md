@@ -24,14 +24,14 @@ Before attempting this assignment, make sure you go through the Prelab 3 documen
 For this assignment, it is suggested that you create a single project with multiple main*.cpp files, inside the src folder, for each question below.
 You only need to submit the (`mainQ1.c`, `mainQ2.c`, etc) files for this assignment.
 
-To have one project with multiple source files, where you only compile one at a time, you need to configure platformio.ini to only compile the file you want. Replace the content of the platformio.ini with this, then change mainQ1.cpp to the file name you wish to compile. The last line (src_filter) basically tells the platformio configurator to remove all main*.cpp from the compile list, then add only the specific mainQ1.cpp file. If we don’t add this filter line, all the files inside the folder src will be compiled.
+To have one project with multiple source files, where you only compile one at a time, you need to configure platformio.ini to only compile the file you want. Replace the content of the platformio.ini with this, then change mainQ1.cpp to the file name you wish to compile. The last line (src_filter) basically tells the platformio configurator to remove all main*.cpp from the compile list, then add only the specific mainQ1.c file. If we don’t add this filter line, all the files inside the folder src will be compiled.
 
-```
+```ini
 [env:nucleo_f401re]
 platform = ststm32
 board = nucleo_f401re
-framework = arduino
-src_filter = -<main*.cpp> +<mainQ1.cpp>
+framework = stm32cube ; Note we are using stm32cube here, not arduino
+src_filter = -<main*.c> +<mainQ1.c>
 ```
 
 ## Questions

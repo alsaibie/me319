@@ -23,7 +23,7 @@ You only need to submit the (`mainQ1.cpp`, `mainQ2.cpp`, etc) files for this ass
 
 To have one project with multiple source files, where you only compile one at a time, you need to configure platformio.ini to only compile the file you want. Replace the content of the platformio.ini with this, then change mainQ1.cpp to the file name you wish to compile. The last line (`src_filter`) basically tells the platformio configurator to remove all `main*.cpp` from the compile list, then add only the specific `mainQ1.cpp` file. If we don’t add this filter line, all the files inside the folder src will be compiled.
 
-```
+```ini
 [env:nucleo_f401re]
 platform = ststm32
 board = nucleo_f401re

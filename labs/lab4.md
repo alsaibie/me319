@@ -12,7 +12,6 @@ Before attempting this assignment, make sure you go through the [Prelab 4](/prel
 - VSCode with PlatformIO Extension
 - STM32 Nucleo F401RE Board 
 - USB Type A to USB Mini-B Connector
-- Jumper Wire
 
 ## References
 1. [REF03 STM32 Nucleo-64 boards User Manual](/assets/reference_docs/REF03_STM32_Nucleo-64_boards_User_Manual.pdf)
@@ -28,7 +27,7 @@ For this assignment, it is suggested that you create a single project with multi
 You only need to submit the (`mainQ1.cpp`, `mainQ2.cpp`, etc) files for this assignment.
 
 To have one project with multiple source files, where you only compile one at a time, you need to configure platformio.ini to only compile the file you want. Replace the content of the platformio.ini with this, then change mainQ1.cpp to the file name you wish to compile. The last line (src_filter) basically tells the platformio configurator to remove all `main*.cpp` from the compile list, then add only the specific mainQ1.cpp file. If we don't add this filter line, all the files inside the folder `src` will be compiled.
-```cpp
+```ini
 [env:nucleo_f401re]
 platform = ststm32
 board = nucleo_f401re
