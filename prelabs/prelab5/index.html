@@ -54,7 +54,7 @@
     c = <span class=hljs-built_in >timedRead</span>();
   }
   <span class=hljs-keyword >return</span> ret;
-}</code></pre> <h2 id=example_2_serial_methods ><a href="#example_2_serial_methods" class=header-anchor >Example 2: Serial methods</a></h2> <p>In example 2, a few different methods for printing data through the Arduino Serial library are given. Note that the baud rate set in this example is 1Mbps, so you will need to change the monitor_speed to 1000000 before opening it.</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+}</code></pre> <h2 id=example_2_serial_methods ><a href="#example_2_serial_methods" class=header-anchor >Example 2: Serial Methods</a></h2> <p>In example 2, a few different methods for printing data through the Arduino Serial library are given. Note that the baud rate set in this example is 1Mbps, so you will need to change the monitor_speed to 1000000 before opening it.</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
 
 <span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
     Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >1E6</span>);  <span class=hljs-comment >// opens serial port, sets data rate to 1Mbps</span>
@@ -81,7 +81,7 @@
     Serial.<span class=hljs-built_in >println</span>((String) <span class=hljs-string >&quot;Line: &quot;</span> + <span class=hljs-number >5.0f</span>);
     
     <span class=hljs-built_in >delay</span>(<span class=hljs-number >1000</span>);
-}</code></pre> <h2 id=example_3_interfacing_with_a_program_on_the_pc ><a href="#example_3_interfacing_with_a_program_on_the_pc" class=header-anchor >Example 3 Interfacing with a program on the PC</a></h2> <p>In this and the following example, we will not use the serial monitor inside VSCode, instead, we will use MATLAB to interface with the microcontroller.</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+}</code></pre> <h2 id=example_3_interfacing_with_a_program_on_the_pc ><a href="#example_3_interfacing_with_a_program_on_the_pc" class=header-anchor >Example 3: Interfacing with a program on the PC</a></h2> <p>In this and the following example, we will not use the serial monitor inside VSCode, instead, we will use MATLAB to interface with the microcontroller.</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
 
 <span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
     Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >1E6</span>);  <span class=hljs-comment >// opens serial port, sets data rate to 1Mbps</span>
@@ -178,7 +178,7 @@ delete(mcuCom);</code></pre> <p>When you execute the MATLAB script <code>Prelab5
 <pre><code class="plaintext hljs">JSONdata = {
 String sensor
 Int time
-float data\[2\]
+float data[2]
 }</code></pre>
 <p>Such that on the receiving side, if we want to access the member sensor we would address JSONmessage.sensor, or to access the data we would address JSONmessage.data&#40;1&#41;, JSONmessage.data&#40;2&#41;. Note that indexing is language dependent.</p>
 <p>The JSON object, in our specific example, would create a character array that looks exactly like this:</p>
