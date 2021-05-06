@@ -1,7 +1,7 @@
 @def title = "Part I L6 - Timers"
 @def hascode = true
 
-# Timers
+# Part I L6 - Timers
 
 ## Lecture Video
 Part A

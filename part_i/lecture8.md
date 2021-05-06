@@ -1,7 +1,7 @@
 @def title = "Part I L7 - Communication"
 @def hascode = true
 
-# Communication
+# Part I L7 Communication
 ## Lecture Video
 Part A
 ~~~

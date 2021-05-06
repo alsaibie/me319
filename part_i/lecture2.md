@@ -1,7 +1,7 @@
 @def title = "Part I L2 - Digital Arithmetic"
 @def hascode = true
 
-# Digital Arithmetic
+# Part I L2 - Digital Arithmetic
 ## Introduction
 
 ## Lecture Video

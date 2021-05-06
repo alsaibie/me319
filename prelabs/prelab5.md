@@ -5,6 +5,10 @@
 
 **Please review Part I Lecture 8 Communication before attempting this prelab.**
 
+~~~
+<iframe src="https://player.vimeo.com/video/545910487" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+~~~
+
 In this prelab, we will become familiar with using the serial communication functionalities through the Arduino API and then learn how to interface between the PC and MCU by running a MATLAB script that connects to our microcontroller through serial communication. 
 
 We will also introduce a method for serializing data across devices. Specifically, we will use the JSON serialization which is widely supported across many programming languages. 

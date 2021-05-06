@@ -1,7 +1,7 @@
 @def title = "Part I L3 - Digital Logic"
 @def hascode = true
 
-# Digital Logic
+# Part I L3 - Digital Logic
 ## Introduction
 ## Lecture Video
 ~~~

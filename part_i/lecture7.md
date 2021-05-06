@@ -1,7 +1,7 @@
 @def title = "Part I L6 - Interrupts"
 @def hascode = true
 
-# Interrupts
+# Part I L6 - Interrupts
 ## Lecture Video
 Part A
 ~~~

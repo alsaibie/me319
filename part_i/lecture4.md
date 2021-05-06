@@ -1,7 +1,7 @@
 @def title = "Part I L4 - Microcontroller Peripherals"
 @def hascode = true
 
-# Microcontroller Peripherals
+# Part I L4 - Microcontroller Peripherals
 
 ## Lecture Video
 ~~~
