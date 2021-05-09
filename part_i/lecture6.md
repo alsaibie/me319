@@ -16,7 +16,7 @@ Part B
 ~~~
 
 
-[Lecture Handout](/part_i\/ME319_-_Mechatronics_-_Part_I_Lecture_6_Timers.pdf)
+[Lecture Handout](/part_i/ME319_-_Mechatronics_-_Part_I_Lecture_6_Timers.pdf)
 
 Next: [Part I L7 - Interrupts](../lecture7/)  
 
