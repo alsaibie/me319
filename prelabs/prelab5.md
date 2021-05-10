@@ -158,7 +158,7 @@ You will use a [MATLAB script: Prelab5Client.m](/prelabs/pl5assets/Prelab5Client
 
 
 `Prelab5ClientE3.m`
-``` 
+```matlab
 %% Clear Open Ports - Might Crash Other Serial Devices
 % When you open a COM port, you need to close it properly.
 % When we terminate a script we often don't close the port
