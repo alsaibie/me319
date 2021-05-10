@@ -50,7 +50,6 @@ $GPS,time,lat,lon,speed
 
 \input{plaintext}{/labs/l5assets/L5Script.m}
 
-
 This is similar to the format of actual GPS sensor messages, but the units, length of message and additional info are different.
 
 The job of the microcontroller is to parse the GPS message and save the parsed values into a local message struct. Then use JSON to serialize the message struct and send it back to the PC.
