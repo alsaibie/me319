@@ -5,7 +5,7 @@
 <span class=hljs-attr >src_filter</span> = -&lt;main*.cpp&gt; +&lt;mainQ1.cpp&gt;
 <span class=hljs-attr >monitor_speed</span> = <span class=hljs-number >250000</span> 
 <span class=hljs-attr >lib_deps</span> = bblanchon/ArduinoJson @ ^<span class=hljs-number >6.17</span>.<span class=hljs-number >3</span></code></pre> <h2 id=questions ><a href="#questions" class=header-anchor >Questions</a></h2> <h3 id=parsing_and_serializing_data_between_pc_and_mcu ><a href="#parsing_and_serializing_data_between_pc_and_mcu" class=header-anchor ><ol> <li><p>Parsing and Serializing Data between PC and MCU</p> </ol> </a></h3> <p>You are given a MATLAB Script and a code template for the microcontroller. The MATLAB scripts emulates a GPS message and sends it to the microcontroller via the serial port in the following form: </p> <pre><code class="julia hljs">$GPS,time,lat,lon,speed</code></pre>
-<pre><code class="cpp hljs">%% Clear Open Ports - Might Crash Other Serial Devices
+<pre><code class="plaintext hljs">%% Clear Open Ports - Might Crash Other Serial Devices
 clear all
 if ~isempty(instrfind)
      fclose(instrfind);
