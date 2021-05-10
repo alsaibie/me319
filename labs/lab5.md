@@ -48,7 +48,7 @@ You are given a MATLAB Script and a code template for the microcontroller. The M
 $GPS,time,lat,lon,speed
 ```
 
-\input{cpp}{/labs/l5assets/L5Script.m}
+\input{plaintext}{/labs/l5assets/L5Script.m}
 
 This is similar to the format of actual GPS sensor messages, but the units, length of message and additional info are different.
 
