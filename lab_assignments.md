@@ -30,7 +30,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 4 Assignment](/labs/lab4/index.html)   ~~~&ensp;&ensp;~~~ | Timers and Interrupts
 
-| Lab 5 Assignment  ~~~&ensp;&ensp;~~~ | Serial Communication
+| [Lab 5 Assignment](/labs/lab5/index.html)  ~~~&ensp;&ensp;~~~ | Serial Communication
 
 | Lab 6 Assignment  ~~~&ensp;&ensp;~~~ | Offline Digital Filtering
 
