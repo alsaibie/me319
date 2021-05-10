@@ -11,7 +11,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 4](/prelabs/prelab4/index.html)   ~~~&ensp;&ensp;~~~ | Timers and Interrupts
 
-| Lab 5  ~~~&ensp;&ensp;~~~ | Communication
+| [Lab 5](/prelabs/prelab5/index.html)   ~~~&ensp;&ensp;~~~ | Communication
 
 | Lab 6  ~~~&ensp;&ensp;~~~ | Offline Digital Filtering
 
@@ -28,7 +28,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 3 Assignment](/labs/lab3/index.html)  ~~~&ensp;&ensp;~~~ | Debugging and Low Level Programming
 
-| [Lab 4 Assignment](/labs/lab4/index.html)   ~~~&ensp;&ensp;~~~ | Timers and Interrupts
+| [Lab 4 Assignment](/labs/lab4/index.html)  ~~~&ensp;&ensp;~~~ | Timers and Interrupts
 
 | [Lab 5 Assignment](/labs/lab5/index.html)  ~~~&ensp;&ensp;~~~ | Serial Communication
 
