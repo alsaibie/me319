@@ -1,0 +1,147 @@
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/me319/libs/highlight/github.min.css"> <link rel=stylesheet  href="/me319/css/franklin.css"> <link rel=stylesheet  href="/me319/css/poole_hyde.css"> <link rel=stylesheet  href="/me319/css/custom.css"> <style> html {font-size: 17px;} .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;} @media (min-width: 940px) { .franklin-content {width: 100%; margin-left: auto; margin-right: auto;} } @media (max-width: 968px) { .franklin-content {padding-left: 6%; padding-right: 6%;} } </style> <link rel=icon  href="/me319/assets/c.svg"> <title>Lab 5 - Communications</title> <div class=sidebar > <div class="container sidebar-sticky"> <div class=sidebar-about > <br> <img src="/me319/assets/KuwaitUniversityLogoTextLight.svg" style="width: 200px; height: auto; display: inline"> <h1 style="font-size:2em; opacity: 0.75;"><a href="/me319/">ME 319</a></h1> <p class=lead >Mechatronics</p> </div> <script> function hidePart(part_div) { var x = document.getElementById(part_div); if (x.style.display === "none") { x.style.display = "block"; } else { x.style.display = "none"; } } </script> <nav class=sidebar-nav > <a class="sidebar-nav-item " href="/me319/">Home</a> <a class="sidebar-nav-item " href="/me319/videos/">Lecture Videos</a> <a class="sidebar-nav-item " href="https://alsaibie.github.io/embedded_ccpp">Embedded C/C++ Mini-Course</a> <a class="sidebar-nav-item " href="/me319/lab_assignments/">Lab Assignments</a> <br> <small style="text-transform: uppercase; font-size: 0.75em">Lab Lessons</small> <div class=part  onclick="hidePart('prelabs_div')">Prelabs</div> <div id=prelabs_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/prelabs/prelab2/"><b>Lab 2</b> - <em>PlatformIO and Arduino</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab3/"><b>Lab 3</b> - <em>Debugging and LL Programming</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab4/"><b>Lab 4</b> - <em>Timers and Interrupts</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab5/"><b>Lab 5</b> - <em>Serial Communication</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab6/"><b>Lab 6</b> - <em>Offline Digital Filtering</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab7/"><b>Lab 7</b> - <em>Online Digital Filtering</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab8/"><b>Lab 8</b> - <em>Motor Dynamics and Control</em></a> <a class="sidebar-nav-item " href="/me319/prelabs/prelab9/"><b>Lab 9</b> - <em>Realtime Motor Control</em></a> </div> <div class=part  onclick="hidePart('addlessons_div')">Additional Lessons</div> <div id=addlessons_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/prelabsextra/lab4extra/"> <b>L4E</b> - <em>Low Level Timers Configuration</em></a> </div> <br> <small style="text-transform: uppercase; font-size: 0.75em">Class Lectures</small> <div class=part  onclick="hidePart('part1_div')">I The Brain</div> <div id=part1_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_i/lecture0/"><b>L0</b> - <em>Introduction</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture1/"><b>L1</b> - <em>Microcontroller Architecture</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture2/"><b>L2</b> - <em>Digital Arithmetic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture3/"><b>L3</b> - <em>Digital Logic</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture4/"><b>L4</b> - <em>Microcontroller Peripherals</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture5/"><b>L5</b> - <em>GPIO</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture6/"><b>L6</b> - <em>Timers</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture7/"><b>L7</b> - <em>Interrupts</em></a> <a class="sidebar-nav-item " href="/me319/part_i/lecture8/"><b>L8</b> - <em>Communication</em></a> </div> <div class=part  onclick="hidePart('part2_div')">II The Cells</div> <div id=part2_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_ii/lecture1/"><b>L1</b> - <em>Passive Circuits</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture2/"><b>L2</b> - <em>Switching Semiconductors</em></a> <a class="sidebar-nav-item " href="/me319/part_ii/lecture3/"><b>L3</b> - <em>Operational Amplifiers</em></a> </div> <div class=part  onclick="hidePart('part3_div')">III The Senses</div> <div id=part3_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iii/lecture1/"><b>L1</b> - <em>Signal Conditioning and Filtering</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture2/"><b>L2</b> - <em>Sensor Charactersitics</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture3/"><b>L3</b> - <em>Survey of Sensors</em></a> <a class="sidebar-nav-item " href="/me319/part_iii/lecture4/"><b>L4</b> - <em>Motion Sensors</em></a> </div> <div class=part  onclick="hidePart('part4_div')">IV The Muscles</div> <div id=part4_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_iv/lecture1/"><b>L1</b> - <em>DC Motors</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture2/"><b>L2</b> - <em>Practical Feedback Control</em></a> <a class="sidebar-nav-item " href="/me319/part_iv/lecture4/"><b>L3</b> - <em>Stepper Motors</em></a> </div> <div class=part  onclick="hidePart('part5_div')">V The Body</div> <div id=part5_div  style="display:none;"> <a class="sidebar-nav-item " href="/me319/part_v/lecture1/"><b>L1</b> - <em>System Integration</em></a> </div> </nav> <p>&copy; Ali AlSaibie, PhD.</p> </div> </div> <div class="content container"> <div class=franklin-content ><h1 id=lab_4_-_timers_and_interrupts ><a href="#lab_4_-_timers_and_interrupts" class=header-anchor >Lab 4 - Timers and Interrupts</a></h1> <h2 id=overview ><a href="#overview" class=header-anchor >Overview</a></h2> <p>In this assignment you will be practicing exchanging information between the PC and microcontroller.</p> <p>Before attempting this assignment, make sure you go through the prelab 5 document first.</p> <h2 id=tools_required ><a href="#tools_required" class=header-anchor >Tools Required</a></h2> <ul> <li><p>VSCode with PlatformIO Extension</p> <li><p>MATLAB &#40;Julia or Python also OK&#41;</p> <li><p>STM32 Nucleo F401RE Board </p> <li><p>USB Type A to USB Mini-B Connector</p> </ul> <h2 id=references ><a href="#references" class=header-anchor >References</a></h2> <ol> <li><p><a href="/me319/assets/reference_docs/REF03_STM32_Nucleo-64_boards_User_Manual.pdf">REF03 STM32 Nucleo-64 boards User Manual</a></p> <li><p><a href="/me319/assets/assets/reference_docs/REF01_STM32F401RE_DATASHEET.pdf">REF01 STM32F401RE Datasheet</a></p> <li><p><a href="/me319/assets/reference_docs/REF02_STM32F401xBC_and_STM32F401xDE_Reference_Manual.pdf">REF02 STM32F401RE Reference Manual</a></p> <li><p>Lab Report Submission Guidelines</p> <li><p><a href="/me319/prelabs/prelab5/">ME319 Prelab 5</a></p> </ol> <h2 id=project_creation_submission ><a href="#project_creation_submission" class=header-anchor >Project Creation &amp; Submission</a></h2> <p>For this assignment, it is suggested that you create a single project with multiple <code>main*.cpp</code> files, inside the <strong>src</strong> folder, for each question below.</p> <p>You only need to submit the &#40;<code>mainQ1.cpp</code>, <code>mainQ2.cpp</code>, etc&#41; files for this assignment. As well as the your PC client scripts &#40;<code>ScriptQ1.m</code>, <code>ScriptQ2.m</code>&#41;</p> <p>To have one project with multiple source files, where you only compile one at a ime, you need to configure <code>platformio.ini</code> to only compile the file you want. Replace the content of the <code>platformio.ini</code> with this, then change <code>mainQ1.cpp</code> to the file name you wish to compile. The last line &#40;src_filter&#41; basically tells the platformio configurator to remove all <code>main*.cpp</code> from the compile list, then add only the specific mainQ1.cpp file. If we don&#39;t add this filter line, all the files inside the folder <strong>src</strong> will be compiled.</p> <pre><code class="ini hljs"><span class=hljs-section >[env:nucleo_f401re]</span>
+<span class=hljs-attr >platform</span> = ststm32
+<span class=hljs-attr >board</span> = nucleo_f401re
+<span class=hljs-attr >framework</span> = ardui<span class=hljs-literal >no</span>
+<span class=hljs-attr >src_filter</span> = -&lt;main*.cpp&gt; +&lt;mainQ1.cpp&gt;
+<span class=hljs-attr >monitor_speed</span> = <span class=hljs-number >250000</span> 
+<span class=hljs-attr >lib_deps</span> = bblanchon/ArduinoJson @ ^<span class=hljs-number >6.17</span>.<span class=hljs-number >3</span></code></pre> <h2 id=questions ><a href="#questions" class=header-anchor >Questions</a></h2> <h3 id=parsing_and_serializing_data_between_pc_and_mcu ><a href="#parsing_and_serializing_data_between_pc_and_mcu" class=header-anchor ><ol> <li><p>Parsing and Serializing Data between PC and MCU</p> </ol> </a></h3> <p>You are given a MATLAB Script and a code template for the microcontroller. The MATLAB scripts emulates a GPS message and sends it to the microcontroller via the serial port in the following form: </p> <pre><code class="julia hljs">$GPS,time,lat,lon,speed</code></pre>
+<pre><code class="plaintext hljs">%% Clear Open Ports - Might Crash Other Serial Devices
+clear all
+if ~isempty(instrfind)
+     fclose(instrfind);
+     delete(instrfind);
+end
+
+%%
+
+% Motion Dynamics
+dxdt = @(x)[x(3); x(4);  1*randn(1); 1*randn(1)];   
+dt = 0.1;
+time = 0; x = zeros(4,1);
+
+% Create Serial Object
+mcuCom = serial(&#x27;COM6&#x27;,&#x27;BaudRate&#x27;,250000);
+fopen(mcuCom);
+counter = 0;
+
+% Animated Line Plot
+h1 = animatedline(&#x27;LineWidth&#x27;, 2, &#x27;color&#x27;, &#x27;red&#x27;, &#x27;LineStyle&#x27;, &#x27;:&#x27;,...
+    &#x27;MaximumNumPoints&#x27;,600);
+hold on
+% h2 = animatedline(&#x27;LineWidth&#x27;, 2, &#x27;color&#x27;, &#x27;blue&#x27;, &#x27;LineStyle&#x27;, &#x27;:&#x27;,...
+%     &#x27;MaximumNumPoints&#x27;,600);
+axis([0,400,-1,1]); grid on;
+% xlabel(&#x27;Time(s)&#x27;)
+setylabel = false;
+
+% Flush First Line
+flushinput(mcuCom)
+
+while(1)
+ if(~ishghandle(h1))
+     delete(h2);
+    break;
+ end
+ 
+ % Simulate Motion and GPS Data
+ xdot = dxdt(x);
+ x = x + xdot * dt;
+ time = time + dt; 
+ msg = &quot;$GPS,&quot; + time + &quot;,&quot; + x(1) + &quot;,&quot; + x(2) + &quot;,&quot; + norm(x(3:4));
+ % Forward GPS Message to MCU
+ fwrite(mcuCom, msg);
+ fprintf(mcuCom, &#x27;&#x27;); % For including a return line character 
+ 
+ % Read Incoming Data and Print 
+ if (get(mcuCom, &#x27;BytesAvailable&#x27;) &gt; 0)
+     readline = fgetl(mcuCom);
+     dataJSON = jsondecode(readline);     
+     addpoints(h1,dataJSON.latlon(1),dataJSON.latlon(2));
+     
+     drawnow limitrate; % Faster animation 
+     % Moving Axes [xmin xmax ymin ymax]
+     axis([dataJSON.latlon(1)-50 dataJSON.latlon(1)+50 ...
+         dataJSON.latlon(2)-50 dataJSON.latlon(2)+50]) 
+     
+     if(~setylabel)
+%      ylabel(dataJSON.sensor);
+     setylabel = true;
+     end
+ end
+ pause(dt);
+end
+
+% We don&#x27;t reach here...
+fclose(mcuCom);
+delete(mcuCom);</code></pre>
+<p>This is similar to the format of actual GPS sensor messages, but the units, length of message and additional info are different.</p>
+<p>The job of the microcontroller is to parse the GPS message and save the parsed values into a local message struct. Then use JSON to serialize the message struct and send it back to the PC.</p>
+<p>The MATLAB script will receive and decode the JSON messages from the microcontroller and then update an animated plot of a GPS position.</p>
+<p>
+<center><img src="/me319/labs/l5assets/LAB5CommsMessageProcess.svg" style="max-width:720px"></center> </p>
+<p>The MATLAB script is complete. Your task is to complete two parts in the microcontroller code:</p>
+<ol>
+<li><p>Parse the GPS message received and save into the message struct.</p>
+<ul>
+<li><p>The parsing is partially done for you, complete it. Look up the standard library functions <code>strtok&#40;&#41;</code>, and <code>atof&#40;&#41;</code> to understand how to parse a message.</p>
+
+</ul>
+
+<li><p>Serialize the GPS message struct into a JSON object and send it back to the PC.</p>
+<ul>
+<li><p>The prelab examples should be sufficient. Check the MATLAB script to confirm the order and format required for the message.</p>
+
+</ul>
+
+</ol>
+<pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+<span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;ArduinoJson.h&gt;</span></span>
+
+<span class=hljs-class ><span class=hljs-keyword >struct</span> <span class=hljs-title >gps_message_t</span> {</span>
+    String message_ID;
+    <span class=hljs-keyword >float</span> time;
+    <span class=hljs-keyword >float</span> lat;
+    <span class=hljs-keyword >float</span> lon;
+    <span class=hljs-keyword >float</span> speed;
+}gps_message;
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+    Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >250000</span>);  <span class=hljs-comment >// opens serial port, sets data rate to 250kbps</span>
+}
+
+<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+    StaticJsonDocument&lt;<span class=hljs-number >200</span>&gt; doc;  
+    <span class=hljs-keyword >if</span> (Serial.<span class=hljs-built_in >available</span>() &gt; <span class=hljs-number >0</span>) {
+        <span class=hljs-comment >// read the incoming number:</span>
+        <span class=hljs-keyword >char</span> buffer[<span class=hljs-number >200</span>];
+        Serial.<span class=hljs-built_in >readBytesUntil</span>(<span class=hljs-string >&#x27;\n&#x27;</span>, buffer, <span class=hljs-number >200</span>);
+
+        <span class=hljs-comment >/* TBC: Parse received message into gps_message struct */</span>
+        <span class=hljs-keyword >char</span> *pch;
+        pch = <span class=hljs-built_in >strtok</span>(buffer,<span class=hljs-string >&quot;,&quot;</span>);
+        gps_message.message_ID = (String) (pch+<span class=hljs-number >1</span>); 
+        pch = <span class=hljs-built_in >strtok</span>(<span class=hljs-literal >NULL</span>,<span class=hljs-string >&quot;,&quot;</span>);
+        gps_message.time = <span class=hljs-built_in >atof</span>(pch);
+
+
+        <span class=hljs-comment >/* - - - - - - - - */</span>
+
+        <span class=hljs-comment >/* TBC: Serialize gps_message into JSON */</span>
+
+
+
+        <span class=hljs-comment >/* - - - - - - - - */</span>
+        
+        <span class=hljs-built_in >serializeJson</span>(doc, Serial);
+        <span class=hljs-comment >/* At the end, we send a new line character to denote line termination */</span>
+        Serial.<span class=hljs-built_in >println</span>();
+ 
+    }
+}</code></pre>
+<div class=page-foot >
+  <div class=copyright >
+    &copy; Ali AlSaibie, PhD. Last modified: May 10, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
+  </div>
+</div>
+</div>
+    </div>
