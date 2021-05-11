@@ -10,7 +10,7 @@ Part A
 
 Part B
 ~~~
-<iframe src="https://player.vimeo.com/video/547965310" width="780" height="438" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/548103126" width="780" height="438" frameborder="0" allowfullscreen></iframe>
 ~~~
 
 [Lecture Handout](/part_ii/ME319_-_Mechatronics_-_Part_II_Lecture_1_Passive_Circuit_Components.pdf)
