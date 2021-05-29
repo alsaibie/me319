@@ -2,7 +2,6 @@ using DSP
 using FFTW 
  # Only use to plot FFT
 
-
 F  = fft(NoisyData) |> fftshift
 freqs = DSP.fftfreq(length(t), 1.0/T) |> fftshift
 p = plot(freqs, abs.(F), title = "Spectrum", lw=3, xlim=(0, +250), xlabel="Frequency", ylabel="Amplitude", label="FFT") 

@@ -1,7 +1,5 @@
 @def title = "Prelab 6"
 @def hascode = true
-
-
 # Prelab 6: Offline Digital Filtering
 
 In this prelab we will review the process of analyzing a noisy signal, designing digital filters and implementing them as difference equations.
