@@ -13,7 +13,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 5](/prelabs/prelab5/index.html)   ~~~&ensp;&ensp;~~~ | Communication
 
-| Lab 6  ~~~&ensp;&ensp;~~~ | Offline Digital Filtering
+| [Lab 6](/prelabs/prelab6/index.html)  ~~~&ensp;&ensp;~~~ | Offline Digital Filtering
 
 | Lab 7  ~~~&ensp;&ensp;~~~ | Online Digital Filtering
 
@@ -32,7 +32,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 5 Assignment](/labs/lab5/index.html)  ~~~&ensp;&ensp;~~~ | Serial Communication
 
-| Lab 6 Assignment  ~~~&ensp;&ensp;~~~ | Offline Digital Filtering
+| [Lab 6 Assignment](/labs/lab6/index.html)  ~~~&ensp;&ensp;~~~ | Offline Digital Filtering
 
 | Lab 7 Assignment  ~~~&ensp;&ensp;~~~ | Online Digital Filtering
 
