@@ -278,7 +278,7 @@ Which is also human-readable before it is parsed. Other serialization protocols 
 
 Once you flash `mainE4.cpp` into the microcontroller, run the [Prelab5ClientE4.m](/prelabs/pl5assets/Prelab5ClientE4.m) MATLAB script and you should see a plot animation of two sinusoidal functions. Remember to match the baud rates between the microcontroller and MATLAB script. 
 
-\input{plaintext}{/prelabs/pl5assets/Prelab5ClientE4.m}
+\input{matlab}{/prelabs/pl5assets/Prelab5ClientE4.m}
 
 > Make sure to check that the COM port is correct. And the baud rates match on both the PC and MCU side. Make sure that no other serial terminal is connected to the MCU before connecting through MATLAB. 
 

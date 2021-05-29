@@ -1,0 +1,60 @@
+
+Hz =
+ 
+  0.004988
+  ---------
+  z - 0.995
+ 
+Sample time: 0.001 seconds
+Discrete-time transfer function.
+
+
+a =
+
+         0    0.0050
+
+
+b =
+
+    1.0000   -0.9950
+
+
+Hz =
+ 
+    0.0198
+  ----------
+  z - 0.9802
+ 
+Sample time: 0.001 seconds
+Discrete-time transfer function.
+
+
+a =
+
+         0    0.0198
+
+
+b =
+
+    1.0000   -0.9802
+
+
+Hz =
+ 
+   0.09516
+  ----------
+  z - 0.9048
+ 
+Sample time: 0.001 seconds
+Discrete-time transfer function.
+
+
+a =
+
+         0    0.0952
+
+
+b =
+
+    1.0000   -0.9048
+

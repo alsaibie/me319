@@ -63,9 +63,9 @@ html {
     line-height: 1.35em; }
 
 /* on wide screens, fix content width to a max value */
-@media (min-width: 940px) {
+@media (min-width: 1800px) {
     .franklin-content {
-        width: 905px;
+        width: 1600px;
         margin-left: auto;
         margin-right: auto; }
     }

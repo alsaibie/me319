@@ -1,7 +1,7 @@
 @def title = "Lab 5 - Communications"
 @def hascode = true
 
-# Lab 4 - Timers and Interrupts
+# Lab 5 - Communications
 
 ## Overview
 In this assignment you will be practicing exchanging information between the PC and microcontroller.

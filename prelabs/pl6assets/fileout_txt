@@ -1,0 +1,291 @@
+
+script_file =
+
+    'snippet1.m'
+
+
+filename =
+
+    'snippet1'
+
+
+filename =
+
+    'snippet1'
+
+
+filename =
+
+    'snippet1'
+
+Unrecognized function or variable 'NoisyData'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snippet2', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m', 1)" style="font-weight:bold">snippet2</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m',1,0)">line 1</a>)
+y = fft(NoisyData);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+evalin('caller', strcat(script, ';'));
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('genplain', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m', 12)" style="font-weight:bold">genplain</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m',12,0)">line 12</a>)
+run(script_file);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 4)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',4,0)">line 4</a>)
+genplain('snippet2.m', true)
+
+
+
+
+
+
+Error: <a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,21)">File: run_matlab_scripts.m Line: 7 Column: 21
+</a>Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+
+scripts[1]
+ scripts[1]
+        
+{Error: Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+} 
+Error: <a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,21)">File: run_matlab_scripts.m Line: 7 Column: 21
+</a>Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+
+scripts
+{Unrecognized function or variable 'scripts'.
+} 
+
+scripts
+{Unrecognized function or variable 'scripts'.
+} 
+Error: <a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,21)">File: run_matlab_scripts.m Line: 7 Column: 21
+</a>Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+
+
+scripts =
+
+    'snippet1.msnippet2.m'
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 66)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',66,0)">line 66</a>)
+s not found.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('genplain', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m', 12)" style="font-weight:bold">genplain</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m',12,0)">line 12</a>)
+run(script_file);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 7)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,0)">line 7</a>)
+    genplain(scripts(ix), true)
+
+scripts
+
+scripts =
+
+    'snippet1.msnippet2.m'
+
+
+scripts =
+
+  2×10 <a href="matlab:helpPopup char" style="font-weight:bold">char</a> array
+
+    'snippet1.m'
+    'snippet2.m'
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 66)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',66,0)">line 66</a>)
+s not found.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('genplain', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m', 12)" style="font-weight:bold">genplain</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m',12,0)">line 12</a>)
+run(script_file);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 7)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,0)">line 7</a>)
+    genplain(scripts(ix), true)
+
+scripts
+
+scripts =
+
+  2×10 <a href="matlab:helpPopup char" style="font-weight:bold">char</a> array
+
+    'snippet1.m'
+    'snippet2.m'
+
+scripts(1)
+
+ans =
+
+    's'
+
+scripts(2)
+
+ans =
+
+    's'
+
+scripts(3)
+
+ans =
+
+    'n'
+
+strings = {'trewer', 'twer'}
+
+strings =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'trewer'}    {'twer'}
+
+strings(1)
+
+ans =
+
+  1×1 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'trewer'}
+
+strings(2)
+
+ans =
+
+  1×1 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'twer'}
+
+
+scripts =
+
+  2×1 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'snippet1.m'}
+    {'snippet2.m'}
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fileparts', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\iofun\fileparts.m', 37)" style="font-weight:bold">fileparts</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\iofun\fileparts.m',37,0)">line 37</a>)
+Input must be a row vector of characters or string scalar.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('genplain', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m', 7)" style="font-weight:bold">genplain</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m',7,0)">line 7</a>)
+[pathstr,filename,ext] = fileparts(script_file);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 7)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,0)">line 7</a>)
+    genplain(scripts(ix), true)
+
+length(scripts)
+
+ans =
+
+     2
+
+scripts(1)
+
+ans =
+
+  1×1 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'snippet1.m'}
+
+scripts(1)[1]
+ scripts(1)[1]
+           
+{Error: Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+} 
+scripts(1,1)
+
+ans =
+
+  1×1 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'snippet1.m'}
+
+string(scripts(1))
+
+ans = 
+
+    "snippet1.m"
+
+string(scripts)
+
+ans = 
+
+  2×1 <a href="matlab:helpPopup string" style="font-weight:bold">string</a> array
+
+    "snippet1.m"
+    "snippet2.m"
+
+string(scripts)(1)
+{Error: Indexing with parentheses '()' must appear as the last operation of a valid indexing expression.
+} 
+
+scripts =
+
+  2×1 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'snippet1.m'}
+    {'snippet2.m'}
+
+Unrecognized function or variable 'NoisyData'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snippet2', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m', 1)" style="font-weight:bold">snippet2</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m',1,0)">line 1</a>)
+y = fft(NoisyData);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+evalin('caller', strcat(script, ';'));
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('genplain', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m', 12)" style="font-weight:bold">genplain</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m',12,0)">line 12</a>)
+run(script_file);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 7)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,0)">line 7</a>)
+    genplain(string(scripts(ix)), true)
+
+run('snippet1.m')
+run('snippet2.m')
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snippet2', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m', 7)" style="font-weight:bold">snippet2</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snippet2', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m', 7)" style="font-weight:bold">snippet2</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+] 
+
+scripts =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'snippet1.m'}    {'snippet2.m'}
+
+Unrecognized function or variable 'NoisyData'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snippet2', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m', 1)" style="font-weight:bold">snippet2</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m',1,0)">line 1</a>)
+y = fft(NoisyData);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+evalin('caller', strcat(script, ';'));
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('genplain', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m', 12)" style="font-weight:bold">genplain</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m',12,0)">line 12</a>)
+run(script_file);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 7)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,0)">line 7</a>)
+    genplain(string(scripts(ix)), true)
+
+
+scripts =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'snippet1.m'}    {'snippet2.m'}
+
+Error: <a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet1.m',14,18)">File: snippet1.m Line: 14 Column: 18
+</a>Incorrect use of '=' operator. To assign a value to a variable, use '='. To compare values for equality, use '=='.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+evalin('caller', strcat(script, ';'));
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('genplain', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m', 12)" style="font-weight:bold">genplain</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\genplain.m',12,0)">line 12</a>)
+run(script_file);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 7)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',7,0)">line 7</a>)
+    genplain(string(scripts(ix)), true)
+
+Error: <a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',6,12)">File: run_matlab_scripts.m Line: 6 Column: 12
+</a>Character vector is not terminated properly.
+
+Error: <a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',6,12)">File: run_matlab_scripts.m Line: 6 Column: 12
+</a>Character vector is not terminated properly.
+
+Error: <a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',6,12)">File: run_matlab_scripts.m Line: 6 Column: 12
+</a>Character vector is not terminated properly.
+

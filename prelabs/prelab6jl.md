@@ -7,17 +7,13 @@
 In this prelab we will review the process of analyzing a noisy signal, designing digital filters and implementing them as difference equations.
 Let's first create a noisy signal by combining  sinusoidal signals of different amplitudes and frequencies, and adding random noise to it.
 
-\input{matlab}{/prelabs/pl6assets/snippet1.m}
-<!-- Output:
-\input{plaintext}{/prelabs/pl6assets/snippet1.out} -->
-\fig{/prelabs/pl6assets/snippet1}
+\input{julia}{/prelabs/pl6jlassets/snippet1.jl}
+\fig{/prelabs/pl6jlassets/snippet1}
 
 Let's decompose the signal and look at its frequency spectrum by using an FFT (Fast Fourier Transform). We want to observe the strength of the of each frequency component
 
-\input{matlab}{/prelabs/pl6assets/snippet2.m}
-<!-- Output:
-\input{plaintext}{/prelabs/pl6assets/snippet2.out} -->
-\fig{/prelabs/pl6assets/snippet2}
+\input{julia}{/prelabs/pl6jlassets/snippet2.jl}
+\fig{/prelabs/pl6jlassets/snippet2}
 
 We can see that we have three main frequency components, as expected, the other ripple is due to the random noise we added. Let's apply a first order filter first and see if we can remove the noise and higher frequency components. 
 
@@ -47,10 +43,10 @@ Bode plots are a useful tool for assessing the performance of a signal filter. T
 
 We can convert our filter parameters into transfer functions using the TransferFunction command from scipy.signal, then call the bode function from within the transfer function object.
 
-\input{matlab}{/prelabs/pl6assets/snippet3.m}
+\input{julia}{/prelabs/pl6jlassets/snippet3.jl}
 Output:
-\input{plaintext}{/prelabs/pl6assets/snippet3.out}
-\fig{/prelabs/pl6assets/snippet3}
+\input{plaintext}{/prelabs/pl6jlassets/output/snippet3.txt}
+\fig{/prelabs/pl6jlassets/snippet3}
 
 ## Butterworth Filter
 Now let's try to apply a butterworth filter instead.
@@ -71,13 +67,13 @@ $$
 y[k] = b_2 x[k] + b_1 x[k-1] + b_0 x[k-2] - a_1 y[k-1] - a_2 y[k-2]
 $$
 
-\input{matlab}{/prelabs/pl6assets/snippet4.m}
+\input{julia}{/prelabs/pl6jlassets/snippet4.jl}
 Output:
-\input{plaintext}{/prelabs/pl6assets/snippet4.out}
-\fig{/prelabs/pl6assets/snippet4}
+\input{plaintext}{/prelabs/pl6jlassets/output/snippet4.txt}
+\fig{/prelabs/pl6jlassets/snippet4}
 
 The butterworth filter doesn't improve the phase delay much. Let's try a bessel filter 
-\input{matlab}{/prelabs/pl6assets/snippet5.m}
+\input{julia}{/prelabs/pl6assets/snippet5.m}
 \fig{/prelabs/pl6assets/snippet5}
 
 
