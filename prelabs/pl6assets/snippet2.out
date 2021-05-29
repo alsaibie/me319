@@ -1,0 +1,12 @@
+[Warning: Integer operands are required for colon operator when used as index.] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snippet2', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m', 7)" style="font-weight:bold">snippet2</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 11)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',11,0)">line 11</a>)
+] 
+[Warning: Integer operands are required for colon operator when used as index.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snippet2', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m', 7)" style="font-weight:bold">snippet2</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\snippet2.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_matlab_scripts', 'C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m', 11)" style="font-weight:bold">run_matlab_scripts</a> (<a href="matlab: opentoline('C:\Users\alsai\Dropbox\11_ACADEMIC\02_TEACHING\COURSE_SITES\ME_319_Site\prelabs\pl6assets\run_matlab_scripts.m',11,0)">line 11</a>)
+] 

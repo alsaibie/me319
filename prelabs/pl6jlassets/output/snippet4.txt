@@ -1,0 +1,18 @@
+global H = Filter_to_TF(Fbutter) = TransferFunction{Continuous, ControlSystems.SisoZpk{Float64, ComplexF64}}
+                                  (1.0s + 1.0)(1.0s + 1.0)
+0.00024135904904198078-------------------------------------------------
+                      1.0s^2 - 1.9555782403150352s + 0.9565436765112031
+
+Continuous-time transfer function model
+global H = Filter_to_TF(Fbutter) = TransferFunction{Continuous, ControlSystems.SisoZpk{Float64, ComplexF64}}
+                                (1.0s + 1.0)(1.0s + 1.0)
+0.003621681514928642------------------------------------------------
+                    1.0s^2 - 1.822694925196308s + 0.8371816512560226
+
+Continuous-time transfer function model
+global H = Filter_to_TF(Fbutter) = TransferFunction{Continuous, ControlSystems.SisoZpk{Float64, ComplexF64}}
+                               (1.0s + 1.0)(1.0s + 1.0)
+0.0674552738890719--------------------------------------------------
+                  1.0s^2 - 1.1429805025399011s + 0.41280159809618877
+
+Continuous-time transfer function model

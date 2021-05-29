@@ -185,61 +185,60 @@ float data[2]
 <pre><code class="plaintext hljs">{\&quot;sensor\&quot;:\&quot;MagicSensor\&quot;,\&quot;time\&quot;:475100,\&quot;data\&quot;:\[0.518027,-0.855364\]}</code></pre>
 <p>Which is also human-readable before it is parsed. Other serialization protocols may convert the message into a series of unreadable characters.</p>
 <p>Once you flash <code>mainE4.cpp</code> into the microcontroller, run the <a href="/me319/prelabs/pl5assets/Prelab5ClientE4.m">Prelab5ClientE4.m</a> MATLAB script and you should see a plot animation of two sinusoidal functions. Remember to match the baud rates between the microcontroller and MATLAB script. </p>
-<pre><code class="plaintext hljs">%% Clear Open Ports - Might Crash Other Serial Devices
-if ~isempty(instrfind)
+<pre><code class="matlab hljs"><span class=hljs-comment >%% Clear Open Ports - Might Crash Other Serial Devices</span>
+<span class=hljs-keyword >if</span> ~<span class=hljs-built_in >isempty</span>(instrfind)
      fclose(instrfind);
      delete(instrfind);
-end
+<span class=hljs-keyword >end</span>
 
-%%
-% Create Serial Object
-mcuCom = serial(&#x27;COM6&#x27;,&#x27;BaudRate&#x27;,250000);
+<span class=hljs-comment >%%</span>
+<span class=hljs-comment >% Create Serial Object</span>
+mcuCom = serial(<span class=hljs-string >&#x27;COM6&#x27;</span>,<span class=hljs-string >&#x27;BaudRate&#x27;</span>,<span class=hljs-number >250000</span>);
 fopen(mcuCom);
-counter = 0;
+counter = <span class=hljs-number >0</span>;
 
-% Animated Line Plot
-h1 = animatedline(&#x27;LineWidth&#x27;, 2, &#x27;color&#x27;, &#x27;red&#x27;, &#x27;LineStyle&#x27;, &#x27;:&#x27;,...
-    &#x27;MaximumNumPoints&#x27;,600);
-hold on
-h2 = animatedline(&#x27;LineWidth&#x27;, 2, &#x27;color&#x27;, &#x27;blue&#x27;, &#x27;LineStyle&#x27;, &#x27;:&#x27;,...
-    &#x27;MaximumNumPoints&#x27;,600);
-axis([0,400,-1,1]); grid on;
-xlabel(&#x27;Time(s)&#x27;)
-setylabel = false;
+<span class=hljs-comment >% Animated Line Plot</span>
+h1 = animatedline(<span class=hljs-string >&#x27;LineWidth&#x27;</span>, <span class=hljs-number >2</span>, <span class=hljs-string >&#x27;color&#x27;</span>, <span class=hljs-string >&#x27;red&#x27;</span>, <span class=hljs-string >&#x27;LineStyle&#x27;</span>, <span class=hljs-string >&#x27;:&#x27;</span>,...
+    <span class=hljs-string >&#x27;MaximumNumPoints&#x27;</span>,<span class=hljs-number >600</span>);
+<span class=hljs-built_in >hold</span> on
+h2 = animatedline(<span class=hljs-string >&#x27;LineWidth&#x27;</span>, <span class=hljs-number >2</span>, <span class=hljs-string >&#x27;color&#x27;</span>, <span class=hljs-string >&#x27;blue&#x27;</span>, <span class=hljs-string >&#x27;LineStyle&#x27;</span>, <span class=hljs-string >&#x27;:&#x27;</span>,...
+    <span class=hljs-string >&#x27;MaximumNumPoints&#x27;</span>,<span class=hljs-number >600</span>);
+axis([<span class=hljs-number >0</span>,<span class=hljs-number >400</span>,<span class=hljs-number >-1</span>,<span class=hljs-number >1</span>]); grid on;
+xlabel(<span class=hljs-string >&#x27;Time(s)&#x27;</span>)
+setylabel = <span class=hljs-built_in >false</span>;
 
-% Flush First Line
+<span class=hljs-comment >% Flush First Line</span>
 flushinput(mcuCom)
 
-while(1)
- if(~ishghandle(h1))
+<span class=hljs-keyword >while</span>(<span class=hljs-number >1</span>)
+ <span class=hljs-keyword >if</span>(~ishghandle(h1))
      delete(h2);
-    break;
- end
- % Read Incoming Data and Print 
- if (get(mcuCom, &#x27;BytesAvailable&#x27;) &gt; 0)
+    <span class=hljs-keyword >break</span>;
+ <span class=hljs-keyword >end</span>
+ <span class=hljs-comment >% Read Incoming Data and Print </span>
+ <span class=hljs-keyword >if</span> (get(mcuCom, <span class=hljs-string >&#x27;BytesAvailable&#x27;</span>) &gt; <span class=hljs-number >0</span>)
      readline = fgetl(mcuCom); 
-     % readline = {&quot;sensor&quot;:&quot;MagicSensor&quot;,&quot;time&quot;:475100,&quot;data&quot;:[0.518027,-0.855364]}
-     % MATLAB has built-in json support 
+     <span class=hljs-comment >% readline = {&quot;sensor&quot;:&quot;MagicSensor&quot;,&quot;time&quot;:475100,&quot;data&quot;:[0.518027,-0.855364]}</span>
+     <span class=hljs-comment >% MATLAB has built-in json support </span>
      dataJSON = jsondecode(readline);     
-     addpoints(h1,dataJSON.time/1000,dataJSON.data(1));
-     addpoints(h2,dataJSON.time/1000,dataJSON.data(2));
+     addpoints(h1,dataJSON.time/<span class=hljs-number >1000</span>,dataJSON.data(<span class=hljs-number >1</span>));
+     addpoints(h2,dataJSON.time/<span class=hljs-number >1000</span>,dataJSON.data(<span class=hljs-number >2</span>));
      
-     drawnow limitrate; % Faster animation 
-     % Moving Axes [xmin xmax ymin ymax]
-     axis([dataJSON.time/1000-10 dataJSON.time/1000+10 -1.1 1.1]) 
+     drawnow limitrate; <span class=hljs-comment >% Faster animation </span>
+     <span class=hljs-comment >% Moving Axes [xmin xmax ymin ymax]</span>
+     axis([dataJSON.time/<span class=hljs-number >1000</span><span class=hljs-number >-10</span> dataJSON.time/<span class=hljs-number >1000</span>+<span class=hljs-number >10</span> <span class=hljs-number >-1.1</span> <span class=hljs-number >1.1</span>]) 
      
-     if(~setylabel)
+     <span class=hljs-keyword >if</span>(~setylabel)
      ylabel(dataJSON.sensor);
-     setylabel = true;
-     end
+     setylabel = <span class=hljs-built_in >true</span>;
+     <span class=hljs-keyword >end</span>
      
- end
-end
+ <span class=hljs-keyword >end</span>
+<span class=hljs-keyword >end</span>
 
-% We don&#x27;t reach here...
+<span class=hljs-comment >% We don&#x27;t reach here...</span>
 fclose(mcuCom);
-delete(mcuCom);
-</code></pre>
+delete(mcuCom);</code></pre>
 <blockquote>
 <p>Make sure to check that the COM port is correct. And the baud rates match on both the PC and MCU side. Make sure that no other serial terminal is connected to the MCU before connecting through MATLAB. </p>
 </blockquote>
@@ -321,7 +320,7 @@ gr()
 <span class=hljs-keyword >end</span></code></pre>
 <div class=page-foot >
   <div class=copyright >
-    &copy; Ali AlSaibie, PhD. Last modified: May 27, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
+    &copy; Ali AlSaibie, PhD. Last modified: May 29, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
   </div>
 </div>
 </div>
