@@ -94,30 +94,30 @@ delete(mcuCom);</code></pre>
 </ul>
 
 </ol>
-<pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
-<span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;ArduinoJson.h&gt;</span></span>
+<pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-keyword >include</span> <span class=hljs-string >&lt;Arduino.h&gt;</span></span>
+<span class=hljs-meta >#<span class=hljs-keyword >include</span> <span class=hljs-string >&lt;ArduinoJson.h&gt;</span></span>
 
-<span class=hljs-class ><span class=hljs-keyword >struct</span> <span class=hljs-title >gps_message_t</span> {</span>
+<span class=hljs-keyword >struct</span> <span class="hljs-title class_">gps_message_t</span> {
     String message_ID;
-    <span class=hljs-keyword >float</span> time;
-    <span class=hljs-keyword >float</span> lat;
-    <span class=hljs-keyword >float</span> lon;
-    <span class=hljs-keyword >float</span> speed;
+    <span class=hljs-type >float</span> time;
+    <span class=hljs-type >float</span> lat;
+    <span class=hljs-type >float</span> lon;
+    <span class=hljs-type >float</span> speed;
 }gps_message;
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
     Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >250000</span>);  <span class=hljs-comment >// opens serial port, sets data rate to 250kbps</span>
 }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
     StaticJsonDocument&lt;<span class=hljs-number >200</span>&gt; doc;  
     <span class=hljs-keyword >if</span> (Serial.<span class=hljs-built_in >available</span>() &gt; <span class=hljs-number >0</span>) {
         <span class=hljs-comment >// read the incoming number:</span>
-        <span class=hljs-keyword >char</span> buffer[<span class=hljs-number >200</span>];
+        <span class=hljs-type >char</span> buffer[<span class=hljs-number >200</span>];
         Serial.<span class=hljs-built_in >readBytesUntil</span>(<span class=hljs-string >&#x27;\n&#x27;</span>, buffer, <span class=hljs-number >200</span>);
 
         <span class=hljs-comment >/* TBC: Parse received message into gps_message struct */</span>
-        <span class=hljs-keyword >char</span> *pch;
+        <span class=hljs-type >char</span> *pch;
         pch = <span class=hljs-built_in >strtok</span>(buffer,<span class=hljs-string >&quot;,&quot;</span>);
         gps_message.message_ID = (String) (pch+<span class=hljs-number >1</span>); 
         pch = <span class=hljs-built_in >strtok</span>(<span class=hljs-literal >NULL</span>,<span class=hljs-string >&quot;,&quot;</span>);
@@ -140,7 +140,7 @@ delete(mcuCom);</code></pre>
 }</code></pre>
 <div class=page-foot >
   <div class=copyright >
-    &copy; Ali AlSaibie, PhD. Last modified: May 29, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
+    &copy; Ali AlSaibie, PhD. Last modified: May 30, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
   </div>
 </div>
 </div>

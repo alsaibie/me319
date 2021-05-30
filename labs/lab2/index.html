@@ -2,73 +2,73 @@
 <span class=hljs-attr >platform</span> = ststm32
 <span class=hljs-attr >board</span> = nucleo_f401re
 <span class=hljs-attr >framework</span> = ardui<span class=hljs-literal >no</span>
-<span class=hljs-attr >src_filter</span> = -&lt;main*.cpp&gt; +&lt;mainQ1.cpp&gt;</code></pre> <h2 id=questions ><a href="#questions" class=header-anchor >Questions</a></h2> <h3 id=basic_calculator ><a href="#basic_calculator" class=header-anchor ><ol> <li><p>Basic Calculator</p> </ol> </a></h3> <p>For this question you will complete the code for a basic calculator that performs addition, subtraction, multiplication and division. You will input the mathematical operation through the serial terminal to the microcontroller, the microcontroller will determine the type of operation, compute the result then send the result back to the PC. </p> <p>The format in which you will send the command is NumOpNum &#40;E.g.: <code>4&#43;3</code>&#41;, the code in the template already takes care of parsing the first number, the operation and the second number. Your task is to determine the type of operation requested &#40;out of the basic 4 math operations&#41;, then perform the operation and return the result through the serial terminal. Hint: Use a switch statement</p> <p>Question Template</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+<span class=hljs-attr >src_filter</span> = -&lt;main*.cpp&gt; +&lt;mainQ1.cpp&gt;</code></pre> <h2 id=questions ><a href="#questions" class=header-anchor >Questions</a></h2> <h3 id=basic_calculator ><a href="#basic_calculator" class=header-anchor ><ol> <li><p>Basic Calculator</p> </ol> </a></h3> <p>For this question you will complete the code for a basic calculator that performs addition, subtraction, multiplication and division. You will input the mathematical operation through the serial terminal to the microcontroller, the microcontroller will determine the type of operation, compute the result then send the result back to the PC. </p> <p>The format in which you will send the command is NumOpNum &#40;E.g.: <code>4&#43;3</code>&#41;, the code in the template already takes care of parsing the first number, the operation and the second number. Your task is to determine the type of operation requested &#40;out of the basic 4 math operations&#41;, then perform the operation and return the result through the serial terminal. Hint: Use a switch statement</p> <p>Question Template</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-keyword >include</span> <span class=hljs-string >&lt;Arduino.h&gt;</span></span>
 <span class=hljs-comment >/* Basic Calculator */</span>
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span>
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span>
 </span>{
   Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >9600</span>);
 }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span></span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span></span>{
 
   <span class=hljs-keyword >while</span>(Serial.<span class=hljs-built_in >available</span>() &gt; <span class=hljs-number >0</span>){
-    <span class=hljs-keyword >int</span> numA = Serial.<span class=hljs-built_in >parseInt</span>();
-    <span class=hljs-keyword >char</span> MathOp = Serial.<span class=hljs-built_in >read</span>();
-    <span class=hljs-keyword >int</span> numB = Serial.<span class=hljs-built_in >parseInt</span>();
+    <span class=hljs-type >int</span> numA = Serial.<span class=hljs-built_in >parseInt</span>();
+    <span class=hljs-type >char</span> MathOp = Serial.<span class=hljs-built_in >read</span>();
+    <span class=hljs-type >int</span> numB = Serial.<span class=hljs-built_in >parseInt</span>();
     <span class=hljs-comment >/* TBC */</span>
   }
-}</code></pre> <h3 id=ol_start2_object_oriented_programming ><a href="#ol_start2_object_oriented_programming" class=header-anchor ><ol start=2 > <li><p>Object Oriented Programming</p> </ol> </a></h3> <p>In this example you will practice building a class to represent a light switch that blinks with different patterns. This might be an overkill for the functionality of a light but the concepts can be extended to more advanced applications. </p> <p>What we have is a LightSwitch class that holds the values of the LED pin, the mode &#40;pattern mode&#41;. It also has a function to set the switch on &#40;LED on&#41; or off &#40;LED off&#41;. A function to set the mode of blinking and functions to grab the private variables as well. Review the structure of the template and complete the following tasks:</p> <ol> <li><p>Complete the definition of the class constructor. More specifically, assign the <code>_ledpin</code> value, then apply default values for the remaining class internal variables &#40;<code>_mode</code>, <code>_switch_state</code>&#41;</p> <li><p>Declare and then define functions to grab each of the internal variables &#40;<code>getMode&#40;&#41;</code>, <code>getState&#40;&#41;</code>&#41;, these functions only return the internal variables of the class object &#40;since the internal variables are private they can not be accessed directly, so we use a getter function&#41;.</p> <li><p>Apply the pattern by calling the function delay then passing the amount of delay based on the mode and pattern counter sequence, then toggle the LED by applying the <code>setSwitch&#40;&#41;</code> function. Hint: You can pass <code>setSwitch</code> the inverse of what getState&#40;&#41; gives. No bitwise XOR needed.</p> </ol> <p>To test your program, the LED on board the STM32Nucleo should blink with the first pattern. If you press the user button long enough the mode will switch, and a new pattern will be seen and so on. </p> <p>Question Template</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+}</code></pre> <h3 id=ol_start2_object_oriented_programming ><a href="#ol_start2_object_oriented_programming" class=header-anchor ><ol start=2 > <li><p>Object Oriented Programming</p> </ol> </a></h3> <p>In this example you will practice building a class to represent a light switch that blinks with different patterns. This might be an overkill for the functionality of a light but the concepts can be extended to more advanced applications. </p> <p>What we have is a LightSwitch class that holds the values of the LED pin, the mode &#40;pattern mode&#41;. It also has a function to set the switch on &#40;LED on&#41; or off &#40;LED off&#41;. A function to set the mode of blinking and functions to grab the private variables as well. Review the structure of the template and complete the following tasks:</p> <ol> <li><p>Complete the definition of the class constructor. More specifically, assign the <code>_ledpin</code> value, then apply default values for the remaining class internal variables &#40;<code>_mode</code>, <code>_switch_state</code>&#41;</p> <li><p>Declare and then define functions to grab each of the internal variables &#40;<code>getMode&#40;&#41;</code>, <code>getState&#40;&#41;</code>&#41;, these functions only return the internal variables of the class object &#40;since the internal variables are private they can not be accessed directly, so we use a getter function&#41;.</p> <li><p>Apply the pattern by calling the function delay then passing the amount of delay based on the mode and pattern counter sequence, then toggle the LED by applying the <code>setSwitch&#40;&#41;</code> function. Hint: You can pass <code>setSwitch</code> the inverse of what getState&#40;&#41; gives. No bitwise XOR needed.</p> </ol> <p>To test your program, the LED on board the STM32Nucleo should blink with the first pattern. If you press the user button long enough the mode will switch, and a new pattern will be seen and so on. </p> <p>Question Template</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-keyword >include</span> <span class=hljs-string >&lt;Arduino.h&gt;</span></span>
 
-<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> Mode1 0</span>
-<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> Mode2 1</span>
-<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> Mode3 2</span>
+<span class=hljs-meta >#<span class=hljs-keyword >define</span> Mode1 0</span>
+<span class=hljs-meta >#<span class=hljs-keyword >define</span> Mode2 1</span>
+<span class=hljs-meta >#<span class=hljs-keyword >define</span> Mode3 2</span>
 
-<span class=hljs-keyword >uint16_t</span> blink_pattern[<span class=hljs-number >3</span>][<span class=hljs-number >4</span>] = {{<span class=hljs-number >100</span>, <span class=hljs-number >400</span>, <span class=hljs-number >800</span>, <span class=hljs-number >1600</span>}, {<span class=hljs-number >200</span>, <span class=hljs-number >200</span>, <span class=hljs-number >200</span>, <span class=hljs-number >800</span>}, {<span class=hljs-number >250</span>, <span class=hljs-number >250</span>, <span class=hljs-number >250</span>, <span class=hljs-number >250</span>}};
+<span class=hljs-type >uint16_t</span> blink_pattern[<span class=hljs-number >3</span>][<span class=hljs-number >4</span>] = {{<span class=hljs-number >100</span>, <span class=hljs-number >400</span>, <span class=hljs-number >800</span>, <span class=hljs-number >1600</span>}, {<span class=hljs-number >200</span>, <span class=hljs-number >200</span>, <span class=hljs-number >200</span>, <span class=hljs-number >800</span>}, {<span class=hljs-number >250</span>, <span class=hljs-number >250</span>, <span class=hljs-number >250</span>, <span class=hljs-number >250</span>}};
 
-<span class=hljs-class ><span class=hljs-keyword >class</span> <span class=hljs-title >LightSwitch</span> {</span>
-   <span class=hljs-keyword >uint8_t</span> _ledpin;
-   <span class=hljs-keyword >uint8_t</span> _mode;
-   <span class=hljs-keyword >bool</span>  _switch_state;
+<span class=hljs-keyword >class</span> <span class="hljs-title class_">LightSwitch</span> {
+   <span class=hljs-type >uint8_t</span> _ledpin;
+   <span class=hljs-type >uint8_t</span> _mode;
+   <span class=hljs-type >bool</span>  _switch_state;
    <span class=hljs-keyword >public</span>:
-    <span class=hljs-built_in >LightSwitch</span>(<span class=hljs-keyword >uint8_t</span> pinNumber);
-    <span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setSwitch</span><span class=hljs-params >(<span class=hljs-keyword >bool</span> On)</span></span>;
-    <span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setMode</span><span class=hljs-params >(<span class=hljs-keyword >uint8_t</span> mode)</span></span>;
+    <span class=hljs-built_in >LightSwitch</span>(<span class=hljs-type >uint8_t</span> pinNumber);
+    <span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >setSwitch</span><span class=hljs-params >(<span class=hljs-type >bool</span> On)</span></span>;
+    <span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >setMode</span><span class=hljs-params >(<span class=hljs-type >uint8_t</span> mode)</span></span>;
     
     <span class=hljs-comment >/* TBC */</span>
 
 };
 
-LightSwitch::<span class=hljs-built_in >LightSwitch</span>(<span class=hljs-keyword >uint8_t</span> pinNum) { 
+LightSwitch::<span class=hljs-built_in >LightSwitch</span>(<span class=hljs-type >uint8_t</span> pinNum) { 
   <span class=hljs-comment >/* TBC */</span>
   
   <span class=hljs-built_in >pinMode</span>(_ledpin, OUTPUT);
  };
 
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >LightSwitch::setSwitch</span><span class=hljs-params >(<span class=hljs-keyword >bool</span> On)</span></span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >LightSwitch::setSwitch</span><span class=hljs-params >(<span class=hljs-type >bool</span> On)</span></span>{
   <span class=hljs-built_in >digitalWrite</span>(_ledpin, On);
   _switch_state = On;
 }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >LightSwitch::setMode</span><span class=hljs-params >(<span class=hljs-keyword >uint8_t</span> mode)</span></span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >LightSwitch::setMode</span><span class=hljs-params >(<span class=hljs-type >uint8_t</span> mode)</span></span>{
 _mode = mode;
 };
 
 
 <span class=hljs-function >LightSwitch <span class=hljs-title >Light</span><span class=hljs-params >(LED_BUILTIN)</span></span>;
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{
     Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >9600</span>);
     <span class=hljs-built_in >pinMode</span>(USER_BTN, INPUT);
 }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
 
   <span class=hljs-comment >/* change mode with long press */</span>
   <span class=hljs-built_in >delay</span>(<span class=hljs-number >100</span>);
 
-  <span class=hljs-keyword >static</span> <span class=hljs-keyword >uint16_t</span> counter = <span class=hljs-number >0</span>; <span class=hljs-comment >/* to track the button press */</span>
-  <span class=hljs-keyword >static</span> <span class=hljs-keyword >uint8_t</span> pattern_counter = <span class=hljs-number >0</span>; <span class=hljs-comment >/* to iterate over the pattern */</span>
+  <span class=hljs-keyword >static</span> <span class=hljs-type >uint16_t</span> counter = <span class=hljs-number >0</span>; <span class=hljs-comment >/* to track the button press */</span>
+  <span class=hljs-keyword >static</span> <span class=hljs-type >uint8_t</span> pattern_counter = <span class=hljs-number >0</span>; <span class=hljs-comment >/* to iterate over the pattern */</span>
 
   <span class=hljs-keyword >if</span>(!<span class=hljs-built_in >digitalRead</span>(USER_BTN)){
     counter++;
@@ -77,7 +77,7 @@ _mode = mode;
   { counter = <span class=hljs-number >0</span>; }
 
   <span class=hljs-keyword >if</span> (counter * <span class=hljs-number >400</span> &gt; <span class=hljs-number >2000</span>){ <span class=hljs-comment >/* Not the best way to check time elapsed but works in a way */</span>
-    <span class=hljs-keyword >uint8_t</span> current_mode = Light.<span class=hljs-built_in >getMode</span>();
+    <span class=hljs-type >uint8_t</span> current_mode = Light.<span class=hljs-built_in >getMode</span>();
     <span class=hljs-keyword >if</span>(current_mode == Mode3){
       Light.<span class=hljs-built_in >setMode</span>(Mode1); <span class=hljs-comment >/* Start again from Mode 1 */</span>
     }
@@ -89,41 +89,41 @@ _mode = mode;
   pattern_counter++;
   <span class=hljs-keyword >if</span> (pattern_counter == <span class=hljs-number >4</span>) pattern_counter = <span class=hljs-number >0</span>; <span class=hljs-comment >/* zero after end of pattern length */</span>
   <span class=hljs-comment >/* TBC */</span>
-}</code></pre> <h3 id=ol_start3_bitwise_operation ><a href="#ol_start3_bitwise_operation" class=header-anchor ><ol start=3 > <li><p>Bitwise Operation</p> </ol> </a></h3> <p>In this problem you will apply some bitwise operation magic to emulate patterned switching of a bank of LED. So assuming you have a bank of 8 LEDs, you will define a sweep function where the LED strip will look as if its scrolling to the left or to the right. You will define a function to toggle chosen bits and a function to clear or set bits. Then, you will combine them to create a pattern. </p> <p>You don’t have yet a strip of LEDs, so you will emulate the affect by printing 8 characters through the serial terminal where ‘|’ represents an ON LED and ‘-‘ represents an OFF LED. The printing function is already define for you. So perform the following:</p> <ul> <li><p>Define the <code>sweep_bank&#40;&#41;</code> function. It takes the current bank state of byte size &#40;representing in bits the off and on state of each of 8 LEDs&#41; and the direction of the sweep. The function, based on the direction of sweep should store the value &#40;left or right&#41;, then you can sweep by shifting the bits &#40;left or right&#41; by 1, then you bring back the last bit. Because if you didn’t save the last bit it will drop off and be lost when bit shifting.</p> <li><p>Define the <code>toggle_bank&#40;&#41;</code> function. The function takes the bank values by reference and the bitmask. This is a straightforward toggle operation. </p> <li><p>Define the <code>set_clear_bank&#40;&#41;</code> function. Based on the bool value &#40;true or false&#41; it will either clear all the bits of the bank or set all the bits of the bank.</p> <li><p>Given the above functions, create your own pattern. For example you may want to make a full sweep of the LED bank &#40;8 consecutive shifts&#41;, then blink &#40;toggle&#41; a few times and then repeat the process. Be creative. </p> </ul> <p>Question Template</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-meta-keyword >include</span> <span class=hljs-meta-string >&lt;Arduino.h&gt;</span></span>
+}</code></pre> <h3 id=ol_start3_bitwise_operation ><a href="#ol_start3_bitwise_operation" class=header-anchor ><ol start=3 > <li><p>Bitwise Operation</p> </ol> </a></h3> <p>In this problem you will apply some bitwise operation magic to emulate patterned switching of a bank of LED. So assuming you have a bank of 8 LEDs, you will define a sweep function where the LED strip will look as if its scrolling to the left or to the right. You will define a function to toggle chosen bits and a function to clear or set bits. Then, you will combine them to create a pattern. </p> <p>You don’t have yet a strip of LEDs, so you will emulate the affect by printing 8 characters through the serial terminal where ‘|’ represents an ON LED and ‘-‘ represents an OFF LED. The printing function is already define for you. So perform the following:</p> <ul> <li><p>Define the <code>sweep_bank&#40;&#41;</code> function. It takes the current bank state of byte size &#40;representing in bits the off and on state of each of 8 LEDs&#41; and the direction of the sweep. The function, based on the direction of sweep should store the value &#40;left or right&#41;, then you can sweep by shifting the bits &#40;left or right&#41; by 1, then you bring back the last bit. Because if you didn’t save the last bit it will drop off and be lost when bit shifting.</p> <li><p>Define the <code>toggle_bank&#40;&#41;</code> function. The function takes the bank values by reference and the bitmask. This is a straightforward toggle operation. </p> <li><p>Define the <code>set_clear_bank&#40;&#41;</code> function. Based on the bool value &#40;true or false&#41; it will either clear all the bits of the bank or set all the bits of the bank.</p> <li><p>Given the above functions, create your own pattern. For example you may want to make a full sweep of the LED bank &#40;8 consecutive shifts&#41;, then blink &#40;toggle&#41; a few times and then repeat the process. Be creative. </p> </ul> <p>Question Template</p> <pre><code class="cpp hljs"><span class=hljs-meta >#<span class=hljs-keyword >include</span> <span class=hljs-string >&lt;Arduino.h&gt;</span></span>
 
-<span class=hljs-keyword >uint8_t</span> LED_Bank = <span class=hljs-number >0x80</span>;
-<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> LEFT 1</span>
-<span class=hljs-meta >#<span class=hljs-meta-keyword >define</span> RIGHT 0</span>
+<span class=hljs-type >uint8_t</span> LED_Bank = <span class=hljs-number >0x80</span>;
+<span class=hljs-meta >#<span class=hljs-keyword >define</span> LEFT 1</span>
+<span class=hljs-meta >#<span class=hljs-keyword >define</span> RIGHT 0</span>
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{ Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >9600</span>); }
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >setup</span><span class=hljs-params >()</span> </span>{ Serial.<span class=hljs-built_in >begin</span>(<span class=hljs-number >9600</span>); }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >sweep_bank</span><span class=hljs-params >(<span class=hljs-keyword >uint8_t</span> &amp;bank, <span class=hljs-keyword >uint8_t</span> dir)</span> </span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >sweep_bank</span><span class=hljs-params >(<span class=hljs-type >uint8_t</span> &amp;bank, <span class=hljs-type >uint8_t</span> dir)</span> </span>{
     <span class=hljs-comment >/* TBC */</span>
 
 }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >toggle_bank</span><span class=hljs-params >(<span class=hljs-keyword >uint8_t</span> &amp;bank, <span class=hljs-keyword >uint8_t</span> bitmask)</span> </span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >toggle_bank</span><span class=hljs-params >(<span class=hljs-type >uint8_t</span> &amp;bank, <span class=hljs-type >uint8_t</span> bitmask)</span> </span>{
     <span class=hljs-comment >/* TBC */</span>
 
 }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >set_clear_bank</span><span class=hljs-params >(<span class=hljs-keyword >uint8_t</span> &amp;bank, <span class=hljs-keyword >bool</span> on)</span> </span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >set_clear_bank</span><span class=hljs-params >(<span class=hljs-type >uint8_t</span> &amp;bank, <span class=hljs-type >bool</span> on)</span> </span>{
     <span class=hljs-comment >/* TBC */</span>
 }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >print_bank</span><span class=hljs-params >(<span class=hljs-keyword >uint8_t</span> &amp;bank)</span></span>{
-    <span class=hljs-keyword >uint8_t</span> bank_characters[<span class=hljs-number >8</span>];
-    <span class=hljs-keyword >for</span> (<span class=hljs-keyword >uint8_t</span> k = <span class=hljs-number >8</span>; k &gt;<span class=hljs-number >0</span>; --k){
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >print_bank</span><span class=hljs-params >(<span class=hljs-type >uint8_t</span> &amp;bank)</span></span>{
+    <span class=hljs-type >uint8_t</span> bank_characters[<span class=hljs-number >8</span>];
+    <span class=hljs-keyword >for</span> (<span class=hljs-type >uint8_t</span> k = <span class=hljs-number >8</span>; k &gt;<span class=hljs-number >0</span>; --k){
         bank_characters[k<span class=hljs-number >-1</span>] = (bank &amp; (<span class=hljs-number >1</span>&lt;&lt;(k<span class=hljs-number >-1</span>))? <span class=hljs-string >&#x27;|&#x27;</span> : <span class=hljs-string >&#x27;-&#x27;</span>);
-        Serial.<span class=hljs-built_in >print</span>((<span class=hljs-keyword >char</span>)bank_characters[k<span class=hljs-number >-1</span>]);
+        Serial.<span class=hljs-built_in >print</span>((<span class=hljs-type >char</span>)bank_characters[k<span class=hljs-number >-1</span>]);
     }
     Serial.<span class=hljs-built_in >println</span>();
 }
 
-<span class=hljs-function ><span class=hljs-keyword >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
+<span class=hljs-function ><span class=hljs-type >void</span> <span class=hljs-title >loop</span><span class=hljs-params >()</span> </span>{
 
     <span class=hljs-built_in >delay</span>(<span class=hljs-number >1000</span>);
     <span class=hljs-built_in >print_bank</span>(LED_Bank);
     <span class=hljs-built_in >sweep_bank</span>(LED_Bank, RIGHT);
     <span class=hljs-comment >/* TBC */</span>
-}</code></pre> <div class=page-foot > <div class=copyright > &copy; Ali AlSaibie, PhD. Last modified: May 29, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div> </div> </div>
+}</code></pre> <div class=page-foot > <div class=copyright > &copy; Ali AlSaibie, PhD. Last modified: May 30, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div> </div> </div>
