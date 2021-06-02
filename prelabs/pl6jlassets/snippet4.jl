@@ -25,8 +25,8 @@ for (idx, ωc) in enumerate(ωc_list)
     ButterError[idx] = sqrt(mean((OriginalData-FilteredDataButter).^2))
     
     global psignal = plot(t, NoisyData, label="Noisy")
-    plot!(psignal, t, FilteredDataButter, label="Filtered")
-    plot!(psignal, t, OriginalData, label="Original")
+    plot!(psignal, t, FilteredDataButter, lw=3, label="Filtered")
+    plot!(psignal, t, OriginalData, lw=3, label="Original")
 
     p[idx, 1] = psignal
     p[idx, 2] = bodeplot(H, title = "\$ ω_c = $ωc rad/s\$")

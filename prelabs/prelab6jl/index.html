@@ -125,8 +125,8 @@ ButterError = zeros(length(ωc_list))
     ButterError[idx] = sqrt(mean((OriginalData-FilteredDataButter).^<span class=hljs-number >2</span>))
     
     <span class=hljs-keyword >global</span> psignal = plot(t, NoisyData, label=<span class=hljs-string >&quot;Noisy&quot;</span>)
-    plot!(psignal, t, FilteredDataButter, label=<span class=hljs-string >&quot;Filtered&quot;</span>)
-    plot!(psignal, t, OriginalData, label=<span class=hljs-string >&quot;Original&quot;</span>)
+    plot!(psignal, t, FilteredDataButter, lw=<span class=hljs-number >3</span>, label=<span class=hljs-string >&quot;Filtered&quot;</span>)
+    plot!(psignal, t, OriginalData, lw=<span class=hljs-number >3</span>, label=<span class=hljs-string >&quot;Original&quot;</span>)
 
     p[idx, <span class=hljs-number >1</span>] = psignal
     p[idx, <span class=hljs-number >2</span>] = bodeplot(H, title = <span class=hljs-string >&quot;\$ ω_c = <span class=hljs-variable >$ωc</span> rad/s\$&quot;</span>)
@@ -151,83 +151,37 @@ global H = Filter_to_TF(Fbutter) = TransferFunction{Continuous, ControlSystems.S
                   1.0s^2 - 1.1429805025399011s + 0.41280159809618877
 
 Continuous-time transfer function model
-</code></pre> <img src="/me319/prelabs/pl6jlassets/snippet4.svg" alt=""></p> <p>The butterworth filter doesn&#39;t improve the phase delay much. Let&#39;s try a bessel filter <pre><code class="julia hljs">wc = [<span class=hljs-number >5</span>, <span class=hljs-number >20</span>, <span class=hljs-number >100</span>]; %Hz
-l= length(wc);
-fig = figure();
-fig.Position = [<span class=hljs-number >573</span> <span class=hljs-number >438</span> <span class=hljs-number >1500</span> <span class=hljs-number >600</span>];
+</code></pre> <img src="/me319/prelabs/pl6jlassets/snippet4.svg" alt=""></p> <p>We can see that a cut-off frequency of 100Hz is required to maintain a decent amplitude response. A a first order low pass filter produces the best phase reponse, and worst filtering. So it is a trade-off between good filtering vs. maintaining phase response. Let&#39;s try to apply a first order low pass filter to maintain a good phase response, but then add two notch filters to attack the higher frequency visible components at f &#61; 4&#42;5Hz, 16&#42;5Hz <pre><code class="julia hljs">ωc_lp = <span class=hljs-number >75</span>; <span class=hljs-comment ># Hz</span>
+F_lp = Butter_LP(<span class=hljs-number >1</span>, ωc_lp)
 
-<span class=hljs-keyword >for</span> k=<span class=hljs-number >1</span>:l
-    [numS,denS] = besself(<span class=hljs-number >2</span>, wc(k));
-    H = tf(numS,denS);
-    Hz = c2d(H,T);
-    [num,den] = tfdata(Hz, <span class=hljs-string >&#x27;v&#x27;</span>);
-    FilteredDataBessel = filter(num, den, NoisyData);
-    BesselError(k) = immse(OriginalData,FilteredDataBessel);
-    %BLOTTING
-    subplot(<span class=hljs-number >2</span>,<span class=hljs-number >3</span>,k)
-    bode(H)
-    subplot(<span class=hljs-number >2</span>,<span class=hljs-number >3</span>,k+<span class=hljs-number >3</span>)
-    plot(t,NoisyData, &#x27;Color&#x27;, [<span class=hljs-number >.1</span> <span class=hljs-number >.2</span> <span class=hljs-number >.1</span>], &#x27;LineWidth&#x27;, <span class=hljs-number >0.5</span>); hold on;
-    plot(t,FilteredDataBessel, &#x27;LineWidth&#x27;, <span class=hljs-number >2</span>);
-    plot(t,OriginalData, &#x27;LineWidth&#x27;, <span class=hljs-number >2</span>);
-    hold off; 
-    legend( &#x27;Noisy&#x27;, &#x27;Filtered&#x27;, &#x27;Pure&#x27;);
-    xlabel(&#x27;Time&#x27;);
-<span class=hljs-keyword >end</span></code></pre> <img src="/me319/prelabs/pl6assets/snippet5.svg" alt=""></p> <p>We can see that a cut-off frequency of 100Hz is required to maintain a decent amplitude response. A a first order low pass filter produces the best phase reponse, and worst filtering. So it is a trade-off between good filtering vs. maintaining phase response. Let&#39;s try to apply a first order low pass filter to maintain a good phase response, but then add two notch filters to attack the higher frequency visible components at f &#61; 4<em>5Hz, 16</em>5Hz <pre><code class="matlab hljs">s = tf(<span class=hljs-string >&#x27;s&#x27;</span>);
-wclp = <span class=hljs-number >75</span>; <span class=hljs-comment >%Hz</span>
-fig = <span class=hljs-built_in >figure</span>();
-fig.Position = [<span class=hljs-number >573</span> <span class=hljs-number >438</span> <span class=hljs-number >1500</span> <span class=hljs-number >600</span>];
-Hlp = <span class=hljs-number >1</span> / (s/wclp + <span class=hljs-number >1</span>);
-Hzlp = c2d(Hlp,T);
-[numN1, denN1] = iirnotch(<span class=hljs-number >4</span>*f1/(<span class=hljs-number >3.15</span>*Fs), <span class=hljs-number >4</span>*f1/(<span class=hljs-number >3.15</span>*Fs)/<span class=hljs-number >35</span>);
-HzN1 = tf(numN1,denN1, T);
+F_notch_1 = iirnotch(<span class=hljs-number >4</span>*f1, <span class=hljs-number >30</span>; fs = <span class=hljs-number >1</span>/T)
+F_notch_2 = iirnotch(<span class=hljs-number >16</span>*f1, <span class=hljs-number >30</span>; fs = <span class=hljs-number >1</span>/T)
 
-[numN2, denN2] = iirnotch(<span class=hljs-number >16</span>*f1/(<span class=hljs-number >3.15</span>*Fs), <span class=hljs-number >16</span>*f1/(<span class=hljs-number >3.15</span>*Fs)/<span class=hljs-number >35</span>);
-HzN2 = tf(numN2,denN2, T);
+F_Notch = F_notch_1 * F_notch_2;
+F_lp_Notch = F_Notch * SecondOrderSections(F_lp)
 
-HzF = Hzlp * HzN1 * HzN2;
-display(HzF)</code></pre> Output: <pre><code class="plaintext hljs">
-HzF =
- 
-  0.07215 z^4 - 0.2881 z^3 + 0.4319 z^2 - 0.2881 z + 0.07215
-  ----------------------------------------------------------
-  z^5 - 4.918 z^4 + 9.68 z^3 - 9.531 z^2 + 4.694 z - 0.9251
- 
-Sample time: 0.001 seconds
-Discrete-time transfer function.
+<span class=hljs-meta >@show</span> HLP = minreal(Filter_to_TF(ZeroPoleGain(F_lp_Notch)))
 
-</code></pre></p> <pre><code class="matlab hljs">[num,den] = tfdata(HzF, <span class=hljs-string >&#x27;v&#x27;</span>);
-FilteredDataNotch = filter(num, den, NoisyData);
-LpNotchError = immse(OriginalData,FilteredDataNotch);
-subplot(<span class=hljs-number >2</span>,<span class=hljs-number >1</span>,<span class=hljs-number >1</span>)
-bode(HzF)
-subplot(<span class=hljs-number >2</span>,<span class=hljs-number >1</span>,<span class=hljs-number >2</span>)
-<span class=hljs-built_in >plot</span>(t,NoisyData, <span class=hljs-string >&#x27;Color&#x27;</span>, [<span class=hljs-number >.1</span> <span class=hljs-number >.2</span> <span class=hljs-number >.1</span>], <span class=hljs-string >&#x27;LineWidth&#x27;</span>, <span class=hljs-number >0.5</span>); <span class=hljs-built_in >hold</span> on;
-<span class=hljs-built_in >plot</span>(t,FilteredDataNotch, <span class=hljs-string >&#x27;LineWidth&#x27;</span>, <span class=hljs-number >2</span>);
-<span class=hljs-built_in >plot</span>(t,OriginalData, <span class=hljs-string >&#x27;LineWidth&#x27;</span>, <span class=hljs-number >2</span>);
-<span class=hljs-built_in >hold</span> off; 
-<span class=hljs-built_in >legend</span>(<span class=hljs-string >&#x27;Noisy&#x27;</span>, <span class=hljs-string >&#x27;Filtered&#x27;</span>, <span class=hljs-string >&#x27;Pure&#x27;</span> );
-xlabel(<span class=hljs-string >&#x27;Time&#x27;</span>);</code></pre> <img src="/me319/prelabs/pl6assets/snippet7.svg" alt=""> <p>Let&#39;s compare the root-mean-square error for each of the different methods tried. <pre><code class="matlab hljs">display(LpError)
-display(ButterError)
-display(BesselError)
-display(LpNotchError)</code></pre> Output: <pre><code class="plaintext hljs">
-LpError =
+<span class=hljs-keyword >global</span> FilteredDataLPNotch = filt(F_lp_Notch, NoisyData)
 
-    4.3461    3.1446    0.5460
+LPNotchError = sqrt(mean((OriginalData-FilteredDataLPNotch).^<span class=hljs-number >2</span>))
 
+<span class=hljs-keyword >global</span> psignal = plot(t, NoisyData, label=<span class=hljs-string >&quot;Noisy&quot;</span>)
+plot!(psignal, t, FilteredDataLPNotch, lw=<span class=hljs-number >3</span>, label=<span class=hljs-string >&quot;Filtered&quot;</span>)
+plot!(psignal, t, OriginalData, lw=<span class=hljs-number >3</span>, label=<span class=hljs-string >&quot;Original&quot;</span>)
 
-ButterError =
+p1 = psignal
+p2 = bodeplot(HLP, title = <span class=hljs-string >&quot;\$ ω_c = <span class=hljs-variable >$ωc_lp</span> rad/s\$&quot;</span>)
 
-    4.7315    6.8131    1.0369
+pl = plot(p1, p2, layout = (<span class=hljs-number >2</span>,<span class=hljs-number >1</span>), size=(<span class=hljs-number >1200</span>, <span class=hljs-number >600</span>))</code></pre> Output: <pre><code class="plaintext hljs">HLP = Filter_to_TF(ZeroPoleGain(F_lp_Notch)) = TransferFunction{Continuous, ControlSystems.SisoZpk{Float64, ComplexF64}}
+                          (1.0s^2 - 1.9842294026289555s + 0.9999999999999998)(1.0s^2 - 1.7526133600877272s + 0.9999999999999999)(1.0s + 1.0)
+0.17135929591289012--------------------------------------------------------------------------------------------------------------------------------
+                   (1.0s^2 - 1.8667814677501737s + 0.8816185923631888)(1.0s^2 - 1.6488749417825939s + 0.8816185923631888)(1.0s - 0.612800788139932)
 
-
-BesselError =
-
-    4.7252    6.2031    1.3246
-
-
-LpNotchError =
-
-    0.7172
-
-</code></pre></p> <div class=page-foot > <div class=copyright > &copy; Ali AlSaibie, PhD. Last modified: May 30, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div> </div> </div>
+Continuous-time transfer function model
+</code></pre> <img src="/me319/prelabs/pl6jlassets/snippet5.svg" alt=""></p> <p>Let&#39;s compare the root-mean-square error for each of the different methods tried. <pre><code class="matlab hljs">@show LpError
+@show ButterError
+@show LPNotchError</code></pre> Output: <pre><code class="plaintext hljs">LpError = [2.0824489776071307, 1.7719879006073262, 0.7346464498230489]
+ButterError = [2.5102992485134665, 0.8219176820739243, 0.6493851564211278]
+LPNotchError = 0.7594960613414391
+</code></pre></p> <div class=page-foot > <div class=copyright > &copy; Ali AlSaibie, PhD. Last modified: June 02, 2021. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div> </div> </div>
