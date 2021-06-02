@@ -1,7 +1,7 @@
-@def title = "Part II L3 - Survey of Sensors"
+@def title = "Part III L3 - Survey of Sensors"
 @def hascode = true
 
-# Survey of Sensors
+# Part III L3 - Survey of Sensors
 ## Introduction
 
 ## Lecture Video

@@ -72,24 +72,14 @@ Output:
 \input{plaintext}{/prelabs/pl6jlassets/output/snippet4.txt}
 \fig{/prelabs/pl6jlassets/snippet4}
 
-The butterworth filter doesn't improve the phase delay much. Let's try a bessel filter 
-\input{julia}{/prelabs/pl6assets/snippet5.m}
-\fig{/prelabs/pl6assets/snippet5}
-
-
 We can see that a cut-off frequency of 100Hz is required to maintain a decent amplitude response. A a first order low pass filter produces the best phase reponse, and worst filtering. So it is a trade-off between good filtering vs. maintaining phase response. 
-Let's try to apply a first order low pass filter to maintain a good phase response, but then add two notch filters to attack the higher frequency visible components at f = 4*5Hz, 16*5Hz
-\input{matlab}{/prelabs/pl6assets/snippet6.m}
+Let's try to apply a first order low pass filter to maintain a good phase response, but then add two notch filters to attack the higher frequency visible components at f = 4\*5Hz, 16\*5Hz
+\input{julia}{/prelabs/pl6jlassets/snippet5.jl}
 Output:
-\input{plaintext}{/prelabs/pl6assets/snippet6.out}
-<!-- \fig{/prelabs/pl6assets/snippet5} -->
-
-\input{matlab}{/prelabs/pl6assets/snippet7.m}
-<!-- Output: -->
-<!-- \input{plaintext}{/prelabs/pl6assets/snippet7.out} -->
-\fig{/prelabs/pl6assets/snippet7}
+\input{plaintext}{/prelabs/pl6jlassets/output/snippet5.txt}
+\fig{/prelabs/pl6jlassets/snippet5}
 
 Let's compare the root-mean-square error for each of the different methods tried.
-\input{matlab}{/prelabs/pl6assets/snippet8.m}
+\input{matlab}{/prelabs/pl6jlassets/snippet6.jl}
 Output:
-\input{plaintext}{/prelabs/pl6assets/snippet8.out}
+\input{plaintext}{/prelabs/pl6jlassets/output/snippet6.txt}
