@@ -15,7 +15,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 6](/prelabs/prelab6/index.html)  ~~~&ensp;&ensp;~~~ | Offline Digital Filtering
 
-| Lab 7  ~~~&ensp;&ensp;~~~ | Online Digital Filtering
+| [Lab 7](/prelabs/prelab7/index.html)  ~~~&ensp;&ensp;~~~ | Online Digital Filtering
 
 | Lab 8  ~~~&ensp;&ensp;~~~ | Motor Dynamics and Control Simulation
 
@@ -34,7 +34,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 6 Assignment](/labs/lab6/index.html)  ~~~&ensp;&ensp;~~~ | Offline Digital Filtering
 
-| Lab 7 Assignment  ~~~&ensp;&ensp;~~~ | Online Digital Filtering
+| [Lab 7 Assignment](/labs/lab7/index.html)  ~~~&ensp;&ensp;~~~ | Online Digital Filtering
 
 | Lab 8 Assignment  ~~~&ensp;&ensp;~~~ | Motor Dynamics and Control Simulation
 
