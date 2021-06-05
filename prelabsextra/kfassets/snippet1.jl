@@ -9,12 +9,10 @@ g = 9.81; # Gravitational Constant, the average nominal value on Earth,
           # not necessarily where you are standing right now. In fact, the gravitational constant varies 0.7% 
           # across different earth locations, but let's get back to our lesson. 
 
-
 function pendulum!(dx, x, p, t)
     dx[1] = x[2]; 
     dx[2] = -b/(m*L)*x[2] - g/L * sin(x[1])
 end
-
 
 θₒ = π/4;
 ωₒ = 0;

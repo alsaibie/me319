@@ -35,5 +35,6 @@ colors = palette(:jet) #hide
 ##
 genplain("snippet1.jl")
 genplain("snippet2.jl")
+genplain("snippet3.jl")
 
 
