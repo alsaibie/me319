@@ -21,7 +21,6 @@ The labs and prelabs of the course are posted here.
 
 | Lab 9  ~~~&ensp;&ensp;~~~ | Realtime Motor Control
 
-
 ## Lab Assignment
 
 | [Lab 2 Assignment](/labs/lab2/index.html)  ~~~&ensp;&ensp;~~~ | Getting Familiar with PlatformIO and Arduino
@@ -44,6 +43,8 @@ The labs and prelabs of the course are posted here.
 ## Additional Lessons
 
 | [Lab 4 Extra](/prelabsextra/lab4extra/index.html) ~~~&ensp;&ensp;~~~ | Low Level Timers Configuration
+
+| [Lab 6 Extra](/prelabsextra/kalmanfilter/index.html) ~~~&ensp;&ensp;~~~ | Introduction to Kalman Filter
 \\
 \\
 [Main Page](/index.html)
