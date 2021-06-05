@@ -21,7 +21,7 @@ Let's integrate this over a fixed time interval with an initial state.
 \input{plaintext}{/prelabsextra/kfassets/output/snippet1.txt}
 \fig{/prelabsextra/kfassets/snippet1}
 
-Now let us assume we want to measure the angular position and angular velocity, but we don't have a sophisticated measurement device and so the measurements are noisy. Let's assume the measurement noise is white, Gaussian, not correlated and with zero-mean. Let's add that affect onto the process. Assume the measurements are taken at a sample time of *Tm*
+Now let us assume we want to measure the angular position and angular velocity, but we don't have a sophisticated measurement device and so the measurements are noisy. Let's assume the measurement noise is white, Gaussian, not correlated and with zero-mean. Let's add that affect onto the process. Assume the measurements are taken at a sample time of $\Delta t = 0.1 s$
 
 
 \input{julia}{/prelabsextra/kfassets/snippet2.jl}
@@ -104,7 +104,7 @@ ẋ = A * x̂[:,k-1];
 P⁻ = P[:,:,k-1] + Ṗ * Δt
 x⁻ = x̂[:,k-1] +  ẋ * Δt
 ```
-The time-update step can be done multiple times before the measurement update occurs. You can do 5 process updates for every measurement update. Measurement updates can be synchronous or asynchronous as well. 
+The time-update step can be done multiple times before the measurement update occurs. You can do 5 process updates for every measurement update for example. Measurement updates can be synchronous or asynchronous as well. 
 
 When a new measurement is ready, we perform the **measurement update** step. We compute the Kalman gain which is a function of the covariance matrix, the sensor (output matrix $H$) and the $R$ matrix which holds the stochastic specification of the measurement model.
 
