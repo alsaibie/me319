@@ -24,8 +24,25 @@ tspan = (0.0, 10.0)
 
 prob = ODEProblem(pendulum!,xₒ,tspan)
 sol = solve(prob, saveat = Δt)
+t = sol.t
 
-p = plot(sol,linewidth=2, label=["θ [rad]" "ω [rad/s]"],layout=(2,1))
-plot!(p, framestyle=:origin, xguide="Time (s)", linecolor=colors, title="", background_color=:transparent, foreground_color=:black, size=(800, 400); grid=true, minorgrid=true) #hide
+function draw_pendulum(θ_list)
+    L = 1;
+    local p = plot()
+    for θ in θ_list
+        plot!(p, [0,L*sin(θ)], [0,-L*cos(θ)],size=(300,300),xlim=(-1.2*L,1.2*L),ylim=(-L*1.2,1),ms=2, markershape = :hexagon,label ="", axis = []);
+        plot!(p, [L*sin.(θ)], [-L*cos.(θ)], ms=8, markershape = :circle, label ="", aspect_ratio = :equal, showaxis = false);
+    end
+    return p
+end
+
+anim = @animate for i ∈ 1:length(t)
+    panim = draw_pendulum([sol[1,i]])
+    local p = plot(sol[1:i], lw=2, label=["θ [rad]" "ω [rad/s]"], layout=(2,1))
+    plot!(p, framestyle=:origin, xguide="Time (s)", linecolor=colors, title="", size=(800, 400); grid=true, minorgrid=true, xlim=[0,10], ylim=[-2,2]) #hide
+    plot(panim, p, layout=grid(1, 2, widths=[0.35 , .65]), size=size=(800, 400))
+end
+
+gif(anim, "snippet1.gif", fps = 100) #hide
 
 savefig(joinpath(@__DIR__, "output", "snippet1.svg")) #hide
