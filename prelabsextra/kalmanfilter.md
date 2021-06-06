@@ -101,11 +101,11 @@ The covariance matrix $P$ is also propagated through time using the model physic
 Notice that in the situation above, it is independent of the state. In fact, it can be precalculated off-line, and it can converge after a time-period.
 ```julia
 # Time update a.k.a Prediction a.k.a State Propagation
-Ṗ = A * P[:,:,k-1] + P[:,:,k-1] * A' + Q; 
 ẋ = A * x̂[:,k-1];
+Ṗ = A * P[:,:,k-1] + P[:,:,k-1] * A' + Q; 
 
-P⁻ = P[:,:,k-1] + Ṗ * Δt
 x⁻ = x̂[:,k-1] +  ẋ * Δt
+P⁻ = P[:,:,k-1] + Ṗ * Δt
 ```
 The time-update step can be done multiple times before the measurement update occurs. You can do 5 process updates for every measurement update for example. Measurement updates can be synchronous or asynchronous as well. 
 
