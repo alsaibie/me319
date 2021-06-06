@@ -8,6 +8,7 @@ Let's first create a noisy signal by combining  sinusoidal signals of different 
 ~~~
 <iframe src="https://player.vimeo.com/video/556846322" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 ~~~
+
 \input{matlab}{/prelabs/pl6assets/snippet1.m}
 <!-- Output:
 \input{plaintext}{/prelabs/pl6assets/snippet1.out} -->

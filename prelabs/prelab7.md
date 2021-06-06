@@ -4,6 +4,10 @@
 
 In the previous lab, we introduced digital filter design and analysis offline. In this lab we will apply a digital filter on real sensor values. In this prelab, we will explore the data from the sensor expansion board and learn how to log the sensor data for offline processing.
 
+~~~
+<iframe src="https://player.vimeo.com/video/559617825" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+~~~
+
 ## Tools Required 
 
 - MATLAB v 2016b or higher, with DSP or Signal Processing Toolbox andControl System Toolbox
