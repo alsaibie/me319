@@ -1,7 +1,6 @@
 using LinearAlgebra
 σ_θ = .25;
 σ_ω = .5;
-t = sol.t 
 rms(x) = norm(x)/sqrt(length(x))
 noise = [σ_θ*randn(length(t))'; σ_ω*randn(length(t))'] 
 sol_noisy = zeros(size(sol))

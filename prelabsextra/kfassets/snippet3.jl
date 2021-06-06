@@ -1,5 +1,5 @@
 @show A = [0 1; -g/L -b/(m*L)]
-B = [0; 0]; C = [1 0; 0 1];
+B = [0; 0]; H = [1 0; 0 1];
 
 n = 2; # Number of States
 m = 2; # Number of Outputs
@@ -39,10 +39,12 @@ kf_e_rms = [rms(kf_e[1,:]),  rms(kf_e[2,:])]
 @show kf_e_rms
 
 anim = @animate for i ∈ 1:length(t)
+    panim = draw_pendulum([sol[1,i] x̂[1,i]])
     local p = plot(sol[1:i], lw=2, label=["θ [rad]" "ω [rad/s]"], layout=(2,1))
     scatter!(p, t[1:i], sol_noisy[:,1:i]', label=["θ measured [rad]" "ω measured [rad/s]"], ms=1, layout=(2,1))
     plot!(p, t[1:i], x̂[:,1:i]', label=["θ estimated [rad]" "ω estimated [rad/s]"], lw=2, layout=(2,1))
     plot!(p, framestyle=:origin, xguide="Time (s)", linecolor=colors, title="", size=(800, 400); grid=true, minorgrid=true, xlim=[0,10], ylim=[-2,2]) #hide
+    plot(panim, p, layout=grid(1, 2, widths=[0.35 , .65]), size=size=(800, 400))
 end
 
 gif(anim, "snippet3.gif", fps = 100) #hide
