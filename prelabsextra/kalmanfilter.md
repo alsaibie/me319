@@ -57,33 +57,36 @@ $$\dot{\hat{x}} = A \hat{x}^+ + B u$$
 
 Numerically integrate with $\Delta t$ as the time step
 
-$P^- = P + \dot{P}\Delta t\\\\$
+$\hat{x}^-=\hat{x} + \dot{\hat{x}} \Delta t\\\\$
+$P^- = P + \dot{P}\Delta t\\$
 
-$\hat{x}^-=\hat{x} + \dot{\hat{x}} \Delta t\\$
 
 And then a measurement-update in discrete form
 
-$K_k =P_k^- H_k^T {(H_k P_k^- H_k^T +R_k )}^{-1}\\\\$
-$P_k^+=(I-K_k H_k )P_k^- {(I-K_k H_k )}^T +K_k R_k K_k^T=(I-K_k H_k )P_k^-\\$
-${\hat{x} }_k^+ ={\hat{x} }_k^- +K_k (y_k -H_k {\hat{x} }_k^- )\\\\$
+$K =P^- H^T {(H P^- H^T +R )}^{-1}\\\\$
+${\hat{x} } ={\hat{x} }^- +K (y -H {\hat{x} }^- )\\\\$
+$P=(I-K H )P^- {(I-K H )}^T +K R K^T=(I-K H )P^-\\$
+
+
+Here $\hat{x}^+$, the aposteriori estimate, is expressed as $\hat{x}$
 
 We have to linearize our pendulum system before we use the Kalman Filter above, let's assume a small angle approximation, this would result in the system:
 
 \begin{eqnarray}
-\dot{x} \left(t\right)=\text{Ax}\left(t\right)+w\left(t\right)=\left\lbrack \begin{array}{c}
+\dot{x} =\text{A}x(t)+w(t)=[ \begin{array}{c}
 0 & 1\\
--\frac{g}{L} & -\frac{b}{\mathit{\text{mL}}}
-\end{array}\right\rbrack \left\lbrack \begin{array}{c}
+-\frac{g}{L} & -\frac{b}{mL}
+\end{array}] [ \begin{array}{c}
 \theta \\
 \dot{\theta} 
-\end{array}\right\rbrack +w\left(t\right)\\\\
-y_k =\left\lbrack \begin{array}{c}
+\end{array}] + w(t)\\\\
+y_k =Hx_k+v_k=[ \begin{array}{c}
 1 & 0\\
 0 & 1
-\end{array}\right\rbrack \left\lbrack \begin{array}{c}
+\end{array}] [ \begin{array}{c}
 \theta \\
 \dot{\theta} 
-\end{array}\right\rbrack +v_k
+\end{array}] + v_k
 \end{eqnarray}
 
 \input{julia}{/prelabsextra/kfassets/snippet3.jl}

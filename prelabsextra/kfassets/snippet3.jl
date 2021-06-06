@@ -22,8 +22,9 @@ for k in 2:length(t)
     Ṗ = A * P[:,:,k-1] + P[:,:,k-1] * A' + Q; 
     ẋ = A * x̂[:,k-1];
 
-    P⁻ = P[:,:,k-1] + Ṗ * Δt
+    # Integrate to propagate apriori state and apriori covariance
     x̂⁻ = x̂[:,k-1] +  ẋ * Δt
+    P⁻ = P[:,:,k-1] + Ṗ * Δt
 
     # Kalman Gain. Larger gains puts a heavier weight on the measurement and vice versa.
     K[:,:,k] = P⁻*H' * inv( H*P⁻*H' + R);
