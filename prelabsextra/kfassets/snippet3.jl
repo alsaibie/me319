@@ -19,8 +19,8 @@ z = sol_noisy;
 
 for k in 2:length(t)
     # Time update a.k.a Prediction a.k.a State Propagation
-    Ṗ = A * P[:,:,k-1] + P[:,:,k-1] * A' + Q; 
     ẋ = A * x̂[:,k-1];
+    Ṗ = A * P[:,:,k-1] + P[:,:,k-1] * A' + Q; 
 
     # Integrate to propagate apriori state and apriori covariance
     x̂⁻ = x̂[:,k-1] +  ẋ * Δt

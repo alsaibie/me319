@@ -100,8 +100,8 @@ z = sol_noisy;
 
 <span class=hljs-keyword >for</span> k <span class=hljs-keyword >in</span> <span class=hljs-number >2</span>:length(t)
     <span class=hljs-comment ># Time update a.k.a Prediction a.k.a State Propagation</span>
-    Ṗ = A * P[:,:,k-<span class=hljs-number >1</span>] + P[:,:,k-<span class=hljs-number >1</span>] * A&#x27; + Q; 
     ẋ = A * x̂[:,k-<span class=hljs-number >1</span>];
+    Ṗ = A * P[:,:,k-<span class=hljs-number >1</span>] + P[:,:,k-<span class=hljs-number >1</span>] * A&#x27; + Q; 
 
     <span class=hljs-comment ># Integrate to propagate apriori state and apriori covariance</span>
     x̂⁻ = x̂[:,k-<span class=hljs-number >1</span>] +  ẋ * Δt
@@ -132,11 +132,11 @@ kf_e_rms = [0.06862749128479913, 0.13722329255488885]
 <p>The covariance matrix <span class=katex ><span class=katex-mathml ><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class=katex-html  aria-hidden=true ><span class=base ><span class=strut  style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> is also propagated through time using the model physics &#40;the <span class=katex ><span class=katex-mathml ><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class=katex-html  aria-hidden=true ><span class=base ><span class=strut  style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> matrix&#41;, the covariance matrix holds the stochastic information of each state and the statistical relationship of the states. </p>
 <p>Notice that in the situation above, it is independent of the state. In fact, it can be precalculated off-line, and it can converge after a time-period.</p>
 <pre><code class="julia hljs"><span class=hljs-comment ># Time update a.k.a Prediction a.k.a State Propagation</span>
-Ṗ = A * P[:,:,k-<span class=hljs-number >1</span>] + P[:,:,k-<span class=hljs-number >1</span>] * A&#x27; + Q; 
 ẋ = A * x̂[:,k-<span class=hljs-number >1</span>];
+Ṗ = A * P[:,:,k-<span class=hljs-number >1</span>] + P[:,:,k-<span class=hljs-number >1</span>] * A&#x27; + Q; 
 
-P⁻ = P[:,:,k-<span class=hljs-number >1</span>] + Ṗ * Δt
-x⁻ = x̂[:,k-<span class=hljs-number >1</span>] +  ẋ * Δt</code></pre>
+x⁻ = x̂[:,k-<span class=hljs-number >1</span>] +  ẋ * Δt
+P⁻ = P[:,:,k-<span class=hljs-number >1</span>] + Ṗ * Δt</code></pre>
 <p>The time-update step can be done multiple times before the measurement update occurs. You can do 5 process updates for every measurement update for example. Measurement updates can be synchronous or asynchronous as well. </p>
 <p>When a new measurement is ready, we perform the <strong>measurement update</strong> step. We compute the Kalman gain which is a function of the covariance matrix, the sensor &#40;output matrix <span class=katex ><span class=katex-mathml ><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class=katex-html  aria-hidden=true ><span class=base ><span class=strut  style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>&#41; and the <span class=katex ><span class=katex-mathml ><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class=katex-html  aria-hidden=true ><span class=base ><span class=strut  style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> matrix which holds the stochastic specification of the measurement model.</p>
 <pre><code class="julia hljs"><span class=hljs-comment ># Kalman Gain. Larger gains puts a heavier weight on the measurement and vice versa.</span>
