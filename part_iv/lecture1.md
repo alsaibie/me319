@@ -2,8 +2,13 @@
 @def hascode = true
 
 # DC Motors
-## Introduction
 
 ## Lecture Video
+Part A
+~~~
+<iframe src="https://player.vimeo.com/video/562403551" width="780" height="438" frameborder="0" allowfullscreen></iframe>
+~~~
 
-## Lecture Handout
+[Lecture Handout](/part_iv/ME319_-_Mechatronics_-_Part_IV_Lecture_1_DC_Motors.pdf)
+
+
