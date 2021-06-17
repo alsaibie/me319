@@ -5,6 +5,8 @@
 
 
 ## Lecture Video
+Part 1
+
 ~~~
 <iframe src="https://player.vimeo.com/video/564117632" width="780" height="438" frameborder="0" allowfullscreen></iframe>
 ~~~
