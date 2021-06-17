@@ -11,4 +11,4 @@ Part A
 
 [Lecture Handout](/part_iv/ME319_-_Mechatronics_-_Part_IV_Lecture_1_DC_Motors.pdf)
 
-
+Next: [Part IV L2 - Practical Feedback Control 1](/part_iv/lecture2/)  
