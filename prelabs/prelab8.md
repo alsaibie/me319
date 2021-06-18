@@ -8,7 +8,7 @@ In this prelab, we will model a Conventional DC Motor and simulate it with a PWM
 
 A conventional DC Motor can be modeled as part circuit part mechanical system, together termed as an electromechanical system. As shown in the following figure. 
 
-\fig{/prelabs\pl8assets\Electromechanical_DCMotror_Diagram_S}
+\fig{/prelabs/pl8assets/Electromechanical_DCMotror_Diagram_S}
 ~~~<br>~~~
 
 The motor can be modeled as a second order system with the transfer function
