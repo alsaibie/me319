@@ -1,0 +1,12 @@
+
+c =
+
+   800
+
+
+dxdt =
+
+  <a href="matlab:helpPopup function_handle" style="font-weight:bold">function_handle</a> with value:
+
+    @(t,x,E)[x(2);1/(J*L)*(Kt*E-(D*R+Kt*Ke)*x(1)-(J*R+D*L)*x(2));(E-Ke*x(1)-R*x(3))/L]
+
