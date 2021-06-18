@@ -35,6 +35,6 @@ The output of the position controller:
 
 $u_{pos}=r_{vel}=K_{p\,pos} e_{pos}=K_{p\,pos} (r_{pos}-x_1)$, 
 
-where $x_1$ represents position, and $r_{vel}$ is what is applied into the velocity PID controller.
+where $x_1$ represents position, and $r_{vel}$ is what is applied into the velocity PID controller.ز
 
 We are here assuming both position control and velocity control occur at the same rate. In practice, the velocity control loop is usually executed at a higher rate than the position control loop. 
