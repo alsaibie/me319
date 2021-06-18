@@ -1,0 +1,6 @@
+duty = 50;
+frequency = 100;
+t_length = 4 / frequency;
+
+[t, u]
+
