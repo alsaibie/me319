@@ -17,7 +17,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 7](/prelabs/prelab7/index.html)  ~~~&ensp;&ensp;~~~ | Online Digital Filtering
 
-| Lab 8  ~~~&ensp;&ensp;~~~ | Motor Dynamics and Control Simulation
+| [Lab 8](/prelabs/prelab8/index.html)   ~~~&ensp;&ensp;~~~ | Motor Dynamics and Control Simulation
 
 | Lab 9  ~~~&ensp;&ensp;~~~ | Realtime Motor Control
 
@@ -35,7 +35,7 @@ The labs and prelabs of the course are posted here.
 
 | [Lab 7 Assignment](/labs/lab7/index.html)  ~~~&ensp;&ensp;~~~ | Online Digital Filtering
 
-| Lab 8 Assignment  ~~~&ensp;&ensp;~~~ | Motor Dynamics and Control Simulation
+| [Lab 8 Assignment](/labs/lab8/index.html)  ~~~&ensp;&ensp;~~~ | Cascaded Motor Control
 
 | Lab 9 Assignment ~~~&ensp;&ensp;~~~ | Realtime Motor Control 
 
