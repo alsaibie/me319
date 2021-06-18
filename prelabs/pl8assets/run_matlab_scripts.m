@@ -47,20 +47,12 @@ saveas(gcf,'snippet5.svg');
 diary off
 
 %% Snippet 6
-diary 'snippet6.out'
+dfile = 'snippet6.out'
+if exist(dfile, 'file') ; delete(dfile); end
+diary(dfile) 
+figure('position',[0,0,600,400]);
 run('snippet6.m')
 saveas(gcf,'snippet6.svg');
-diary off
-
-%% Snippet 7
-diary 'snippet7.out'
-run('snippet7.m')
-saveas(gcf,'snippet7.svg');
-diary off
-
-%% Snippet 8
-diary 'snippet8.out'
-run('snippet8.m')
 diary off
 
 

@@ -1,4 +1,4 @@
-Kp = 10; Ki = 5; Kd = 8; Ts = 0.01;
+Kp = 20; Ki = 15; Kd = 1; Ts = 0.01;
 a = (Kp + Ki * Ts / 2 + Kd / Ts); b = (-Kp + Ki * Ts / 2 - 2 * Kd / Ts); c = Kd / Ts
 
 dxdt = @(t,x,E)[ 
@@ -7,7 +7,7 @@ dxdt = @(t,x,E)[
     (E - Ke*x(1)-R*x(3))/L
     ]
     
-t = 0:Ts:5;
+t = 0:Ts:4;
 x_sim = zeros(3,length(t)); % Empty 2xn array
 u = zeros(1,length(t)); % Empty 1xn vector
 e = u; % Empty 1xn vector
@@ -26,7 +26,7 @@ for ix = 1:length(t)
         u(1,ix) =  0 + a * e(1,ix) + 0 + 0;
     end
     
-    xdot = dxdt(t(ix), x_sim(:,ix), 1); % Grab the derivative vector
+    xdot = dxdt(t(ix), x_sim(:,ix), u(1,ix)); % Grab the derivative vector
     
     if(ix < length(t) )
         x_sim(:, ix+1) = x_sim(:, ix) + xdot * Ts;      
