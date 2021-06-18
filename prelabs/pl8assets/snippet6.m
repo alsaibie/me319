@@ -40,7 +40,7 @@ plot(t, x_sim_sat(1,:)); title('Velocity [rad/s]'); xlabel('Time [s]'); grid on;
 plot(t, x_sim(1,:)); legend('Saturation', 'No Saturation')
 subplot(2,2,3); 
 plot(t, x_sim_sat(3,:)); title('Current [A]'); xlabel('Time [s]'); grid on; hold on;
-plot(t, x_sim(1,:));
-subplot(2,2,4); legend('Saturation', 'No Saturation');
+plot(t, x_sim(1,:));legend('Saturation', 'No Saturation');
+subplot(2,2,4); 
 plot(t, e_sat(1,:)); title('Error [rad/s]'); xlabel('Time [s]'); grid on; hold on;
 plot(t, e(1,:)); legend('Saturation', 'No Saturation');
