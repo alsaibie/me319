@@ -123,4 +123,15 @@ $$
 \input{matlab}{/prelabs/pl8assets/snippet5.m}
 \fig{/prelabs/pl8assets/snippet5}
 
- 
+
+## Saturation
+
+Notice how the voltage spikes initially, well in reality you aren't likely to a have a power supply source that provides this amount of voltage, or you may not want to exceed a certain voltage for other reasons. This saturation constraint produces a nonlinear behavior, but it is easy to simulate it given the setup we have. 
+
+Assume the voltage can not exceed a magnitude of $10V$
+
+\input{matlab}{/prelabs/pl8assets/snippet6.m}
+\fig{/prelabs/pl8assets/snippet6}
+
+As you can see, adding the saturation limit makes the simulation significantly more realistic. For the motor with the saturation limits applied, the gains can be retuned to produce a balanced input values. 
+
