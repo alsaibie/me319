@@ -148,5 +148,5 @@ In addition to saturation limits, and assuming the motor parameters are verified
  - If a gearbox is used, it also introduces nonlinearities in the model. 
  - Acceleration limits may be required by the application. If the motor is used in a factory or robotic manipulator, it may be unsafe to accelerate beyond a certain limit.
 
-### How much reality is enought?
+### How much reality is enough?
 It depends on what you are trying to do. If it is fairly simple to setup the experiment on the real motor, it would make more sense to head straight and try the controller on the micrcontroller directly. In fact, with experimentation, the model in the simulation can be adjusted and tuned to reflect reality. 
