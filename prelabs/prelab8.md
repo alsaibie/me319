@@ -2,7 +2,7 @@
 @def hascode = true
 # Prelab 8: Motor Dynamics and Control Simulation
 
-In this prelab, we will model a Conventional DC Motor and simulate it with a PWM input. Then we will apply a discrete PID controller to control the velocity of the motor. A MATLAB Live Script is available [here](/prelabs/pl8assets/ME319_Prelab8_DC_Motor_Dynamics.mlx) to get you started. 
+In this prelab, we will model a conventional DC Motor and simulate it with a PWM input. Then we will apply a discrete PID controller to control the velocity of the motor. A MATLAB Live Script is available [here](/prelabs/pl8assets/ME319_Prelab8_DC_Motor_Dynamics.mlx) to get you started. 
 
 ## Motor Model
 
@@ -31,12 +31,18 @@ $R$ is the electrical resistance of the motor in $Ohms$
 
 $L$ is the electrical inductance of the motor in $H$
 
-Let's simulate the response of the motor to a step input. The input here would be $E_a=1V$. A step voltage input is analogous to suddenly switching the motor on. 
+The above is a second order system. Note that sometimes the inductance $L$ is dropped, but that's valid only for when treating the steady-state behavior of the motor response. It's key to keep the inductance as we are interested in the transient response of the motor. 
+
+Let's simulate the response of the motor to a step input. The input here would be $E_a=1V$. A step voltage input is analogous to suddenly switching the motor on. We expect the motor to accelerate to a specific steady-state speed. 
+
+> The steady-state speed of the motor for a given input, is affected by all the parameters of the motor, and mainly the load $J$ since it is the one most likely to change in operation. 
 
 \input{matlab}{/prelabs/pl8assets/snippet1.m}
 Output:
 \input{plaintext}{/prelabs/pl8assets/snippet1.out}
 \fig{/prelabs/pl8assets/snippet1}
+
+The motor, when given a $1V$ input, slowly accelerates until it reaches the steady-state speed of around $16.67m/s$
 
 ## PWM Signal as input
 When using a microcontroller to regulate the voltage applied to a motor, it is likely that a PWM signal is used, the PWM signal will control a switching semiconductor or an H-Bridge motor driver circuit for instance. Let's look at the affect of changing the PWM signal frequency on the motor response to a step input. 
@@ -78,8 +84,10 @@ Let's simulate the closed-loop response of the motor with the PID controller, to
 \input{matlab}{/prelabs/pl8assets/snippet4.m}
 \fig{/prelabs/pl8assets/snippet4}
 
+The speed reaches $\Omega = 1 rad/s$ which corresponds to the reference of $r_{\Omega} = 1 rad/s$, in other words, the steady-state error $e_\infty = r_{\Omega} - \Omega =0$. There is about $20\%$ overshoot and the settling time is around $T_s=0.25s$. You can verify these specifications by running `stepinfo(Gcl)` in MATLAB. By tuning the PID gains the response characteristics can be changed to achieve the required and satisfactory results. 
+
 ## Numerical Integration 
-The above simple simulation is good for understanding the dynamic response characteristics of a system and the general form of the controller suitable. Often times, the real system has added constraints and nonlinearities that can not be modeled in the transfer function. It's almost always better to resort to the good ol' basic numerical integration method to simulate the dynamics of the system. 
+The above simple simulation is good for understanding the dynamic response characteristics of a system and the general form of the controller that is suitable. Often times, the real system has added constraints and nonlinearities that can not be modeled in the transfer function. It's almost always better to resort to the good ol' basic numerical integration method to simulate the dynamics of a system. 
 
 The numerical integration simulation is also a discrete setup, which is similar in form to what occurs on the microcontroller. When we apply a PID controller on a motor using a microcontroller what we have is a continuous "plant" and a discrete, or digital, controller. 
 
@@ -89,7 +97,7 @@ $$
 u(t) = K_p e(t) + K_i \int{e(t) dt} + K_d \dot{e}(t)
 $$
 
-The continuous PID controller form *can* be used in the code of the microcontroller. The integral of the error and the derivative of the error can each be computed numerically, by numerical integration and numerical differentiation respectively. But a better approach is to use the discrete form of the PID controller. 
+The continuous PID controller form *can* be used in the code of the microcontroller. The integral of the error and the derivative of the error would each be computed numerically, by numerical integration and numerical differentiation respectively. But a better approach is to use the discrete form of the PID controller. 
 
 ### Digital PID Controller
 Similar to how we converted a continuous filter transfer function into a discrete filter transfer function then onto a difference equation, we can apply the same thing and derive the following discrete PID control law
@@ -100,7 +108,7 @@ $$
 u[k] = u[k-1] + a\,e[k] + b\,e[k-1] + c\, e[k-2]
 $$
 
-Note that the error is not differentiated nor integrated, all is needed is the current and past two values of the error, as well as the last output of the controller $u$
+Note that the error is not differentiated nor integrated, all is needed is the current and past two values of the error, as well as the last output of the controller $u$. The integration and differentiation of the error is performed implicitly within the difference equation. 
 
 The gains $a,b,c$ are the digital PID controller gains, they are a function of the continuous PID gain $K_p, K_i, K_d$ in addition to the sampling time $T_s$ of the controller (the time-period at which the controller is calculated or executed):
 
@@ -112,7 +120,7 @@ $c=\dfrac{K_d}{T_S}$
 
 To simulate the system response, we need a time domain model of the motor dynamics, with the state (we include current here as well to see its response)
 
-$x=\begin{bmatrix} \Omega \\ \dot{\Omega} \\ I \end{bmatrix} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}$
+$$x=\begin{bmatrix} \Omega \\ \dot{\Omega} \\ I \end{bmatrix} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}$$
 
 $$
 \dot{x} = \begin{bmatrix} \dot{\Omega} \\ \ddot{\Omega} \\ \dot{I}\end{bmatrix} = 
@@ -122,16 +130,31 @@ $$
 \end{bmatrix} 
 $$
 
+At every time-step integrate $\dot{x}$ using first order forward integration. 
+
+$$\dot{x} =\dfrac{x[k+1]-x[k]}{\Delta t}\rightarrow x[k+1]=x[k]+\dot{x}\Delta t$$
+
+> First-order forward integration is sufficient for linear systems, assuming small time-steps $\Delta t$. For nonlinear models, it is recommended to evaluate the numerical accuracy of the integration method used.
+
 \input{matlab}{/prelabs/pl8assets/snippet5.m}
 \fig{/prelabs/pl8assets/snippet5}
 
 
 ## Saturation
 
-Notice how the voltage spikes initially, well, in reality you aren't likely to a have a power supply source that provides this amount of voltage, or you may not want to exceed a certain voltage for other reasons (max current). This saturation constraint produces a nonlinear behavior, but it is easy to simulate it given the setup we have. 
+Notice how the voltage spikes initially, well, in reality you aren't likely to a have a power supply source that provides this amount of voltage, or you may not want to exceed a certain voltage for other reasons (max current). This saturation constraint produces a nonlinear behavior, but it is easy to simulate with the setup we have.
 
-Assume the voltage can not exceed a magnitude of $10V$
+Assume the voltage can not exceed a magnitude of $10V$, we add the constraint check. 
 
+```matlab
+if u_sat(1,ix) > 10
+    u_sat(1,ix) = 10;
+elseif u_sat(1,ix) < -10
+    u_sat(1,ix) = -10;
+end
+```
+
+The complete simulation becomes 
 \input{matlab}{/prelabs/pl8assets/snippet6.m}
 \fig{/prelabs/pl8assets/snippet6}
 

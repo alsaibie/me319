@@ -1,4 +1,4 @@
-@def title = "Prelab 7"
+@def title = "Prelab 7 Online Digital Filtering"
 @def hascode = true
 # Prelab 7: Online Digital Filtering
 
