@@ -4,6 +4,10 @@
 
 In this prelab, we will model a conventional DC Motor and simulate it with a PWM input. Then we will apply a discrete PID controller to control the velocity of the motor. A MATLAB Live Script is available [here](/prelabs/pl8assets/ME319_Prelab8_DC_Motor_Dynamics.mlx) to get you started. 
 
+~~~
+<iframe src="https://player.vimeo.com/video/565306866" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+~~~
+
 ## Motor Model
 
 A conventional DC Motor can be modeled as part electrical part mechanical, together termed as an electromechanical system. As shown in the following figure. 
@@ -42,7 +46,7 @@ Output:
 \input{plaintext}{/prelabs/pl8assets/snippet1.out}
 \fig{/prelabs/pl8assets/snippet1}
 
-The motor, when given a $1V$ input, slowly accelerates until it reaches the steady-state speed of around $16.67m/s$
+The motor, when given a $1V$ input, slowly accelerates until it reaches the steady-state speed of around $16.67rad/s$
 
 ## PWM Signal as input
 When using a microcontroller to regulate the voltage applied to a motor, it is likely that a PWM signal is used, the PWM signal will control a switching semiconductor or an H-Bridge motor driver circuit for instance. Let's look at the affect of changing the PWM signal frequency on the motor response to a step input. 

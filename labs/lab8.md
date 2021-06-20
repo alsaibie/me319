@@ -1,8 +1,10 @@
 @def title = "Lab 8 - Cascaded Motor Control"
 @def hascode = true
 
-# Lab 8 - Online Digital Filtering
+# Lab 8 - Cascaded Motor Control
 In this assignment you will be extending the work in the prelab, to apply position control on the motor. 
+
+
 
 Before attempting this assignment, make sure you go through the [Prelab 8](/prelabs/prelab8/)  first.
 
